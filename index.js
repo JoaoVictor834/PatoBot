@@ -23,9 +23,9 @@ const client = new Client({
 //Bot create
 
 const options = {
-    username: 'PatoBot',
-    version: '1.16.5',
-    host: 'Patobot.aternos.me'
+    username: process.env['NAME'],
+    version: process.env['VERSION'],
+    host: process.env['IP']
 }
 bot = new Bot(createBot(options), client)
 

@@ -1,6 +1,7 @@
 const Event = require('../../structures/Event')
 const Bot = require('../../structures/Bot')
 const { createBot } = require('mineflayer')
+require('dotenv').config()
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client) {
@@ -15,9 +16,9 @@ module.exports = class extends Event.mEvent {
         function relog(client) {
 console.log('Reconnecting...')
             new Bot(createBot({
-                username: 'PatoBot',
-                version: '1.16.5',
-                host: 'Patobot.aternos.me'
+                username: process.env['NAME'],
+                version: process.env['VERSION'],
+                host: process.env['IP']
             }), client)
 
         }
