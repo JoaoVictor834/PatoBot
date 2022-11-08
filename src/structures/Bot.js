@@ -8,8 +8,14 @@ module.exports = class {
         this.commands = []
         //this.loadCommands()
         this.loadEvents()
+       console.log(client.bot)
+       
+        
     }
+    
 
+        
+    
 
 /*loadCommands(path = 'src/commands/minecraft') {
 
@@ -22,10 +28,14 @@ module.exports = class {
                     this.bot.commands.push(cmd)
                     console.log(`Comando ${cmd.name} carregado!`)
                 }
-        
-    } */
+                
+            } */
+            
+            loadEvents(path = 'src/events/minecraft') {
+                console.log(this.client.bot)
 
-    loadEvents(path = 'src/events/minecraft') {
+        
+//console.log(this.client.bot)
 
             const events = readdirSync(path)
 

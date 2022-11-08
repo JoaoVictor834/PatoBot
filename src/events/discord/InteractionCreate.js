@@ -8,6 +8,7 @@ module.exports = class extends Event.dEvent {
         })
     }
     run = (interaction) => {
+        console.log(this.bot)
        if (interaction.type === InteractionType.ApplicationCommand) {
             const cmd  = this.client.commands.find(c => c.name === interaction.commandName)
             if (cmd) cmd.run(interaction)

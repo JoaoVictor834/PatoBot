@@ -4,14 +4,15 @@ const { join } = require('path')
 
 //Export
 module.exports = class extends Client {
-    constructor(options, bot) {
+    constructor(options) {
         super(options)
         this.chat
-        this.bot = bot
         this.commands = []
         this.loadCommands()
         this.loadEvents()
     }
+
+
 
 
     //Update/set chat
@@ -46,7 +47,7 @@ module.exports = class extends Client {
 
     //Load events
     loadEvents(path = 'src/events/discord') {
-
+console.log(this.bot)
             const events = readdirSync(path)
 
                 for (const event of events) {
