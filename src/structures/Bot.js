@@ -7,15 +7,11 @@ module.exports = class {
         this.client = client
         this.commands = []
         //this.loadCommands()
-        this.loadEvents()
-       console.log(client.bot)
-       
+        this.loadEvents()  
         
     }
     
 
-        
-    
 
 /*loadCommands(path = 'src/commands/minecraft') {
 
@@ -32,7 +28,7 @@ module.exports = class {
             } */
             
             loadEvents(path = 'src/events/minecraft') {
-                console.log(this.client.bot)
+                
 
         
 //console.log(this.client.bot)

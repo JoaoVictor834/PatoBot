@@ -9,8 +9,12 @@ module.exports = class extends Event.dEvent {
     }
     
     run = () => {
+
+
         console.log(`Bot logado!`)
         this.client.chat = this.client.updateChat()
+
+
 
         this.client.registryCommands()
         

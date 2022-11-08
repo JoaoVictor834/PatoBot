@@ -8,8 +8,8 @@ module.exports = class extends Event.dEvent {
     }
     
     run = (message) => {
-       console.log(this.bot)
-        console.log('oi limda')
-      //  this.bot.chat(`${message.author.username}: ${message.content}`)
+      if(message.author.id === this.client.user.id) return
+
+     this.bot.chat(`${message.author.username}: ${message.content}`)
     }
 }

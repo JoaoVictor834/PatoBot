@@ -1,19 +1,33 @@
 const { Client } = require('discord.js')
 const { readdirSync } = require('fs')
 const { join } = require('path')
+const Bot = require('./Bot')
+const { createBot } = require('mineflayer')
 
 //Export
 module.exports = class extends Client {
     constructor(options) {
         super(options)
         this.chat
+        this.bot
         this.commands = []
-        this.loadCommands()
+        this.CreateBot().then(() => {
         this.loadEvents()
+        this.loadCommands()
+        })
     }
 
+    async CreateBot() {
+        const options = {
+            username: process.env['NAME'],
+            version: process.env['VERSION'],
+            host: process.env['IP']
+        }
 
-
+        const CreatedBot = new Bot(createBot(options), this)
+        this.bot = CreatedBot.bot
+    
+    }
 
     //Update/set chat
     updateChat() {
@@ -47,7 +61,7 @@ module.exports = class extends Client {
 
     //Load events
     loadEvents(path = 'src/events/discord') {
-console.log(this.bot)
+
             const events = readdirSync(path)
 
                 for (const event of events) {

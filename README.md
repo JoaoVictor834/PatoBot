@@ -13,6 +13,10 @@ IP="ip do servidor"
 NAME="nome do bot"
 VERSION="versão do bot"
 
-#Senha é inútil por enquanto
-SENHA="senha do bot"
+BOT_TOKEN="token do set bot do discord"
+
+#Senha é util em poucos casos e vai mudar em breve
+LOGIN="se o servidor tem algum sistema que utilize /login"
 ```
+
+***ELE VAI MUDAR MUITO AINDA, COMO EU DISSE ESSTA EM BETA DEV***
