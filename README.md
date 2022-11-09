@@ -6,6 +6,8 @@
 with the intention of transpiling the game chat to discord!
 The bot is currently in 3-DEV version, being completely rewritten*
 
+- [Patobot server](https://discord.gg/gvN6RxxQ2y)
+
 - **If you want to use this project, feel free!
 Just copy it to your PC and create the .env file containing:**
 
