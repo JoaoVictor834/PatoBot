@@ -22,9 +22,9 @@ BOT_TOKEN="discord bot set token"
 LOGIN="if the server has a system that uses /login"
 ```
 
-## Example of how to create events
+## How to create events
 
-**1. Create a discord event**
+**1. Discord event**
 
 - Create a [discord event file](src/events/discord/)
 
@@ -64,7 +64,7 @@ module.exports = class extends Event.dEvent {
 ```
 
 
-**2. Create a minecraft event**
+**2. Minecraft event**
 
 Create a [minecraft event file](src/events/minecraft/)
 
@@ -102,7 +102,7 @@ module.exports = class extends Event.mEvent {
 }
 
 ```
-## Example of how to create commands
+## How to create commands
 
 **1. Make a discord command**
 
