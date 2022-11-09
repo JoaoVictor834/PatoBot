@@ -22,6 +22,7 @@ LOGIN="if the server has a system that uses /login"
 
 ## Example of how to create events
 
+
 **1. Create a discord event**
 
 - Create a [discord event file](src/events/discord/)
@@ -60,6 +61,7 @@ module.exports = class extends Event.dEvent {
     }
 }
 ```
+
 
 **2. Create a minecraft event**
 
@@ -140,7 +142,10 @@ module.exports = class extends Command.dCommand {
 }
 ```
 
+
 2. *MINECRAFT COMMANDS IS NOT AVALIABLE FOR NOW*
+
+
 
 
 ***IT WILL CHANGE A LOT YET, LIKE I SAID THIS IN BETA DEV***
