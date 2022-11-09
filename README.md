@@ -2,7 +2,7 @@
  
 ***Welcome to the patobot!***
 
-*Patobot is a bot created for the anarkcraft.xyz server
+*Patobot is a bot created for the [anarkcraft.xyz server](https://discord.gg/sjBqmUFrx5)
 with the intention of transpiling the game chat to discord!
 The bot is currently in 3-DEV version, being completely rewritten*
 
