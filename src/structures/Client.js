@@ -4,7 +4,7 @@ const { join } = require('path')
 const Bot = require('./Bot')
 const { createBot } = require('mineflayer')
 
-//Export
+//Export a class of client
 module.exports = class extends Client {
     constructor(options) {
         super(options)
@@ -29,12 +29,12 @@ module.exports = class extends Client {
     
     }
 
-    //Update/set chat
+    // Update/set chat
     updateChat() {
         return this.channels.cache.get('987517050274586649')
     }
 
-    //Register commands
+    // Register commands (temporary)
     async registryCommands() {
         console.log('Carregando comandos de barra (/)')
 
@@ -44,30 +44,37 @@ module.exports = class extends Client {
         console.log('Comandos de barra (/) carregados com sucesso!')
     }
 
-    //Load commands
+
+    // Load commands
     loadCommands(path = 'src/commands/discord') {
 
+        // Get path of commands
             const commands = readdirSync(path)
 
+            // Get a event of every command
                 for (const command of commands) {
                     const commandClass = require(join(process.cwd(), `${path}/${command}`))
-                    const cmd = new (commandClass)(this)
+                    const cmd = new (commandClass)(this, this.bot)
 
+                    // Load the command
                     this.commands.push(cmd)
                     console.log(`Comando discord-${cmd.name} carregado!`)
                 }
         
     }
 
-    //Load events
+    // Load events
     loadEvents(path = 'src/events/discord') {
 
+        // Get path of events
             const events = readdirSync(path)
 
+            // Get a event of every event
                 for (const event of events) {
                     const eventClass = require(join(process.cwd(), `${path}/${event}`))
                     const evt = new (eventClass)(this, this.bot)
     
+                    // Load the event
                     this.on(evt.name, evt.run)
                     console.log(`Evento discord-${evt.name} carregado!`)
 

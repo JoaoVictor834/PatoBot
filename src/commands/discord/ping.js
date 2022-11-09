@@ -3,8 +3,8 @@ const wait = require('node:timers/promises').setTimeout
 const { EmbedBuilder } = require('discord.js')
 
 module.exports = class extends Command.dCommand {
-    constructor(client) {
-        super(client, {
+    constructor(client, bot) {
+        super(client, bot, {
             name: 'ping',
             description: 'Comando para saber o ping do bot.'
         })

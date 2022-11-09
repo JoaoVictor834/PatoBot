@@ -6,8 +6,7 @@ const Client = require('./src/structures/Client')
 //Enviroments Variables Configuration
 require('dotenv').config()
 
-//Client create
-
+// Create the client
 const client = new Client({
     intents: [                  
         GatewayIntentBits.Guilds,
@@ -16,5 +15,5 @@ const client = new Client({
     ]
 })
 
-
+// Login in the discord bot
 client.login(process.env['BOT_TOKEN'])

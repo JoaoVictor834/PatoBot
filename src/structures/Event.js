@@ -1,3 +1,5 @@
+// Exports the base of every event class
+
 module.exports = {
     dEvent: class {
     constructor(client, bot, options) {
