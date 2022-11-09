@@ -17,6 +17,7 @@ module.exports = class extends Client {
         })
     }
 
+     // Create the Minecraft bot
     async CreateBot() {
         const options = {
             username: process.env['NAME'],
