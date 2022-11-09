@@ -60,7 +60,8 @@ module.exports = class extends Event.dEvent {
     }
 }
 ```
-\n
+
+
 **2. Create a minecraft event**
 
 Create a [minecraft event file](src/events/minecraft/)
