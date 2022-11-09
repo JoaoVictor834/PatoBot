@@ -6,8 +6,8 @@
 with the intention of transpiling the game chat to discord!
 The bot is currently in 3-DEV version, being completely rewritten*
 
-- If you want to use this project, feel free!
-Just copy it to your PC and create the .env file containing:
+- **If you want to use this project, feel free!
+Just copy it to your PC and create the .env file containing:**
 
 ```env
 IP="server ip"
