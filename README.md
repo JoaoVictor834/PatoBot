@@ -22,7 +22,6 @@ LOGIN="if the server has a system that uses /login"
 
 ## Example of how to create events
 
-
 **1. Create a discord event**
 
 - Create a [discord event file](src/events/discord/)
@@ -61,8 +60,7 @@ module.exports = class extends Event.dEvent {
     }
 }
 ```
-
-
+\n
 **2. Create a minecraft event**
 
 Create a [minecraft event file](src/events/minecraft/)
