@@ -26,7 +26,7 @@ LOGIN="if the server has a system that uses /login"
 
 - Create a [discord event file](src/events/discord/)
 
-**Example:**
+Example:
 
 ```js
 
@@ -65,7 +65,7 @@ module.exports = class extends Event.dEvent {
 
 Create a [minecraft event file](src/events/minecraft/)
 
-**Example:**
+Example:
 
 ```js
 //Imports
@@ -105,7 +105,7 @@ module.exports = class extends Event.mEvent {
 
 Create a [discord command file](/src//commands/discord/)
 
-**Example:**
+Example:
 
 ```js
 // Imports
