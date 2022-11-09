@@ -20,13 +20,13 @@ BOT_TOKEN="discord bot set token"
 LOGIN="if the server has a system that uses /login"
 ```
 
-- Example of how to create events
+## Example of how to create events
 
-1. Create a discord event
+**1. Create a discord event**
 
-Create a [discord event file](src/events/discord/)
+- Create a [discord event file](src/events/discord/)
 
-- Example:
+**Example:**
 
 ```js
 
@@ -61,11 +61,11 @@ module.exports = class extends Event.dEvent {
 }
 ```
 
-2. Create a minecraft event
+**2. Create a minecraft event**
 
 Create a [minecraft event file](src/events/minecraft/)
 
-- Example:
+**Example:**
 
 ```js
 //Imports
@@ -99,13 +99,13 @@ module.exports = class extends Event.mEvent {
 }
 
 ```
-- Example of how to create commands
+## Example of how to create commands
 
-1. Make a discord command
+**1. Make a discord command**
 
 Create a [discord command file](/src//commands/discord/)
 
-- Example:
+**Example:**
 
 ```js
 // Imports
@@ -139,6 +139,8 @@ module.exports = class extends Command.dCommand {
     }
 }
 ```
+
+2. **MINECRAFT COMMANDS IS NOT AVALIABLE FOR NOW**
 
 ***IT WILL CHANGE A LOT YET, LIKE I SAID THIS IN BETA DEV***
 
