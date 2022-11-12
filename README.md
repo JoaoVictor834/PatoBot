@@ -13,7 +13,7 @@ Just copy it to your PC and create the .env file containing:**
 IP="server ip"
 NAME="bot name"
 VERSION="bot version"
-
+GUILD_ID="id of you guild
 BOT_TOKEN="discord bot set token"
 
 #Password is useful in few cases and will change soon
@@ -42,7 +42,7 @@ module.exports = class extends Event.dEvent {
     }
     
     // Run function
-    run = () => {
+    run = (event variables) => {
 
         // To use client is
         this.client
@@ -81,7 +81,7 @@ module.exports = class extends Event.mEvent {
     }
     
     // Run function
-    run = () => {
+    run = (event variables) => {
 
         // To use client is
         this.client
@@ -130,7 +130,7 @@ module.exports = class extends Command.dCommand {
         // To use bot is
         this.bot
 
-        // Here is the code of the event
+        // Here is the code of the command
         console.log('Hello Word!')
 
         this.bot.send('Hello Word 2!') 
@@ -141,10 +141,35 @@ module.exports = class extends Command.dCommand {
 }
 ```
 
+```js
+// Imports
+const Command = require('../../structures/Command') // Import the base of command
 
-2. *MINECRAFT COMMANDS IS NOT AVALIABLE FOR NOW*
+// Exports the command extends the base of mCommand (minecraftCommand)
+module.exports = class extends Command.mCommand {
+    constructor(bot, client) {
+        super(bot, client, {
+            name: 'test',
+        })
+    }
+    run = async (message, username) => {
 
+        // To use client is
+        this.client
+        
+        // To use bot is
+        this.bot
 
+        // Here is the code of the command
+        console.log('Hello Word!')
+
+        this.bot.send('Hello Word 2!') 
+
+        this.client.chat.send('Hello Word 3!')
+
+    }
+}
+```
 
 
 ***IT WILL CHANGE A LOT YET, LIKE I SAID THIS IN BETA DEV***

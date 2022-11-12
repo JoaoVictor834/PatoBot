@@ -10,9 +10,10 @@ module.exports = {
 },
 
 mEvent: class {
-    constructor(bot, client, options) {
+    constructor(bot, client, ebot, options) {
         this.bot = bot
         this.client = client
+        this.ebot = ebot
         this.name = options.name
     }
 }

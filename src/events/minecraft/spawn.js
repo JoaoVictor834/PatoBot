@@ -3,8 +3,8 @@ const wait = require('node:timers/promises').setTimeout
 require('dotenv').config()
 
 module.exports = class extends Event.mEvent {
-    constructor(bot, client) {
-        super(bot, client, {
+    constructor(bot, client, _) {
+        super(bot, client, _, {
             name: 'spawn'
         })
     }
@@ -34,8 +34,8 @@ module.exports = class extends Event.mEvent {
         await this.bot.chat('/login ' + process.env['LOGIN'])
         await wait(1000)
         await this.bot.chat('/queue anarkcraft')
-        
-        this.client.chat.send('Spawnado')
+
+        this.client.cmd.send('> Spawnado')
         console.log('Spawnado')
         antiafk(this.bot)
 

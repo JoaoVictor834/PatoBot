@@ -4,8 +4,8 @@ const { createBot } = require('mineflayer')
 require('dotenv').config()
 
 module.exports = class extends Event.mEvent {
-    constructor(bot, client) {
-        super(bot, client, {
+    constructor(bot, client, _) {
+        super(bot, client, _, {
             name: 'end'
         })
     }

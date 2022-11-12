@@ -12,11 +12,12 @@ module.exports = class extends Event.dEvent {
 
 
         console.log(`Bot logado!`)
-        this.client.chat = this.client.updateChat()
+        this.client.chat = this.client.updateChat('chatbot')
+        this.client.cmd = this.client.updateChat('chatcmd')
 
 
 
-        this.client.registryCommands()
+       // this.client.registryCommands()
         
         this.client.user.setPresence({
             activities: [{

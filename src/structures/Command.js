@@ -11,11 +11,12 @@ module.exports = {
     }
 },
  mCommand: class {
-    constructor(client, options) {
+    constructor(bot, client, ebot, options) {
         this.client = client
+        this.ebot = ebot
+        this.bot = bot
         this.name = options.name
-        this.description = options.description
-        this.options = options.options
+        this.aliases = options.aliases 
     }
  }
 

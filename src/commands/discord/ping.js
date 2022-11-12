@@ -10,7 +10,9 @@ module.exports = class extends Command.dCommand {
         })
     }
     run = async (interaction) => {
-        const latency = Math.abs(Date.now() - interaction.createdTimestamp)
+
+        const m =  await interaction.reply({ content: 'Ping?', fetchReply: true })
+        const latency = Math.abs(m.createdTimestamp - interaction.createdTimestamp)
 
         const PingEmbed = new EmbedBuilder()
         .setTitle('Pong! :ping_pong:')
@@ -19,8 +21,10 @@ module.exports = class extends Command.dCommand {
         Latencia da API: ${latency}ms.
         `)
         .setColor('Random')
-        await interaction.reply('Ping?')
-        await wait(1000)
+
+
+
+        await wait(500)
         await interaction.editReply({ content: ' ', embeds: [PingEmbed]})
 
     }
