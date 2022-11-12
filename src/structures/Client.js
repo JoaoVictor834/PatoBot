@@ -28,6 +28,7 @@ module.exports = class extends Client {
      // this.bot.addChatPattern('joined', /(.+) Entrou no servidor/, { parse: true, repeat: true })
     }
 
+     // Create the Minecraft bot
     async CreateBot() {
         const options = {
             username: process.env['NAME'],

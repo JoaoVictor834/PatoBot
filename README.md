@@ -2,9 +2,11 @@
  
 ***Welcome to the patobot!***
 
-*Patobot is a bot created for the anarkcraft.xyz server
+*Patobot is a bot created for the [anarkcraft.xyz server](https://discord.gg/sjBqmUFrx5)
 with the intention of transpiling the game chat to discord!
 The bot is currently in 3-DEV version, being completely rewritten*
+
+- [Patobot server](https://discord.gg/gvN6RxxQ2y)
 
 - **If you want to use this project, feel free!
 Just copy it to your PC and create the .env file containing:**
@@ -20,9 +22,9 @@ BOT_TOKEN="discord bot set token"
 LOGIN="if the server has a system that uses /login"
 ```
 
-## Example of how to create events
+## How to create events
 
-**1. Create a discord event**
+**1. Discord event**
 
 - Create a [discord event file](src/events/discord/)
 
@@ -62,7 +64,7 @@ module.exports = class extends Event.dEvent {
 ```
 
 
-**2. Create a minecraft event**
+**2. Minecraft event**
 
 Create a [minecraft event file](src/events/minecraft/)
 
@@ -100,7 +102,7 @@ module.exports = class extends Event.mEvent {
 }
 
 ```
-## Example of how to create commands
+## How to create commands
 
 **1. Make a discord command**
 
