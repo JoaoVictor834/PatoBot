@@ -3,12 +3,12 @@ const Command = require('../../structures/Command')
 module.exports = class extends Command.mCommand {
     constructor(bot, client, _) {
         super(bot, client, _, {
-            name: 'test',
+            name: /oi patobot/i,
         })
     }
-    run = async (message, username) => {
+    run = (username) => {
 
-        console.log(username + ': ' + message)
+        this.bot.chat(`Oi ${username}, casada???`)
 
     }
 }

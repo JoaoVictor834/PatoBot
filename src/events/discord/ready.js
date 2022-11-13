@@ -17,11 +17,11 @@ module.exports = class extends Event.dEvent {
 
 
 
-       // this.client.registryCommands()
+        //this.client.registryCommands()
         
         this.client.user.setPresence({
             activities: [{
-                name: `Faça parte dos ${this.client.users.cache.size} usuarios que me utilizam, em mais de ${this.client.guilds.cache.size} servidores!`,
+                name: `Patobot chad`,
                 type: ActivityType.Playing,
                 url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             }

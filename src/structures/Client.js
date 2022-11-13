@@ -20,13 +20,7 @@ module.exports = class extends Client {
 
     }
 
-    updateChatPatern() {
-        this.bot.addChatPattern('tell', / \[(.+) -> Você\] (.+)/, { parse: true, repeat: true })
-        this.bot.addChatPattern('tell2', / \[Você -> (.+)\] (.+)/, { parse: true, repeat: true })
-        this.bot.addChatPattern('death', /^\[☠] (\w*) (.*)/, { parse: true, repeat: true })
-        this.bot.addChatPattern('advancement', /(.+) has made the advancement \[(.+)\]/, { parse: true, repeat: true })
-     // this.bot.addChatPattern('joined', /(.+) Entrou no servidor/, { parse: true, repeat: true })
-    }
+
 
      // Create the Minecraft bot
     async CreateBot() {
@@ -54,7 +48,8 @@ module.exports = class extends Client {
     async registryCommands() {
         console.log('Carregando comandos de barra (/)')
 
-        await this.guilds.cache.get(process.env['GUILD_ID']).commands.set(this.commands)
+        this.guilds.cache.get(process.env['GUILD_ID']).commands.set([])
+        await this.application.commands.set(this.commands)
             .catch(error => console.log(error))
 
         console.log('Comandos de barra (/) carregados com sucesso!')

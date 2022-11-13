@@ -13,18 +13,23 @@ module.exports = class extends Event.mEvent {
     run = (username, message) => {
         if(username === this.bot.username) return
         
-        let reg = /oi patobot/i
-
-        if(reg.test(message)) return this.bot.chat(`Oi ${username} voce é casada??`)
-
+        
         if(message.startsWith(prefix)) {
-            const cmd = this.ebot.commands.find(c => c.name === message.slice(1)) || this.ebot.commands.find(c => c.aliases === message.slice(1))
-            if(cmd) return cmd.run(message, username)
+            const args = message.slice(1).trim().split(/ +/g);
+            const command = args.shift().toLowerCase();
+            
+            const cmd = 
+            this.ebot.commands.find(c => c.name === command) || 
+            this.ebot.commands.find(c => c.aliases.find(a => a === command)) ||
+            this.ebot.commands.find(c => c.aliases.find(a => a.test(message))) || 
+            this.ebot.commands.find(c => c.name.find(n => n.test(message)))
+
+            if(cmd) return cmd.run(message, username, args)
         }
 
 
 
-        this.client.chat.send(`${username}: ${message}`)
+        this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
 
     }
 }

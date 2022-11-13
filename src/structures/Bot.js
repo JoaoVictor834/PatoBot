@@ -2,20 +2,40 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const mineflayer = require('mineflayer')
 var tpsPlugin = require('mineflayer-tps')(mineflayer)
+const filterlist = require('../../filter.json')
+const Filter = require('badwords-filter')
 
-// Exporta a classe do bot
-module.exports = class {
-    constructor(bot, client) {
+
+const filterconfig = {
+    list: filterlist.words,
+    cleanWith: "#",
+    useRegex: true,
+  }
+
+  
+  
+  // Exporta a classe do bot  
+  module.exports = class {
+      constructor(bot, client) {
         this.bot = bot
         this.client = client
         this.commands = []
         this.loadCommands()
-        this.loadEvents()  
-
+        this.loadEvents() 
+        this.updateChatPatern()
+        
         bot.loadPlugin(tpsPlugin)
         
+         this.filter = new Filter(filterconfig)
     }
-    
+
+    updateChatPatern() {
+        this.bot.addChatPattern('tell', / \[(.+) -> Você\] (.+)/, { parse: true, repeat: true })
+        this.bot.addChatPattern('tell2', / \[Você -> (.+)\] (.+)/, { parse: true, repeat: true })
+        this.bot.addChatPattern('death', /^\[☠] (\w*) (.*)/, { parse: true, repeat: true })
+        this.bot.addChatPattern('advancement', /(.+) has made the advancement \[(.+)\]/, { parse: true, repeat: true })
+       // this.bot.addChatPattern('joined', /(.+) Entrou no servidor/, { parse: true, repeat: true })
+    }
 
 // Load the commands
 loadCommands(path = 'src/commands/minecraft') {

@@ -17,6 +17,7 @@ module.exports = {
         this.bot = bot
         this.name = options.name
         this.aliases = options.aliases 
+        this.isReg = options.isReg
     }
  }
 
