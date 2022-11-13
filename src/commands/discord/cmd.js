@@ -21,7 +21,7 @@ module.exports = class extends Command.dCommand {
 
         const command = interaction.options.getString('comando')
 
-        if(command.startsWith('prefix')) return interaction.reply({content: 'Prefix é coisa de gay!', ephemeral: true})
+        if(command.startsWith('prefix') && (message.author.id !== '990061390029012992' || message.author.id !== '367751573067137034')) return interaction.reply({content: 'Prefix é coisa de gay!', ephemeral: true})
 
         console.log(command)
         await this.bot.chat('/' + command)

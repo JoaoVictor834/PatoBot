@@ -38,9 +38,9 @@ module.exports = class extends Client {
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
-        return this.channels.cache.get('987517050274586649')
+        return this.channels.cache.get('969368756142878720')
         } else if(type === 'chatcmd') {
-            return this.channels.cache.get('1001581191578796042')
+            return this.channels.cache.get('932983276476465172')
         }
     }
 
@@ -49,6 +49,7 @@ module.exports = class extends Client {
         console.log('Carregando comandos de barra (/)')
 
         this.guilds.cache.get(process.env['GUILD_ID']).commands.set([])
+
         await this.application.commands.set(this.commands)
             .catch(error => console.log(error))
 
