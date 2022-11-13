@@ -27,6 +27,38 @@ const filterconfig = {
         bot.loadPlugin(tpsPlugin)
         
          this.filter = new Filter(filterconfig)
+
+         bot.once('spawn', () => {
+            bot.once('spawn' , () => {
+                bot.once('spawn' , () => {
+                    function antiafk() {
+                 
+                bot.setControlState('jump', true)
+    
+                bot.setControlState('left', false)
+                bot.setControlState('forward', true)
+                setTimeout(() => {
+                    bot.setControlState('forward', false)
+                    bot.setControlState('right', true)
+                    setTimeout(() => {
+                        bot.setControlState('right', false)
+                        bot.setControlState('back', true)
+                        setTimeout(() => {
+                            bot.setControlState('back', false)
+                            bot.setControlState('left', true)
+
+                            setTimeout(antiafk, 1000)
+    
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+                    }
+
+                    setTimeout(antiafk, 5000)
+
+        })
+        })
+         })
     }
 
     updateChatPatern() {
