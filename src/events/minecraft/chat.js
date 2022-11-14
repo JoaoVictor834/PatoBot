@@ -21,7 +21,7 @@ module.exports = class extends Event.mEvent {
             let cmd
             
             if(this.ebot.commands.find(c => c.aliases !== undefined)) {
-                this.ebot.commands.forEach(c => c.aliases.forEach(a => console.log(a)))
+                this.ebot.commands.find(c => c.aliases.forEach(a => console.log(a)))
             }
 
 
@@ -29,7 +29,7 @@ module.exports = class extends Event.mEvent {
 
             this.ebot.commands.find(c => c.name === command) ||
             this.ebot.commands.forEach(c => c.name.find(n => n.test(message))) :
-            
+
             this.ebot.commands.find(c => c.aliases.find(a => a === command)) ||
             this.ebot.commands.forEach(c => c.aliases.find(a => a.test(message)))
 
