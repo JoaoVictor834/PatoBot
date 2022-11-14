@@ -34,8 +34,8 @@ module.exports = class extends Event.mEvent {
             else {
                 try {
                 cmd = 
-                this.ebot.commands.find(c => c.aliases.map(a => a.find(r => r.test(message)))) ||
-                this.ebot.commands.find(c => c.name.map(n => n.find(r => r.test(message))))
+                this.ebot.commands.map(c => c.aliases.map(a => a.find(r => r.test(message)))) ||
+                this.ebot.commands.find(c => c.name.find(r => r.test(message)))
                 } catch (err) {
                     console.log(err)
                 }
