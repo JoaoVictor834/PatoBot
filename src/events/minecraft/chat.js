@@ -37,7 +37,7 @@ module.exports = class extends Event.mEvent {
                 this.ebot.commands.forEach(c => c.aliases.find(r => r.test(message))) ||
                 this.ebot.commands.find(c => c.name.find(r => r.test(message)))
 
-                console.log(this.ebot.commands.forEach(c => c.aliases.find(r => r.test(message))))
+                this.ebot.commands.forEach(c => console.log(c))
 
                 } catch (err) {
                     console.log(err)
