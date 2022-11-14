@@ -18,7 +18,7 @@ module.exports = class extends Event.mEvent {
             const args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
             
-            if(this.ebot.commands.find(c => c.aliases.typeof !== undefined)) {
+            if(this.ebot.commands.find(c => c.aliases !== undefined)) {
                 this.ebot.commands.forEach(c => console.log(c))
             }
 
