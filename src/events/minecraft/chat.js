@@ -30,14 +30,13 @@ c.aliases.forEach(a => console.log(a))
             
             const cmd =  message.startsWith(prefix) ?
             
+            this.ebot.commands.find(c => c.name === command) || 
+            this.ebot.commands.find(c => c.name.test(message)) :
+            
             this.ebot.commands.forEach(c => {
 if(c.aliases === undefined) return false
 c.aliases.find(a => a.test(message))
-} ) || 
-            this.ebot.commands.find(c => c.name.test(message)) :
-            
-            this.ebot.commands.find(c => c.name === command) ||
-            
+}) ||
             this.ebot.commands.forEach(c => {
             if(c.aliases === undefined) return false
 c.aliases.find(a => a === command)
