@@ -28,6 +28,7 @@ const filterconfig = {
         
          this.filter = new Filter(filterconfig)
 
+         // Anti afk
          bot.once('spawn', () => {
             bot.once('spawn' , () => {
                 bot.once('spawn' , () => {
