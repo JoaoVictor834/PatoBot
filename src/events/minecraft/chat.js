@@ -20,37 +20,26 @@ module.exports = class extends Event.mEvent {
 
             let cmd
             
-            /*
-            
-                this.ebot.commands.forEach(c => {
-if(c.aliases === undefined) return false
+            if(this.ebot.commands.find(c => c.aliases !== undefined)) {
+                this.ebot.commands.find(c => c.aliases.forEach(a => console.log(a)))
+            }
 
-c.aliases.forEach(a => console.log(a))
-} )
-            
-            
-            const cmd =  message.startsWith(prefix) ?
-            
-            this.ebot.commands.find(c => c.name === command) || 
-            this.ebot.commands.find(c => c.name.test(message)) :
-            
-            this.ebot.commands.forEach(c => {
-if(c.aliases === undefined) return false
-c.aliases.find(a => a.test(message))
-}) ||
-            this.ebot.commands.forEach(c => {
-            if(c.aliases === undefined) return false
-c.aliases.find(a => a === command)
-})
-            
 
-            if(cmd) return cmd.run(username, message, args).catch(err => console.log(err))
+            cmd = this.ebot.commands.find(c => c.aliases === undefined) ?
+
+            this.ebot.commands.find(c => c.name === command) ||
+            this.ebot.commands.forEach(c => c.name.find(n => n.test(message))) :
+
+            this.ebot.commands.find(c => c.aliases.find(a => a === command)) ||
+            this.ebot.commands.forEach(c => c.aliases.find(a => a.test(message)))
+
+
+            if(cmd) return cmd.run(username, message, args)
         
 
 
 
         this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
 
-}
-
+    }
 }
