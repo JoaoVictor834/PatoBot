@@ -34,8 +34,11 @@ module.exports = class extends Event.mEvent {
             else {
                 try {
                 cmd = 
-                this.ebot.commands.forEach(c => c.aliases.forEach(a => a.find(r => r.test(message)))) ||
+                this.ebot.commands.forEach(c => c.aliases.find(r => r.test(message))) ||
                 this.ebot.commands.find(c => c.name.find(r => r.test(message)))
+
+                console.log(this.ebot.commands.forEach(c => c.aliases.find(r => r.test(message))))
+
                 } catch (err) {
                     console.log(err)
                 }
@@ -43,7 +46,7 @@ module.exports = class extends Event.mEvent {
             }
         
         
-        if(cmd) return cmd.run(username, message, args).catch(error => console.log(error))
+        if(cmd) return cmd.run(username, message, args)
 
 
         this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
