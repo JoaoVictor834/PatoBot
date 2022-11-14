@@ -14,40 +14,19 @@ module.exports = class extends Event.mEvent {
         if(username === this.bot.username) return
         
         
-
-        let cmd
-        let args
-
         if(message.startsWith(prefix)) {
-             args = message.slice(1).trim().split(/ +/g);
+            const args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
             
-            try {
-             cmd = 
+            const cmd = 
             this.ebot.commands.find(c => c.name === command) || 
-            this.ebot.commands.find(c => c.aliases.find(a => a === command))
+            this.ebot.commands.find(c => c.aliases.find(a => a === command)) ||
+            this.ebot.commands.find(c => c.aliases.find(a => a.test(message))) || 
+            this.ebot.commands.find(c => c.name.find(n => n.test(message)))
 
-            } catch (err) {
-                console.log(err)
-            }
- 
+            if(cmd) return cmd.run(message, username, args)
         }
-            else {
-                try {
-                    this.ebot.commands.forEach(c => console.log(c))
-                cmd = 
-                this.ebot.commands.forEach(c => c.aliases.find(r => r.test(message))) ||
-                this.ebot.commands.find(c => c.name.find(r => r.test(message)))
 
-
-                } catch (err) {
-                    console.log(err)
-                }
-                
-            }
-        
-        
-        if(cmd) return cmd.run(username, message, args)
 
 
         this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
