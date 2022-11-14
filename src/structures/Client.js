@@ -38,9 +38,9 @@ module.exports = class extends Client {
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
-        return this.channels.cache.get('969368756142878720')
+        return this.channels.cache.get(process.env['CHATBOT'])
         } else if(type === 'chatcmd') {
-            return this.channels.cache.get('932983276476465172')
+            return this.channels.cache.get(process.env['CMDBOT'])
         }
     }
 
