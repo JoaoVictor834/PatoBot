@@ -19,7 +19,7 @@ module.exports = class extends Event.mEvent {
             const command = args.shift().toLowerCase();
 
             
-            
+            /*
             
                 this.ebot.commands.forEach(c => {
 if(c.aliases === undefined) return false
@@ -45,7 +45,7 @@ c.aliases.find(a => a === command)
 
             if(cmd) return cmd.run(username, message, args).catch(err => console.log(err))
         
-
+*/
 
 
         this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
