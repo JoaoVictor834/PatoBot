@@ -41,7 +41,7 @@ c.aliases.find(a => a.test(message))
             this.ebot.commands.forEach(c => {
             if(c.aliases === undefind) return false
 c.aliases.find(a => a === command)
-} 
+})
             
 
             if(cmd) return cmd.run(username, message, args)
