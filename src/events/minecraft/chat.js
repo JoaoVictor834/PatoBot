@@ -39,12 +39,12 @@ c.aliases.find(a => a.test(message))
             this.ebot.commands.find(c => c.name === command) ||
             
             this.ebot.commands.forEach(c => {
-            if(c.aliases === undefind) return false
+            if(c.aliases === undefined) return false
 c.aliases.find(a => a === command)
 })
             
 
-            if(cmd) return cmd.run(username, message, args)
+            if(cmd) return cmd.run(username, message, args).catch(err => console.log(err))
         
 
 
