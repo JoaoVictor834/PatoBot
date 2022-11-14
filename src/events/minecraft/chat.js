@@ -19,11 +19,12 @@ module.exports = class extends Event.mEvent {
             const command = args.shift().toLowerCase();
             
             const cmd = message.startsWith(prefix) ?
-            
+
             this.ebot.commands.find(c => c.name === command) ||
             this.ebot.commands.find(c => c.aliases.find(a => a === command)) :
-            this.ebot.commands.forEach(c => c.aliases.find(a => a.test(message))) || 
-            this.ebot.commands.forEach(c => c.name.find(n => n.test(message)))
+
+            this.ebot.commands.find(c => c.aliases.find(a => a.test(message))) || 
+            this.ebot.commands.find(c => c.name.find(n => n.test(message)))
 
             if(cmd) return cmd.run(username, message, args)
         
