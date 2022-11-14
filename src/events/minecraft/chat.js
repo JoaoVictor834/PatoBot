@@ -16,9 +16,10 @@ module.exports = class extends Event.mEvent {
         
 
         let cmd
+        let args
 
         if(message.startsWith(prefix)) {
-            const args = message.slice(1).trim().split(/ +/g);
+             args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
             
             try {
