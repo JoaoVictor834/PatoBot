@@ -26,9 +26,10 @@ module.exports = class extends Event.mEvent {
            const cmd = message.startsWith(prefix) ?
 
             this.ebot.commands.find(c => c.name === command) ||
-            this.ebot.commands.forEach(c => { 
-if(c.aliases === undefined) return
-return c.aliases.find(a => a === command))
+            this.ebot.commands.find(c => { 
+if(c.aliases === undefined) return false
+
+return c.aliases.find(a => a === command)
 }) :
 
             this.ebot.commands.forEach(c => {
