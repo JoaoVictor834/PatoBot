@@ -4,12 +4,12 @@ module.exports = class extends Command.mCommand {
     constructor(bot, client, _) {
         super(bot, client, _, {
             name: 'help',
-            aliases: ['ajuda']
+            aliases: ['ajuda', 'rcomo usa o patobot']
         })
     }
     run = () => {
 
-        this.bot.chat(`Comandos disponíveis: -coords, -status, -coordleak e -dupe. Dê oi ao PatoBot!`)
+        this.bot.chat(`Oi! eu sou o bot mais chad do mundo. Comandos disponíveis: -coords, -status, -coordleak e -dupe. Dê oi ao PatoBot!`)
 
     }
 }

@@ -22,10 +22,10 @@ module.exports = class extends Event.mEvent {
             
            
            
-                this.ebot.commands.forEach(c =>  {
+                this.ebot.commands.find(c =>  {
                     if(c.aliases === undefined) return
 
-                   c.aliases.find(a => a === command)
+                 return c.aliases.find(a => a === command)
                     
                 })
             
@@ -40,11 +40,19 @@ if(c.aliases === undefined) return false
 return c.aliases.find(a => a === command)
 }) :
 
-            this.ebot.commands.forEach(c => {
-if(c.aliases === undefined) return
-c.aliases.forEach(a => console.log(a))
+            this.ebot.commands.find(c => {
+if(c.aliases === undefined) return false
+
+return c.aliases.find(a => {
+    if(!a.startsWith('r')) return false
+
+    return new RegExp(a.slice(1), 'i').test(message)
+})
 }) ||
-            this.ebot.commands.forEach(c => console.log(c.name))
+            this.ebot.commands.find(c => {
+                if(!c.name.startsWith('r')) return false
+                return new RegExp(c.name.slice(1), 'i').test(message)
+            })
 
             if(cmd) return cmd.run(username, message, args)
           

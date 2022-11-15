@@ -10,7 +10,7 @@ module.exports = class extends Command.mCommand {
     run = (username, message) => {
 
         if(message === '-dupe') {
-            return this.bot.chat(`Parabéns ${username} voce dupou` + Math.round(Math.random() * 1000) + ' itens! Relogue e os terá!')
+            return this.bot.chat(`Parabéns ${username} voce dupou ` + Math.round(Math.random() * 1000) + ' itens. Relogue e os terá!')
         }
         
         this.bot.chat(`${username}, para dupar utilize o comando -dupe, /dupe ou /suicide dupe.`)
