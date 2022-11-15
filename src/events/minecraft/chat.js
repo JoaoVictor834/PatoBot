@@ -36,7 +36,7 @@ return c.aliases.find(a => a === command)
 if(c.aliases === undefined) return
 c.aliases.forEach(a => console.log(a))
 }) ||
-            this.ebot.commands.forEach(c => c.name.find(n => console.log(n)))
+            this.ebot.commands.forEach(c => console.log(c.name))
 
             if(cmd) return cmd.run(username, message, args)
         
