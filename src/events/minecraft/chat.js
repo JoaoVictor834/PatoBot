@@ -18,23 +18,45 @@ module.exports = class extends Event.mEvent {
             const args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
 
-            let cmd
             
-            if(this.ebot.commands.find(c => c.aliases !== undefined)) {
-                this.ebot.commands.find(c => c.aliases.forEach(a => console.log(a)))
-            }
+            
+           
+           
+                this.ebot.commands.forEach(c =>  {
+                    if(c.aliases === undefined) return
+
+                   c.aliases.find(a => a === command)
+                    
+                })
+            
 
 
-            cmd = this.ebot.commands.find(c => c.aliases === undefined) ?
+           const cmd = message.startsWith(prefix) ?
 
             this.ebot.commands.find(c => c.name === command) ||
-            this.ebot.commands.forEach(c => c.name.find(n => n.test(message))) :
+            this.ebot.commands.find(c => {
+                if(c.aliases === undefined) return
 
-            this.ebot.commands.find(c => c.aliases.find(a => a === command)) ||
-            this.ebot.commands.forEach(c => c.aliases.find(a => a.test(message)))
+               c.aliases.find(a => a === command)
+                
+            }) :
+            
+            this.ebot.commands.forEach(c => {
+                if(c.name.startsWith('r')) new RegExp(c.name, 'i').test(message)
+            }) ||
+            
+            this.ebot.commands.forEach(c =>  {
+                if(c.aliases === undefined) return
+                c.aliases.forEach(a => {
+                    if(a.startsWith('r')) new RegExp(a.name, 'i').test(message)
+                })
+                
+            })
 
+            console.log(cmd)
 
             if(cmd) return cmd.run(username, message, args)
+          
         
 
 
