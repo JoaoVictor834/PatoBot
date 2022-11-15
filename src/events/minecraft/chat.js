@@ -34,26 +34,17 @@ module.exports = class extends Event.mEvent {
            const cmd = message.startsWith(prefix) ?
 
             this.ebot.commands.find(c => c.name === command) ||
-            this.ebot.commands.find(c => {
-                if(c.aliases === undefined) return
+            this.ebot.commands.find(c => { 
+if(c.aliases === undefined) return false
 
-               c.aliases.find(a => a === command)
-                
-            }) :
-            
+return c.aliases.find(a => a === command)
+}) :
+
             this.ebot.commands.forEach(c => {
-                if(c.name.startsWith('r')) new RegExp(c.name, 'i').test(message)
-            }) ||
-            
-            this.ebot.commands.forEach(c =>  {
-                if(c.aliases === undefined) return
-                c.aliases.forEach(a => {
-                    if(a.startsWith('r')) new RegExp(a.name, 'i').test(message)
-                })
-                
-            })
-
-            console.log(cmd)
+if(c.aliases === undefined) return
+c.aliases.forEach(a => console.log(a))
+}) ||
+            this.ebot.commands.forEach(c => console.log(c.name))
 
             if(cmd) return cmd.run(username, message, args)
           
