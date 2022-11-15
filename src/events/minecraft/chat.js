@@ -28,12 +28,12 @@ module.exports = class extends Event.mEvent {
             this.ebot.commands.find(c => c.name === command) ||
             this.ebot.commands.forEach(c => { 
 if(c.aliases === undefined) return
-return c.aliases.find(a => a === command)
+return c.aliases.find(a => a === command))
 }) :
 
             this.ebot.commands.forEach(c => {
 if(c.aliases === undefined) return
-c.aliases.forEach(a => console.log(a)
+c.aliases.forEach(a => console.log(a))
 }) ||
             this.ebot.commands.forEach(c => c.name.find(n => console.log(n))
 
