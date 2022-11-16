@@ -56,11 +56,8 @@ return c.aliases.find(a => {
 
             if(cmd) return cmd.run(username, message, args)
           
-        
 
 
-
-        this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
 
     }
 }

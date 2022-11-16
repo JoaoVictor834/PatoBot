@@ -16,6 +16,7 @@ module.exports = class extends Client {
         this.CreateBot().then(() => {
         this.loadEvents()
         this.loadCommands()
+        this.dcMsgIDs = []
         })
 
     }
