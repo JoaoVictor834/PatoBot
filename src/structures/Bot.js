@@ -1,8 +1,8 @@
 const { readdirSync } = require('fs')
 const { join } = require('path')
 const mineflayer = require('mineflayer')
-var tpsPlugin = require('mineflayer-tps')(mineflayer)
-var radarPlugin = require('mineflayer-radar')(mineflayer)
+const tpsPlugin = require('mineflayer-tps')(mineflayer)
+//ar radarPlugin = require('mineflayer-radar')(mineflayer)
 const filterlist = require('../../filter.json')
 const Filter = require('badwords-filter')
 
@@ -26,7 +26,7 @@ const filterconfig = {
         this.updateChatPatern()
         
         bot.loadPlugin(tpsPlugin)
-        radarPlugin(this.bot)
+     //   radarPlugin(this.bot)
         
          this.filter = new Filter(filterconfig)
 
