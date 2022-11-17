@@ -1,7 +1,7 @@
 const Event = require('../../structures/Event')
 const { ActivityType } = require('discord.js')
 const { createBot } = require('mineflayer')
-const Bot = require('./Bot')
+const Bot = require('../../structures/Bot')
 
 module.exports = class extends Event.dEvent {
     constructor(client, bot) {
