@@ -12,22 +12,26 @@ module.exports = class extends Client {
         this.chat
         this.cmd
         this.commands = []
-        
-// Create the Minecraft bot
-        const CreatedBot = new Bot(createBot({
-            username: process.env['NOME'],
-            version: process.env['VERSION'],
-            host: process.env['IP']
-           }), this)
 
-this.bot = CreatedBot.bot
-
-    
-this.loadEvents()
+           this.bot
+           this.loadEvents()
            this.loadCommands()
+this.botCreate()
+
     
     }
-   
+
+   botCreate() {
+const options = {
+         username: process.env['NOME'],
+         version: process.env['VERSION'],
+         host: process.env['IP']
+}
+
+        const CreatedBot = new Bot(createBot(options), this)
+       return this.bot = CreatedBot.bot
+
+}
 
     // Update/set chat
     updateChat(type) {
@@ -60,7 +64,7 @@ this.loadEvents()
             // Get a event of every command
                 for (const command of commands) {
                     const commandClass = require(join(process.cwd(), `${path}/${command}`))
-                    const cmd = new (commandClass)(this, this.bot)
+                    const cmd = new (commandClass)(this)
 
                     // Load the command
                     this.commands.push(cmd)
