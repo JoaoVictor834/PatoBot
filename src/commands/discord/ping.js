@@ -3,13 +3,13 @@ const wait = require('node:timers/promises').setTimeout
 const { EmbedBuilder } = require('discord.js')
 
 module.exports = class extends Command.dCommand {
-    constructor(client, bot) {
-        super(client, bot, {
+    constructor(client, ) {
+        super(client, {
             name: 'ping',
             description: 'Comando para saber o ping do bot.'
         })
     }
-    run = async (interaction) => {
+    run = async (bot, interaction) => {
 
         const m =  await interaction.reply({ content: 'Ping?', fetchReply: true })
         const latency = Math.abs(m.createdTimestamp - interaction.createdTimestamp)
