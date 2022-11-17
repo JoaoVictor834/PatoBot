@@ -11,7 +11,7 @@ module.exports = class extends Event.dEvent {
         
        if (interaction.type === InteractionType.ApplicationCommand) {
             const cmd  = this.client.commands.find(c => c.name === interaction.commandName)
-            if (cmd) cmd.run(interaction)
+            if (cmd) cmd.run(this.bot, interaction)
        }
     }
 }
