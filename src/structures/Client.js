@@ -40,7 +40,7 @@ return this.bot = CreatedBot.bot
 
    }
 
-updateBot(bot) {
+async updateBot(bot) {
 return this.bot = bot
 }
 
