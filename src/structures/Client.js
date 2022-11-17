@@ -20,7 +20,7 @@ module.exports = class extends Client {
         })
 
     }
-
+    
 
 
      // Create the Minecraft bot
