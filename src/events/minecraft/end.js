@@ -13,7 +13,7 @@ module.exports = class extends Event.mEvent {
     run = (reason) => {
         console.log('Reconectando ' + reason)
 
-        function async relog(client) {
+        async function relog(client) {
 
 console.log('Reconnecting...')
 client.chat.send('Reconectando...')
