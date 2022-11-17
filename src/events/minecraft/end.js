@@ -24,7 +24,7 @@ client.chat.send('Reconectando...')
                 host: process.env['IP']
             }), client)
 
-          return this.client.updateBot(CreatedBot.bot)
+          return client.updateBot(CreatedBot.bot)
         }
 
 
