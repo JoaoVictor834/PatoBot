@@ -16,8 +16,8 @@ module.exports = class extends Client {
 
        this.CreateBot().then(bot => {
 
-        this.loadEvents(bot)
-        this.loadCommands(bot)
+        this.loadEvents()
+        this.loadCommands()
         
 })
     }
@@ -38,7 +38,12 @@ module.exports = class extends Client {
 
 return CreatedBot.bot
 
-    }
+   }
+
+updateBot(bot) {
+return this.bot = bot
+this.loadEvents()
+}
 
     // Update/set chat
     updateChat(type) {
@@ -63,7 +68,9 @@ return CreatedBot.bot
 
 
     // Load commands
-    loadCommands(bot, path = 'src/commands/discord') {
+    loadCommands(path = 'src/commands/discord') {
+
+if(this.commands.lenght >= 1) return this.commands.shift(this.commands.lenght)
 
         // Get path of commands
             const commands = readdirSync(path)
@@ -71,7 +78,7 @@ return CreatedBot.bot
             // Get a event of every command
                 for (const command of commands) {
                     const commandClass = require(join(process.cwd(), `${path}/${command}`))
-                    const cmd = new (commandClass)(this, bot)
+                    const cmd = new (commandClass)(this, this.bot)
 
                     // Load the command
                     this.commands.push(cmd)
@@ -81,7 +88,7 @@ return CreatedBot.bot
     }
 
     // Load events
-    loadEvents(bot, path = 'src/events/discord') {
+    loadEvents(path = 'src/events/discord') {
 
         // Get path of events
             const events = readdirSync(path)
@@ -89,7 +96,7 @@ return CreatedBot.bot
             // Get a event of every event
                 for (const event of events) {
                     const eventClass = require(join(process.cwd(), `${path}/${event}`))
-                    const evt = new (eventClass)(this, bot)
+                    const evt = new (eventClass)(this, this.bot)
     
                     // Load the event
                     this.on(evt.name, evt.run)
