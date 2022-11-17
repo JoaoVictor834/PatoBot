@@ -34,7 +34,7 @@ const msg = message.toString()
         interaction.reply(msg)
         
 })
-        await wait(1000)
+        await wait(10000)
         await interaction.deleteReply()
 
     }
