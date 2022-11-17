@@ -23,10 +23,11 @@ const CreatedBot = new Bot(createBot({
 }), this
 ).bot
 
-        this.CreateBot(CreatedBot).then(() => {
+       await this.CreateBot(CreatedBot)
+
         this.loadEvents()
         this.loadCommands()
-        })
+        
 
     }
 
