@@ -1,8 +1,13 @@
 const { readdirSync } = require('fs')
 const { join } = require('path')
 const mineflayer = require('mineflayer')
+<<<<<<< HEAD
 const tpsPlugin = require('mineflayer-tps')(mineflayer)
-//ar radarPlugin = require('mineflayer-radar')(mineflayer)
+//var radarPlugin = require('mineflayer-radar')(mineflayer)
+=======
+var tpsPlugin = require('mineflayer-tps')(mineflayer)
+var radarPlugin = require('mineflayer-radar')(mineflayer)
+>>>>>>> parent of 5ebf395 (Update Bot.js)
 const filterlist = require('../../filter.json')
 const Filter = require('badwords-filter')
 
@@ -24,9 +29,14 @@ const filterconfig = {
         this.loadCommands()
         this.loadEvents() 
         this.updateChatPatern()
+
         
         bot.loadPlugin(tpsPlugin)
-     //   radarPlugin(this.bot)
+<<<<<<< HEAD
+        //radarPlugin(this.bot)
+=======
+        radarPlugin(this.bot)
+>>>>>>> parent of 5ebf395 (Update Bot.js)
         
          this.filter = new Filter(filterconfig)
 

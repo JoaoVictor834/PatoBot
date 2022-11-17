@@ -54,13 +54,10 @@ return c.aliases.find(a => {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-            if(cmd) cmd.run(username, message, args)
-          
-        
+            if(cmd) return cmd.run(username, message, args)
 
 
 
-        this.client.chat.send(`${username}: ${this.ebot.filter.clean(message)}`)
 
     }
 }
