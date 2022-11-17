@@ -20,7 +20,7 @@ module.exports = class extends Client {
      host: process.env['IP']
     }), this)
 
-        this.bot = CreatedBot
+        this.bot = CreatedBot.bot
      
 
         this.loadEvents()
@@ -30,7 +30,11 @@ module.exports = class extends Client {
     
 
     updateBot(bot) {
-       return this.bot = new Bot(bot, this)
+        const newBot = new Bot(bot, this).bot
+        if(newBot) {
+        this.loadCommands()
+        this.loadEvents()
+        }
 
     }
     // Update/set chat
@@ -57,6 +61,8 @@ module.exports = class extends Client {
 
     // Load commands
     loadCommands(path = 'src/commands/discord') {
+
+        if(this.commands.length >= 1) return this.commands.shift(this.commands.length)
 
         // Get path of commands
             const commands = readdirSync(path)
