@@ -11,35 +11,28 @@ module.exports = class extends Client {
         super(options)
         this.chat
         this.cmd
-        this.bot
         this.commands = []
 
-       this.CreateBot().then(() => {
+        // Create the Minecraft bot
+      const CreatedBot = new Bot(createBot({
+     username: process.env['NOME'],
+     version: process.env['VERSION'],
+     host: process.env['IP']
+    }), this)
+
+        this.bot = CreatedBot
+     
 
         this.loadEvents()
         this.loadCommands()
-        
-})
+    
     }
     
 
+    updateBot(bot) {
+       return this.bot = new Bot(bot, this)
 
-     // Create the Minecraft bot
-    async CreateBot() {
-
-   const CreatedBot = new Bot(createBot({
-
-  username: process.env['NOME'],
-  version: process.env['VERSION'],
-  host: process.env['IP']
-
-}), this
-)
-
-return this.bot = CreatedBot.bot
-
-   }
-
+    }
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
