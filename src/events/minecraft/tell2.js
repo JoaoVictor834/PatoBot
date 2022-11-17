@@ -14,7 +14,7 @@ module.exports = class extends Event.mEvent {
         const msg = matches[0][1]
         const user = matches[0][0]
         
-        this.client.chat.send(`**(Tell)** *${user}: ${msg.trim()}*`)
+        this.client.chat.send(`**(Tell) De -->** *${user}: ${msg.trim()}*`)
 
     }
 }
