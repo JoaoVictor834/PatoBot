@@ -11,6 +11,8 @@ module.exports = class extends Event.mEvent {
     } 
     
     run = (username, message) => {
+this.client.cmd.send(`> ${message}`)
+
         if(username === this.bot.username) return
         
         
