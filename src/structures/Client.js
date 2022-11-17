@@ -20,7 +20,7 @@ const CreatedBot = new Bot(createBot({
   version: process.env['VERSION'],
   host: process.env['IP']
 
-)}, this
+}), this
 ).bot
 
         this.CreateBot(CreatedBot).then(() => {
