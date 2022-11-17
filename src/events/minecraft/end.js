@@ -33,5 +33,5 @@ relog(this.client).then(() => {
 this.client.chat.send('Reconectado com sucesso!')
 })
 
-    })
+    }, 35000)
 }
