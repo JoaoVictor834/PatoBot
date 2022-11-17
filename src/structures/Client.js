@@ -23,7 +23,7 @@ const CreatedBot = new Bot(createBot({
 }), this
 ).bot
 
-       await this.CreateBot(CreatedBot)
+       this.CreateBot(CreatedBot)
 
         this.loadEvents()
         this.loadCommands()
