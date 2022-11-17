@@ -2,9 +2,8 @@
 
 module.exports = {
     dCommand: class {
-    constructor(client, bot, options) {
+    constructor(client, options) {
         this.client = client
-        this.bot = bot
         this.name = options.name
         this.description = options.description
         this.options = options.options
