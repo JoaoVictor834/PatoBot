@@ -12,7 +12,7 @@ module.exports = class extends Event.mEvent {
     run = async () => {
 
     
-
+        await wait(1000)
         await this.bot.chat('/login ' + process.env['LOGIN'])
         await wait(1000)
         await this.bot.chat('/queue anarkcraft')
