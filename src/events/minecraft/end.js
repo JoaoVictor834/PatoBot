@@ -24,14 +24,15 @@ client.chat.send('Reconectando...')
                 host: process.env['IP']
             }), client)
 
-            client.CreateBot(BOT.bot)
         }
 
 
-        setTimeout(() => {
-relog(this.client).then(() => {
+        setTimeout((client = this.client) => {
+
+relog(client).then(() => {
 this.client.chat.send('Reconectado com sucesso!')
 })
 
     }, 35000)
+}
 }
