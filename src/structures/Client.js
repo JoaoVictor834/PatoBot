@@ -24,7 +24,7 @@ this.bot = CreatedBot.bot
 
     
 this.loadEvents()
-           this.client.loadCommands()
+           this.loadCommands()
     
     }
    
