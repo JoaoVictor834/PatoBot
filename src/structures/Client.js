@@ -14,7 +14,7 @@ module.exports = class extends Client {
         this.bot
         this.commands = []
 
-       this.CreateBot().then(bot => {
+       this.CreateBot().then(() => {
 
         this.loadEvents()
         this.loadCommands()
@@ -36,7 +36,7 @@ module.exports = class extends Client {
 }), this
 )
 
-return CreatedBot.bot
+return this.bot = CreatedBot.bot
 
    }
 
