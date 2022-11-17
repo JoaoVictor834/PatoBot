@@ -3,8 +3,8 @@ const wait = require('node:timers/promises').setTimeout
 
 
 module.exports = class extends Command.dCommand {
-    constructor(client, bot) {
-        super(client, bot, {
+    constructor(client) {
+        super(client, {
             name: 'cmd',
             description: 'Envie um comando para o servidor.',
             options: [
@@ -17,14 +17,14 @@ module.exports = class extends Command.dCommand {
             ]
         })
     }
-    run = async (interaction) => {
+    run = async (bot, interaction) => {
 
         const command = interaction.options.getString('comando')
 
         if(command.startsWith('prefix') && interaction.user.id !== '990061390029012992') return interaction.reply({content: 'Prefix é coisa de gay!', ephemeral: true})
 
         console.log(command)
-        await this.bot.chat('/' + command)
+        await bot.chat('/' + command)
         await interaction.reply('Comando enviado.')
         await wait(1000)
         await interaction.deleteReply()
