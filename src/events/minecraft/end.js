@@ -13,7 +13,8 @@ module.exports = class extends Event.mEvent {
     run = (reason) => {
         console.log('Reconectando ' + reason)
 
-        function relog(client) {
+        function async relog(client) {
+
 console.log('Reconnecting...')
 client.chat.send('Reconectando...')
 
@@ -22,7 +23,8 @@ client.chat.send('Reconectando...')
                 version: process.env['VERSION'],
                 host: process.env['IP']
             }), client)
-            client.bot = BOT
+
+            client.CreateBot(BOT.bot)
         }
 
 
