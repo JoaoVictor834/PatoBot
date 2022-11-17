@@ -2,8 +2,8 @@ const Command = require('../../structures/Command')
 const { EmbedBuilder } = require('discord.js')
 
 module.exports = class extends Command.dCommand {
-    constructor(client, bot) {
-        super(client, bot, {
+    constructor(client) {
+        super(client, {
             name: 'status',
             description: 'Status atuais do bot.'
         })
