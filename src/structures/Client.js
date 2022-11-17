@@ -14,7 +14,6 @@ module.exports = class extends Client {
         this.commands = []
         this.bot
         this.loadEvents()
-        this.loadCommands()
     
     }
     

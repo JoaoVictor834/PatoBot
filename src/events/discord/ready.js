@@ -1,6 +1,7 @@
 const Event = require('../../structures/Event')
 const { ActivityType } = require('discord.js')
 const { createBot } = require('mineflayer')
+const Bot = require('./Bot')
 
 module.exports = class extends Event.dEvent {
     constructor(client, bot) {
@@ -25,6 +26,8 @@ module.exports = class extends Event.dEvent {
            }), this.client)
     
            this.client.updateBot(CreatedBot.bot)
+
+           this.client.loadCommands()
        
 
         //this.client.registryCommands()
