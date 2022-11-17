@@ -31,13 +31,9 @@ module.exports = class extends Client {
 
     updateBot(bot) {
         const newBot = new Bot(bot, this).bot
-        this.bot = newBot
-        if(newBot) {
-       this.loadCommands()
-        this.loadEvents()
+        return this.bot = newBot
         } 
 
-    }
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
@@ -62,8 +58,6 @@ module.exports = class extends Client {
 
     // Load commands
     loadCommands(path = 'src/commands/discord') {
-
-        if(this.commands.length >= 1) return this.commands.set([])
 
         // Get path of commands
             const commands = readdirSync(path)
