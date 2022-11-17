@@ -18,7 +18,7 @@ module.exports = class extends Event.mEvent {
 console.log('Reconnecting...')
 client.chat.send('Reconectando...')
 
-           new Bot(createBot({
+          return new Bot(createBot({
                 username: process.env['NAME'],
                 version: process.env['VERSION'],
                 host: process.env['IP']
@@ -27,9 +27,12 @@ client.chat.send('Reconectando...')
         }
 
 
-        setTimeout((client = this.client) => {
+        setTimeout(() => {
 
-relog(client).then(() => {
+relog(this.client).then(CreatedBot => {
+this.client.bot = CreatedBot.bot
+this.client.loadCommands(CreatedBot.bot)
+this.client.loadEvents(CreatedBot.bot)
 this.client.chat.send('Reconectado com sucesso!')
 })
 
