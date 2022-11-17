@@ -30,9 +30,7 @@ client.chat.send('Reconectando...')
         setTimeout(() => {
 
 relog(this.client).then(CreatedBot => {
-this.client.bot = CreatedBot.bot
-this.client.loadCommands(CreatedBot.bot)
-this.client.loadEvents(CreatedBot.bot)
+this.client.updateBot(CreatedBot.bot)
 this.client.chat.send('Reconectado com sucesso!')
 })
 
