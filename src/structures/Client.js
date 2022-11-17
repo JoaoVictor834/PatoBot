@@ -16,9 +16,9 @@ module.exports = class extends Client {
 
 const CreatedBot = new Bot(createBot({
 
-  username: process.env(['NOME']),
-  version: process.env(['VERSION']),
-  host: process.env(['IP'])
+  username: process.env['NOME'],
+  version: process.env['VERSION'],
+  host: process.env['IP']
 
 )}, this
 ).bot
