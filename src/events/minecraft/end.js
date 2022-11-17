@@ -24,7 +24,7 @@ client.chat.send('Reconectando...')
                 host: process.env['IP']
             }), client)
 
-          client.bot = CreatetBot.bot
+          client.bot = CreatedBot.bot
         }
 
 
