@@ -21,6 +21,6 @@ module.exports = class extends Event.mEvent {
         
         if (user === 'Vakinha_MuMu' || user === 'PatinhoQuack_' && command === 'chat') return this.bot.chat(args.join(' '))
         
-        this.client.chat.send(`**(Tell)** *${user}: ${msg.trim()}*`)
+        this.client.chat.send(`**(Tell) Para -->** *${user}: ${msg.trim()}*`)
     }
 }
