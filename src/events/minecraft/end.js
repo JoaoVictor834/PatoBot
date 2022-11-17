@@ -17,16 +17,16 @@ module.exports = class extends Event.mEvent {
 console.log('Reconnecting...')
 client.chat.send('Reconectando...')
 
-            new Bot(createBot({
+           const BOT = new Bot(createBot({
                 username: process.env['NAME'],
                 version: process.env['VERSION'],
                 host: process.env['IP']
-            }), this.client)
-
+            }), client)
+            client.bot = BOT
         }
 
 
-        setTimeout(relog, 40000, this.client)
+        setTimeout(relog, 35000, this.client)
 
     }
 }
