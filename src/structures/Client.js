@@ -41,7 +41,8 @@ return CreatedBot.bot
    }
 
 updateBot(bot) {
-return this.bot = bot
+this.bot = bot
+this.loadCommands()
 this.loadEvents()
 }
 
