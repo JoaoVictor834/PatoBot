@@ -41,9 +41,7 @@ return this.bot = CreatedBot.bot
    }
 
 updateBot(bot) {
-this.bot = bot
-this.loadCommands()
-this.loadEvents()
+return this.bot = bot
 }
 
     // Update/set chat
