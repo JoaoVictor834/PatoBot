@@ -1,5 +1,6 @@
 const Event = require('../../structures/Event')
 const { ActivityType } = require('discord.js')
+const { createBot } = require('mineflayer')
 
 module.exports = class extends Event.dEvent {
     constructor(client, bot) {
@@ -16,6 +17,15 @@ module.exports = class extends Event.dEvent {
         this.client.cmd = this.client.updateChat('chatcmd')
 
 
+        // Create the Minecraft bot
+        const CreatedBot = new Bot(createBot({
+            username: process.env['NOME'],
+            version: process.env['VERSION'],
+            host: process.env['IP']
+           }), this.client)
+    
+           this.client.updateBot(CreatedBot.bot)
+       
 
         //this.client.registryCommands()
         

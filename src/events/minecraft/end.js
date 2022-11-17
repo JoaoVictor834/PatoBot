@@ -18,13 +18,13 @@ module.exports = class extends Event.mEvent {
 console.log('Reconnecting...')
 client.chat.send('Reconectando...')
 
-          const CreatedBot = createBot({
+          const CreatedBot = new Bot(createBot({
                 username: process.env['NAME'],
                 version: process.env['VERSION'],
                 host: process.env['IP']
-            })
+            }), client)
 
-           return client.updateBot(CreatedBot)
+          return this.client.updateBot(CreatedBot.bot)
         }
 
 
