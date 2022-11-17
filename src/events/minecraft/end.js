@@ -21,7 +21,7 @@ client.chat.send('Reconectando...')
                 username: process.env['NAME'],
                 version: process.env['VERSION'],
                 host: process.env['IP']
-            }), client)
+            }), this.client)
 
         }
 
