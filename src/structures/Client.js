@@ -14,28 +14,30 @@ module.exports = class extends Client {
         this.bot
         this.commands = []
 
-const CreatedBot = new Bot(createBot({
+       this.CreateBot().then(bot => {
+
+        this.loadEvents(bot)
+        this.loadCommands(bot)
+        
+})
+    }
+
+
+
+     // Create the Minecraft bot
+    async CreateBot() {
+
+   const CreatedBot = new Bot(createBot({
 
   username: process.env['NOME'],
   version: process.env['VERSION'],
   host: process.env['IP']
 
 }), this
-).bot
+)
 
-       this.CreateBot(CreatedBot)
+return CreatedBot.bot
 
-        this.loadEvents()
-        this.loadCommands()
-        
-
-    }
-
-
-
-     // Create the Minecraft bot
-    async CreateBot(bot) {
-       return this.bot = bot    
     }
 
     // Update/set chat
@@ -61,7 +63,7 @@ const CreatedBot = new Bot(createBot({
 
 
     // Load commands
-    loadCommands(path = 'src/commands/discord') {
+    loadCommands(bot, path = 'src/commands/discord') {
 
         // Get path of commands
             const commands = readdirSync(path)
@@ -69,7 +71,7 @@ const CreatedBot = new Bot(createBot({
             // Get a event of every command
                 for (const command of commands) {
                     const commandClass = require(join(process.cwd(), `${path}/${command}`))
-                    const cmd = new (commandClass)(this, this.bot)
+                    const cmd = new (commandClass)(this, bot)
 
                     // Load the command
                     this.commands.push(cmd)
@@ -79,7 +81,7 @@ const CreatedBot = new Bot(createBot({
     }
 
     // Load events
-    loadEvents(path = 'src/events/discord') {
+    loadEvents(bot, path = 'src/events/discord') {
 
         // Get path of events
             const events = readdirSync(path)
@@ -87,7 +89,7 @@ const CreatedBot = new Bot(createBot({
             // Get a event of every event
                 for (const event of events) {
                     const eventClass = require(join(process.cwd(), `${path}/${event}`))
-                    const evt = new (eventClass)(this, this.bot)
+                    const evt = new (eventClass)(this, bot)
     
                     // Load the event
                     this.on(evt.name, evt.run)
