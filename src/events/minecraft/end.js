@@ -26,7 +26,9 @@ client.chat.send('Reconectando...')
         }
 
 
-        setTimeout(relog, 40000, this.client)
+        setTimeout(() => {
+            relog(this.client)
+        }, 40000)
 
     }
 }
