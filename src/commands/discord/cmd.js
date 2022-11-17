@@ -25,7 +25,15 @@ module.exports = class extends Command.dCommand {
 
         console.log(command)
         await bot.chat('/' + command)
-        await interaction.reply('Comando enviado.')
+        await bot.once('message', message => {
+const msg = message.toString()
+
+
+        if(msg === '') return
+        if(msg === ' ') return
+        interaction.reply(msg)
+        
+})
         await wait(1000)
         await interaction.deleteReply()
 
