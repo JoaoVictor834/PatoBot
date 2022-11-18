@@ -14,7 +14,7 @@ module.exports = class extends Event.mEvent {
         const reason = matches[0][1]
         const user = matches[0][0]
 
-if(user === this.bot.username) return this.client.cmd.send(`> ${this.bot.username} morreu por ${this.ebot.filter.clean(reason.trim())} :( `)
+if(user === this.bot.username) return this.client.cmd.send(`> ${this.bot.username} ${this.ebot.filter.clean(reason.trim())} :( `)
 
         const DeathEmbed = new EmbedBuilder()
           .setDescription(`*${user}* ${this.ebot.filter.clean(reason.trim())}!`)
