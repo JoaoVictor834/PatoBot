@@ -27,14 +27,15 @@ module.exports = class extends Command.dCommand {
         await bot.chat('/' + command)
         await bot.once('message', message => {
 const msg = message.toString()
-
+     
 
         if(msg === '') return
         if(msg === ' ') return
+        if(/Você]/.test(msg)) return 
         interaction.reply(msg)
         
 })
-        await wait(10000)
+        await wait(20000)
         await interaction.deleteReply()
 
     }
