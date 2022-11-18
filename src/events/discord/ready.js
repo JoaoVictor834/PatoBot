@@ -25,7 +25,7 @@ module.exports = class extends Event.dEvent {
         
         this.client.user.setPresence({
             activities: [{
-                name: `Patobot chad`,
+                name: `Como dupa?`,
                 type: ActivityType.Playing,
                 url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             }
