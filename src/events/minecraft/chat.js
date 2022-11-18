@@ -13,7 +13,7 @@ module.exports = class extends Event.mEvent {
     run = (username, message) => {
 
 
-        if(username === this.bot.username) return this.client.cmd.send(`> ${message}`)
+        if(username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
         
         this.client.chat.send(`${username}: ${message}`)
        
