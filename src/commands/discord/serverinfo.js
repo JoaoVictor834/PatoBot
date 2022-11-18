@@ -6,17 +6,19 @@ module.exports = class extends Command.dCommand {
     constructor(client) {
         super(client, {
             name: 'serverinfo',
-            description: 'Saiba quantos players tem online no servidor'
+            description: 'Exibe as informações do servidor'
         })
     }
     run = (bot, interaction) => {
 
+        const Players = Object.keys(bot.players)
         const infoEmebed = new EmbedBuilder()
         .setTitle('Informações do Servidor')
-        .setDescription(`Tps: *${bot.getTps()}*;\nNick: *${process.env['NAME']}*;\nIp: *${process.env['IP']}*;\nVersão: *${process.env['VERSION']}*;\nSeed: *4030416628395652580*.`) 
+        .setDescription(`Tps: *${bot.getTps()}*;\nNick: *${bot.username}*;\nIp: *${bot.host}*;\nVersão: *${bot.version}*;\nSeed: *4030416628395652580*.`) 
         .addFields({
             name:'Players',
-            value: `Players online: \`${Object.keys(bot.players).join(', ')}\`\nPossui ${Object.keys(bot.players).join(', ').split(',').length} Players online.`
+            value: `Players online: \`${Players.join(', ')}\` + Players.join(', ')split(',').lenght > 0 ? `\nPossui ${Players.join(', ').split(',').length} Player(s) online.` : `\nO servidor está offline.`
+
         })
         .setColor('Orange')
         .setTimestamp()
