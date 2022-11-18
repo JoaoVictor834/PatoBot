@@ -59,7 +59,7 @@ const filterconfig = {
                     }
 
                     setTimeout(antiafk, 5000)
-client.cmd.send(`Bot conectado com sucesso ✅`)
+client.chat.send(`Bot conectado com sucesso ✅`)
 
         })
         })
