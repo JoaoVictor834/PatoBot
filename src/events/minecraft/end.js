@@ -16,7 +16,7 @@ module.exports = class extends Event.mEvent {
          function relog(client) {
 
 console.log('Reconnecting...')
-client.chat.send('Reconectando...')
+client.chat.send('Reconectando ⏳')
 
           const CreatedBot = new Bot(createBot({
                 username: process.env['NAME'],
