@@ -15,7 +15,7 @@ module.exports = class extends Event.mEvent {
 
         if(username === this.bot.username) return this.client.cmd.send(`> ${message}`)
         
-        
+        this.client.chat.send(`${username}: ${message}`)
        
             const args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
@@ -48,7 +48,7 @@ return c.aliases.find(a => {
 
             if(cmd) cmd.run(username, message, args)
 
-this.client.chat.send(`${username}: ${message}`)
+
 
 
 
