@@ -8,7 +8,7 @@ module.exports = class extends Command.dCommand {
             description: 'Status atuais do bot.'
         })
     }
-    run = async (interaction) => {
+    run = async (bot, interaction) => {
         const m =  await interaction.reply({ content: 'Carregando...', fetchReply: true })
         const latency = Math.abs(m.createdTimestamp - interaction.createdTimestamp)
 
