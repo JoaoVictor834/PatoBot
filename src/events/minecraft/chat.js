@@ -20,17 +20,7 @@ module.exports = class extends Event.mEvent {
             const args = message.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
 
-            
-            
            
-           
-                this.ebot.commands.find(c =>  {
-                    if(c.aliases === undefined) return
-
-                 return c.aliases.find(a => a === command)
-                    
-                })
-            
 
 
            const cmd = message.startsWith(prefix) ?
