@@ -17,7 +17,7 @@ module.exports = class extends Command.dCommand {
         .setDescription(`Tps: *${bot.getTps()}*;\nNick: *${bot.username}*;\nIp: *${process.env['IP']}*;\nVersão: *${bot.version}*;\nSeed: *4030416628395652580*.`) 
         .addFields({
             name:'Players',
-            value: Players.join(', ').split(',').length === 0 ? `Players online: \`${Players.join(', ')}\`\nO servidor está offline.` : `\nPossui ${Players.join(', ').split(',').length} Player(s) online.`
+            value: Players.join(', ').split(',').length === 0 ? `Players online: \`${Players.join(', ')}\` \nPossui ${Players.join(', ')} online.` : `O servidor está offline.`
 
         })
         .setColor('Orange')
