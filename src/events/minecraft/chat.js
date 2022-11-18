@@ -11,9 +11,9 @@ module.exports = class extends Event.mEvent {
     } 
     
     run = (username, message) => {
-this.client.cmd.send(`> ${message}`)
+L
 
-        if(username === this.bot.username) return
+        if(username === this.bot.username) return this.client.cmd.send(`> ${message}`)
         
         
        
@@ -56,8 +56,9 @@ return c.aliases.find(a => {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-            if(cmd) return cmd.run(username, message, args)
+            if(cmd) cmd.run(username, message, args)
 
+this.client.chat.send(`${username}: ${message}`)
 
 
 
