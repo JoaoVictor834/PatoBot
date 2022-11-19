@@ -17,7 +17,7 @@ module.exports = class extends Event.mEvent {
         if(/<@/.test(message)) return
         this.client.chat.send(`${username}: ${message}`)
        
-            const args = message.slice(1).trim().split(/ +/g);
+            const args = message.slice(prefix.lenght).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
 
            
