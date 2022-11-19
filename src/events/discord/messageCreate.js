@@ -10,8 +10,8 @@ module.exports = class extends Event.dEvent {
     
     run = (message) => {
       if(message.channel.id !== process.env['CHATBOT']) return
+if(message.mentions.members.size > 0) return
       if(message.author.id === this.client.user.id) return
-      if(message.mentions.members.size > 0) return
       if (/Você]/.test(message)) return
       if(message.content.startsWith('&') && message.author.id !== '990061390029012992') return message.reply('Se quiser usar cor compre apoiador boboca https://loja.anarkcraft.xyz')
       message.client.bot.chat(`${message.author.username}: ${message}`)
