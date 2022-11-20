@@ -1,7 +1,7 @@
 const Event = require('../../structures/Event')
 const Bot = require('../../structures/Bot')
 const { createBot } = require('mineflayer')
-require('dotenv').config()
+const { NAME, VERSION, IP } = require('../../../config')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, _) {
@@ -19,9 +19,9 @@ console.log('Reconnecting...')
 client.chat.send('Reconectando ⏳')
 
           const CreatedBot = new Bot(createBot({
-                username: process.env['NAME'],
-                version: process.env['VERSION'],
-                host: process.env['IP']
+                username: 'NAME',
+                version: 'VERSION',
+                host: 'IP'
             }), client)
 
           client.bot = CreatedBot.bot
