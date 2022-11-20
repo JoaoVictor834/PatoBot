@@ -1,6 +1,5 @@
 const Event = require('../../structures/Event')
-require('dotenv').config()
-const prefix = process.env['PREFIX']
+const { PREFIX } = require('../../../config')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
@@ -14,16 +13,16 @@ module.exports = class extends Event.mEvent {
 
 
         if(username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
-        if(/<@/.test(message)) return
+        if(/\@/.test(message)) return
         this.client.chat.send(`${username}: ${message}`)
        
-            const args = message.slice(prefix.lenght).trim().split(/ +/g);
+            const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
 
            
 
 
-           const cmd = message.startsWith(prefix) ?
+           const cmd = message.startsWith(PREFIX) ?
 
             this.ebot.commands.find(c => c.name === command) ||
             this.ebot.commands.find(c => { 
