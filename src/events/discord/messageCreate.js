@@ -1,5 +1,5 @@
 const Event = require('../../structures/Event')
-require('dotenv').config()
+const { CHATBOT } = require('../../../config')
 
 module.exports = class extends Event.dEvent {
     constructor(client) {
