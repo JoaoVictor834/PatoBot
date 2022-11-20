@@ -3,7 +3,7 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const Bot = require('./Bot')
 const { createBot } = require('mineflayer')
-require('dotenv').config()
+const { NAME, IP, VERSION, CHATBOT, CMDBOT, GUILD_ID } = require('../../config')
 
 //Export a class of client
 module.exports = class extends Client {
@@ -16,29 +16,29 @@ module.exports = class extends Client {
            this.bot
            this.loadEvents()
            this.loadCommands()
-this.botCreate()
+           this.botCreate()
 
     
     }
 
    botCreate() {
 const options = {
-         username: process.env['NOME'],
-         version: process.env['VERSION'],
-         host: process.env['IP']
+         username: NAME,
+         version: VERSION,
+         host: IP
 }
 
         const CreatedBot = new Bot(createBot(options), this)
-       return this.bot = CreatedBot.bot
+        return this.bot = CreatedBot.bot
 
 }
 
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
-        return this.channels.cache.get(process.env['CHATBOT'])
+        return this.channels.cache.get(CHATBOT)
         } else if(type === 'chatcmd') {
-            return this.channels.cache.get(process.env['CMDBOT'])
+            return this.channels.cache.get(CMDBOT)
         }
     }
 
@@ -46,7 +46,7 @@ const options = {
     async registryCommands() {
         console.log('Carregando comandos de barra (/)')
 
-        this.guilds.cache.get(process.env['GUILD_ID']).commands.set([])
+        this.guilds.cache.get(GUILD_ID).commands.set([])
 
         await this.application.commands.set(this.commands)
             .catch(error => console.log(error))
@@ -82,7 +82,7 @@ const options = {
             // Get a event of every event
                 for (const event of events) {
                     const eventClass = require(join(process.cwd(), `${path}/${event}`))
-                    const evt = new (eventClass)(this, this.bot)
+                    const evt = new (eventClass)(this)
     
                     // Load the event
                     this.on(evt.name, evt.run)

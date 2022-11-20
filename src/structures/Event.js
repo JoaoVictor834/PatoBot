@@ -2,9 +2,8 @@
 
 module.exports = {
     dEvent: class {
-    constructor(client, bot, options) {
+    constructor(client, options) {
         this.client = client
-        this.bot = bot
         this.name = options.name
     }
 },

@@ -3,8 +3,7 @@ const { GatewayIntentBits } = require('discord.js'
 )
 const Client = require('./src/structures/Client')
 
-//Enviroments Variables Configuration
-require('dotenv').config()
+const { BOT_TOKEN } = require('./config')
 
 // Create the client
 const client = new Client({
@@ -16,4 +15,4 @@ const client = new Client({
 })
 
 // Login in the discord bot
-client.login(process.env['BOT_TOKEN'])
+client.login(BOT_TOKEN)

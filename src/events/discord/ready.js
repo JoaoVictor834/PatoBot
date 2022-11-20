@@ -4,8 +4,8 @@ const { createBot } = require('mineflayer')
 const Bot = require('../../structures/Bot')
 
 module.exports = class extends Event.dEvent {
-    constructor(client, bot) {
-        super(client, bot, {
+    constructor(client) {
+        super(client, {
             name: 'ready'
         })
     }
