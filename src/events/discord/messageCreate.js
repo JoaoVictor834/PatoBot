@@ -9,7 +9,7 @@ module.exports = class extends Event.dEvent {
     }
     
     run = (message) => {
-      if(message.channel.id !== process.env['CHATBOT']) return
+      if(message.channel.id !== CHATBOT return
 
       if(message.author.id === this.client.user.id) return
 
