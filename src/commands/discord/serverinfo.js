@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command')
 const { EmbedBuilder } = require('discord.js')
-const { IP } = require(../../../config)
+const { IP } = require('../../../config')
 
 module.exports = class extends Command.dCommand {
     constructor(client) {
