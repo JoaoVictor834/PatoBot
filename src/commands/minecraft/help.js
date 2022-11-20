@@ -1,4 +1,5 @@
 const Command = require('../../structures/Command')
+const { COMMANDS } = require('../../../config')
 
 module.exports = class extends Command.mCommand {
     constructor(bot, client, _) {
@@ -9,7 +10,7 @@ module.exports = class extends Command.mCommand {
     }
     run = () => {
 
-        this.bot.chat(`Oi! eu sou o bot mais chad do mundo. Comandos disponíveis: -coords, -status, -coordleak e -dupe. Dê oi ao PatoBot!`)
+        this.bot.chat(`Oi! eu sou o bot mais chad do mundo. Comandos disponíveis: ${COMMANDS}`)
 
     }
 }
