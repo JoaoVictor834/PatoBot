@@ -19,9 +19,9 @@ console.log('Reconnecting...')
 client.chat.send('Reconectando ⏳')
 
           const CreatedBot = new Bot(createBot({
-                username: 'NAME',
-                version: 'VERSION',
-                host: 'IP'
+                username: NAME,
+                version: VERSION,
+                host: IP
             }), client)
 
           client.bot = CreatedBot.bot
