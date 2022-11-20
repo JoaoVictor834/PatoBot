@@ -19,9 +19,9 @@ O PatoBot foi feito com a api [mineflayer](https://github.com/PrismarineJS/minef
 
 "ChatPatterns": [
 {
-"name": "advancement",
-"regex": "(.+) has made the advancement [(.+)]",
-"options": { "parse": true, "repeat": true }
+"name": "nome da pattern",
+"regex": "RegXp da pattern",
+"options": { "parse": true, "repeat": true } 
 }
 ]
 ```
