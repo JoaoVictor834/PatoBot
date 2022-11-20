@@ -3,7 +3,7 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const Bot = require('./Bot')
 const { createBot } = require('mineflayer')
-const { NAME, IP, VERSION, CHATBOT, CMDBOT } = require('../../config')
+const { NAME, IP, VERSION, CHATBOT, CMDBOT, GUILD_ID } = require('../../config')
 
 //Export a class of client
 module.exports = class extends Client {
@@ -46,7 +46,7 @@ const options = {
     async registryCommands() {
         console.log('Carregando comandos de barra (/)')
 
-        this.guilds.cache.get(process.env['GUILD_ID']).commands.set([])
+        this.guilds.cache.get(GUILD_ID).commands.set([])
 
         await this.application.commands.set(this.commands)
             .catch(error => console.log(error))
