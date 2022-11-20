@@ -2,7 +2,6 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const mineflayer = require('mineflayer')
 const tpsPlugin = require('mineflayer-tps')(mineflayer)
-//var radarPlugin = require('mineflayer-radar')(mineflayer)
 const filterlist = require('../../filter.json')
 const Filter = require('badwords-filter')
 
@@ -59,7 +58,7 @@ const filterconfig = {
                     }
 
                     setTimeout(antiafk, 5000)
-client.chat.send(`Bot conectado com sucesso ✅`)
+                    client.chat.send(`Bot conectado com sucesso ✅`)
 
         })
         })
