@@ -16,6 +16,7 @@ O PatoBot foi feito com a api [mineflayer](https://github.com/PrismarineJS/minef
 "GUILD_ID":"Id do servidor do discord",
 "CHATBOT":"Chat do jogo",
 "CMDBOT":"Console do bot",
+"COMMANDS:"-help, -seed, -dupe, -coordleak. de oi ao PatoBot!"
 
 "ChatPatterns": [
 {
