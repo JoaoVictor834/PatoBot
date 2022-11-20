@@ -1,6 +1,6 @@
 const Event = require('../../structures/Event')
 const wait = require('node:timers/promises').setTimeout
-require('dotenv').config()
+const { LOGIN } = require('../../../config')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, _) {
@@ -13,7 +13,7 @@ module.exports = class extends Event.mEvent {
 
     
         await wait(1000)
-        await this.bot.chat('/login ' + process.env['LOGIN'])
+        await this.bot.chat('/login ' + LOGIN)
         await wait(1000)
         await this.bot.chat('/queue anarkcraft')
 
