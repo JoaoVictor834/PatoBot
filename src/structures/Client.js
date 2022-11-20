@@ -3,7 +3,8 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const Bot = require('./Bot')
 const { createBot } = require('mineflayer')
-const { NAME, IP, VERSION, CHATBOT, CMDBOT, GUILD_ID } = require('../../config')
+const { NAME, IP, VERSION, CHATBOT, CMDBOT, GUILD_ID, LOGIN } = require('../../config')
+const AutoAuth = require('mineflayer-auto-auth')
 
 //Export a class of client
 module.exports = class extends Client {
@@ -23,6 +24,8 @@ module.exports = class extends Client {
 
    botCreate() {
 const options = {
+         plugins: [AutoAuth],
+         AutoAuth: LOGIN,
          username: NAME,
          version: VERSION,
          host: IP
