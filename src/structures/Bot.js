@@ -2,7 +2,7 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const mineflayer = require('mineflayer')
 const tpsPlugin = require('mineflayer-tps')(mineflayer)
-const { ChatPatterns } = require(../../config)
+const { ChatPatterns } = require('../../config')
 const filterlist = require('../../filter.json')
 const Filter = require('badwords-filter')
 
