@@ -68,9 +68,10 @@ client.chat.send(`Bot conectado com sucesso ✅`)
 
     updateChatPatern() {
 
-        Object.keys(ChatPatterns).forEach(Pattern => {
+        ChatPatterns.forEach(Pattern => {
        
        this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex), Pattern.options)
+
 })
 
     }
