@@ -13,7 +13,7 @@ module.exports = class extends Event.mEvent {
 
 
         if(username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
-        if(/\@/.test(message)) return
+        if(/\@/.test(message) || /anarigoto/.test(message)) return
         this.client.chat.send(`${username}: ${message}`)
        
             const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
