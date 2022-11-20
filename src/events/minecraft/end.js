@@ -1,7 +1,8 @@
 const Event = require('../../structures/Event')
 const Bot = require('../../structures/Bot')
 const { createBot } = require('mineflayer')
-const { NAME, VERSION, IP } = require('../../../config')
+const { NAME, VERSION, IP, LOGIN } = require('../../../config')
+const AutoAuth = require('mineflayer-auto-auth')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, _) {
@@ -19,6 +20,8 @@ console.log('Reconnecting...')
 client.chat.send('Reconectando ⏳')
 
           const CreatedBot = new Bot(createBot({
+                plugins: [AutoAuth],
+                AutoAuth: LOGIN,
                 username: NAME,
                 version: VERSION,
                 host: IP
