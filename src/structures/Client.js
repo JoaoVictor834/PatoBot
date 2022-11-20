@@ -3,7 +3,7 @@ const { readdirSync } = require('fs')
 const { join } = require('path')
 const Bot = require('./Bot')
 const { createBot } = require('mineflayer')
-require('dotenv').config()
+const { NAME, IP, VERSION, CHATBOT, CMDBOT } = require('../../config')
 
 //Export a class of client
 module.exports = class extends Client {
@@ -23,9 +23,9 @@ module.exports = class extends Client {
 
    botCreate() {
 const options = {
-         username: process.env['NOME'],
-         version: process.env['VERSION'],
-         host: process.env['IP']
+         username: NAME,
+         version: VERSION,
+         host: IP
 }
 
         const CreatedBot = new Bot(createBot(options), this)
@@ -36,9 +36,9 @@ const options = {
     // Update/set chat
     updateChat(type) {
         if(type === 'chatbot') {
-        return this.channels.cache.get(process.env['CHATBOT'])
+        return this.channels.cache.get(CHATBOT)
         } else if(type === 'chatcmd') {
-            return this.channels.cache.get(process.env['CMDBOT'])
+            return this.channels.cache.get(CMDBOT)
         }
     }
 
