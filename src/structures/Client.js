@@ -16,7 +16,7 @@ module.exports = class extends Client {
            this.bot
            this.loadEvents()
            this.loadCommands()
-this.botCreate()
+           this.botCreate()
 
     
     }
@@ -29,7 +29,7 @@ const options = {
 }
 
         const CreatedBot = new Bot(createBot(options), this)
-       return this.bot = CreatedBot.bot
+        return this.bot = CreatedBot.bot
 
 }
 
@@ -82,7 +82,7 @@ const options = {
             // Get a event of every event
                 for (const event of events) {
                     const eventClass = require(join(process.cwd(), `${path}/${event}`))
-                    const evt = new (eventClass)(this, this.bot)
+                    const evt = new (eventClass)(this)
     
                     // Load the event
                     this.on(evt.name, evt.run)
