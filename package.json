@@ -1,6 +1,6 @@
 {
   "name": "patobot3",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "badwords-filter": "^1.3.0",
-    "discord.js": "^14.6.0",
+    "discord.js": "14.6.0",
     "dotenv": "^16.0.3",
     "mineflayer": "^4.5.1",
-    "mineflayer-radar": "^0.0.2",
-    "mineflayer-tps": "^1.0.1"
+    "mineflayer-tps": "^1.0.1",
+    "mineflayer-auto-auth": "^2.0.0"
   }
 }
