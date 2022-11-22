@@ -12,6 +12,7 @@ module.exports = class extends Event.dEvent {
       if(message.channel.id !== CHATBOT) return
 
       if(message.author.id === this.client.user.id) return
+      if(message.webhookId) return
 
       if(message.content.startsWith('&') && message.author.id !== '990061390029012992') return message.reply('Se quiser usar cor compre apoiador boboca https://loja.anarkcraft.xyz')
       message.client.bot.chat(`${message.author.username}: ${message}`)

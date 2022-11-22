@@ -1,5 +1,5 @@
 const Event = require('../../structures/Event')
-const { PREFIX } = require('../../../config')
+const { PREFIX, HOOK } = require('../../../config')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
@@ -13,13 +13,22 @@ module.exports = class extends Event.mEvent {
 
 
         if(username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
-        if(/\@/.test(message) || /anarigoto/.test(message)) return
-        this.client.chat.send(`${username}: ${message}`)
+        if(/\@/.test(message) || /anarigoto/.test(message) || /Você/.test(message)) return
+        
+        
        
             const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
 
-           
+           this.client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
+           .then(hk => {
+            hk.send(
+                {
+                    content: this.ebot.filter.clean(message),
+                    username: username
+                }
+            )
+           })
 
 
            const cmd = message.startsWith(PREFIX) ?

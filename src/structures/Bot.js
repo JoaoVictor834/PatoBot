@@ -23,7 +23,8 @@ const filterconfig = {
         this.commands = []
         this.loadCommands()
         this.loadEvents() 
-        this.updateChatPatern()
+
+        if(ChatPatterns && ChatPatterns !== undefined) this.updateChatPatern()
 
         
         bot.loadPlugin(tpsPlugin)
@@ -59,7 +60,7 @@ const filterconfig = {
                     }
 
                     setTimeout(antiafk, 5000)
-client.chat.send(`Bot conectado com sucesso ✅`)
+client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
 
         })
         })
@@ -69,7 +70,10 @@ client.chat.send(`Bot conectado com sucesso ✅`)
     updateChatPatern() {
         
         ChatPatterns.forEach(Pattern => {
-       this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex), Pattern.options)
+           if(!Pattern || !Pattern.name || Pattern.regex) return
+
+       Pattern.options ? this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex), Pattern.options)
+       : this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex))
 
 })
 

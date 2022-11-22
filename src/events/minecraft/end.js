@@ -17,7 +17,7 @@ module.exports = class extends Event.mEvent {
          function relog(client) {
 
 console.log('Reconnecting...')
-client.chat.send('Reconectando ⏳')
+client.chat.send('Reconectando <a:load:1044704168159498340>')
 
           const CreatedBot = new Bot(createBot({
                 plugins: [AutoAuth],

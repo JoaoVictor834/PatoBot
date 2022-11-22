@@ -7,7 +7,9 @@ O PatoBot foi feito com a api [mineflayer](https://github.com/PrismarineJS/minef
 - Exemplo de config.json
 
 ```json
+{
 "BOT_TOKEN":"Token do bot",
+"UseAuthentication": true,
 "LOGIN":"senha",
 "IP":"IP do servidor",
 "NAME":"nome do bot",
@@ -16,7 +18,11 @@ O PatoBot foi feito com a api [mineflayer](https://github.com/PrismarineJS/minef
 "GUILD_ID":"Id do servidor do discord",
 "CHATBOT":"Chat do jogo",
 "CMDBOT":"Console do bot",
-"COMMANDS":"-help, -seed, -dupe, -coordleak. De oi ao PatoBot!"
+"COMMANDS":"-help, -seed, -dupe, -coordleak. De oi ao PatoBot!",
+"HOOK": {
+    "ID": "id da hook",
+    "TOKEN":"token da hook"
+}
 
 "ChatPatterns": [
 {
@@ -25,4 +31,5 @@ O PatoBot foi feito com a api [mineflayer](https://github.com/PrismarineJS/minef
 "options": { "parse": true, "repeat": true } 
 }
 ]
+}
 ```
