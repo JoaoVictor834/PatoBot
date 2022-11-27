@@ -22,11 +22,8 @@ module.exports = class extends Event.mEvent {
 
     run = async (username, message) => {
 
-
-
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
-
 
 
         const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
