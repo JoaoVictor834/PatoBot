@@ -24,7 +24,7 @@ const filterconfig = {
         this.loadCommands()
         this.loadEvents() 
 
-        if(ChatPatterns && ChatPatterns !== undefined) this.updateChatPatern()
+        if(ChatPatterns) this.updateChatPatern()
 
         
         bot.loadPlugin(tpsPlugin)
@@ -70,7 +70,7 @@ client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
     updateChatPatern() {
         
         ChatPatterns.forEach(Pattern => {
-           if(!Pattern || !Pattern.name || Pattern.regex) return
+           if(!Pattern || !Pattern.name || !Pattern.regex) return
 
        Pattern.options ? this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex), Pattern.options)
        : this.bot.addChatPattern(Pattern.name, new RegExp(Pattern.regex))
