@@ -9,7 +9,7 @@ const Filter = require('badwords-filter')
 
 const filterconfig = {
     list: filterlist.words,
-    cleanWith: "#",
+    cleanWith: ['#', '@', '*', '!', '?', '$', '&', '%'],
     useRegex: true,
   }
 
