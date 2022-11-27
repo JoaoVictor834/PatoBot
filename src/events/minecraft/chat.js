@@ -23,6 +23,7 @@ module.exports = class extends Event.mEvent {
     run = async (username, message) => {
 
 
+
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
 
@@ -31,9 +32,10 @@ module.exports = class extends Event.mEvent {
         const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
 
-        try {
+        
 
-            const getUUID = async (path = `https://playerdb.co/api/player/minecraft/${username}`) => {
+
+            async function getUUID(path = `https://playerdb.co/api/player/minecraft/${username}`) => {
                 const response = await fetch(path)
                 const data = await response.json()
 
@@ -89,12 +91,11 @@ module.exports = class extends Event.mEvent {
                             })
                     })
 
-            })
+            }).catch(error, => {
+     console.log(error)
+})
 
-        }
-        catch (err) {
-            console.log(err)
-        }
+        
 
         const cmd = message.startsWith(PREFIX) ?
 
@@ -119,7 +120,7 @@ module.exports = class extends Event.mEvent {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-        if (cmd) cmd.run(username, message, args)
+        if (cmd) return cmd.run(username, message, args)
 
 
 
