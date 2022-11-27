@@ -35,7 +35,7 @@ module.exports = class extends Event.mEvent {
         
 
 
-            async function getUUID(path = `https://playerdb.co/api/player/minecraft/${username}`) => {
+            async function getUUID(path = `https://playerdb.co/api/player/minecraft/${username}`) {
                 const response = await fetch(path)
                 const data = await response.json()
 
