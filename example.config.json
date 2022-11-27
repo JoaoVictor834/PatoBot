@@ -1,6 +1,6 @@
 {
 "BOT_TOKEN":"MTAyNTUzMzQ3OTkzODY4NzEwNg.GfsbfC.Id7jCC2nFIEasn4bY8vzuQ26OgTE2Crz6pV0xE",
-"UseAuthentication": true, //true If you server use /login
+"UseAuthentication": "true se o server usa login",
 "LOGIN":"oi12344",
 "IP":"dqanarquia.xyz",
 "NAME":"Darquelef",
@@ -13,7 +13,7 @@
 "HOOK": {
     "ID": "1051570629164983180",
     "TOKEN":"OFPr_Go8I07JRgOLMgM_kBVJCWOKdciH139QkmTdDyVNMB56_g81NHoNeiz8hlogJFHaB"
-}
+},
 
 "ChatPatterns": [
 {
