@@ -88,7 +88,7 @@ module.exports = class extends Event.mEvent {
                             })
                     })
 
-            }).catch(error, => {
+            }).catch(error => {
      console.log(error)
 })
 
