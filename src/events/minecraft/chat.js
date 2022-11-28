@@ -82,7 +82,7 @@ module.exports = class extends Event.mEvent {
                         hk.send(
                             {
                                 content: this.ebot.filter.clean(message) || '\`Mensagem inválida\`',
-                                username: username === 'discord' ? 'dsicord' || username || 'Nome inválido',
+                                username: username === 'discord' ? 'dsicord' : username || 'Nome inválido',
                                 avatarURL: uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).catch(e => {
