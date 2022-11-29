@@ -1,16 +1,15 @@
 const Event = require('../../structures/Event')
 const { PREFIX, HOOK } = require('../../../config')
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
-const { GUILD_ID } = require('../../../config.json')
 const simplDb = require('simpl.db')
 const names = require('../../../pfp/names.json').names
 
 const database = new simplDb({
     dataFile: 'pfp/database.json',
-    collectionsFolder: 'pfp/skins'
+    collectionsFolder: 'pfp'
 })
 
-const db = database.createCollection('users')
+const db = database.getCollection('users') || database.createCollection('users')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
@@ -22,15 +21,17 @@ module.exports = class extends Event.mEvent {
 
     run = async (username, message) => {
 
-
+// Verifys
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
 
 
-
+// set command and args
         const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
 
+
+        // start of message send
         try {
 
             const getUUID = async (path = `https://playerdb.co/api/player/minecraft/${username}`) => {
@@ -95,6 +96,8 @@ module.exports = class extends Event.mEvent {
         catch (err) {
             console.log(err)
         }
+
+        // End of message send and stars of commands
 
         const cmd = message.startsWith(PREFIX) ?
 
