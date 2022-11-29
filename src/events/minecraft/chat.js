@@ -80,14 +80,17 @@ module.exports = class extends Event.mEvent {
             getUUID().then(uuid => {
                 this.client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
                     .then(async hk => {
-
+  
                         hk.send(
                             {
-                                content: this.ebot.filter.clean(message),
-                                username: username !== 'discord' ? username : 'dsicord',
+                                content: this.ebot.filter.clean(message) || '\`Mensagem inválida\`',
+                                username: username || 'Nome invalido',
                                 avatarURL: uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
-                            })
+                            }).catch(e => {
+                       console.log(e)
+                       
+})
                     })
 
             })
@@ -96,8 +99,6 @@ module.exports = class extends Event.mEvent {
         catch (err) {
             console.log(err)
         }
-
-        // End of message send and stars of commands
 
         const cmd = message.startsWith(PREFIX) ?
 
@@ -122,7 +123,7 @@ module.exports = class extends Event.mEvent {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-        if (cmd) cmd.run(username, message, args)
+        if (cmd) return cmd.run(username, message, args)
 
 
 
