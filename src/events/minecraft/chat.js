@@ -1,15 +1,8 @@
 const Event = require('../../structures/Event')
 const { PREFIX, HOOK } = require('../../../config')
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
-const simplDb = require('simpl.db')
 const names = require('../../../pfp/names.json').names
 
-const database = new simplDb({
-    dataFile: 'pfp/database.json',
-    collectionsFolder: 'pfp'
-})
-
-const db = database.getCollection('users') || database.createCollection('users')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
@@ -21,20 +14,16 @@ module.exports = class extends Event.mEvent {
 
     run = async (username, message) => {
 
+        const db = this.ebot.db
+
 // Verifys
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
 
 
-// set command and args
-        const args = message.slice(PREFIX.lenght).trim().split(/ +/g);
-        const command = args.shift().toLowerCase();
 
-
-        // start of message send
-        try {
-
-            const getUUID = async (path = `https://playerdb.co/api/player/minecraft/${username}`) => {
+// start of message send
+            async function getUUID (path = `https://playerdb.co/api/player/minecraft/${username}`) {
                 const response = await fetch(path)
                 const data = await response.json()
 
@@ -62,7 +51,8 @@ module.exports = class extends Event.mEvent {
 
                     await db.create({
                         name: username,
-                        avatar: avatar
+                        avatar: avatar,
+                        useCustomSkin: true
                     })
 
                     let user = await db.get(a => a.name === username).avatar
@@ -77,6 +67,22 @@ module.exports = class extends Event.mEvent {
                 }
             }
 
+            async function getAvatar() {
+              
+                if(!db.has(a => a.name === username)) return false
+
+                    let user = db.get(a => a.name === username)
+
+                    if(!user.useCustomSkin) return false
+           
+                        const response = await fetch(`https://playerdb.co/api/player/minecraft/${user.avatar}`)
+                        const data = await response.json()
+    
+                        if (data.code !== 'player.found') return false
+                        return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`   
+                    
+            }
+
             getUUID().then(uuid => {
                 this.client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
                     .then(async hk => {
@@ -85,7 +91,7 @@ module.exports = class extends Event.mEvent {
                             {
                                 content: this.ebot.filter.clean(message) || '\`Mensagem inválida\`',
                                 username: username || 'Nome invalido',
-                                avatarURL: uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
+                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).catch(e => {
                        console.log(e)
@@ -95,10 +101,9 @@ module.exports = class extends Event.mEvent {
 
             })
 
-        }
-        catch (err) {
-            console.log(err)
-        }
+            
+                    const args = message.slice(PREFIX.length).trim().split(/ +/g);
+                    const command = args.shift().toLowerCase();
 
         const cmd = message.startsWith(PREFIX) ?
 
@@ -108,7 +113,6 @@ module.exports = class extends Event.mEvent {
 
                 return c.aliases.find(a => a === command)
             }) :
-
             this.ebot.commands.find(c => {
                 if (c.aliases === undefined) return false
 
@@ -123,7 +127,7 @@ module.exports = class extends Event.mEvent {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-        if (cmd) return cmd.run(username, message, args)
+        if (cmd) cmd.run(username, message, args)
 
 
 

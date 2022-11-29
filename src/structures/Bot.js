@@ -5,7 +5,14 @@ const tpsPlugin = require('mineflayer-tps')(mineflayer)
 const { ChatPatterns } = require('../../config')
 const filterlist = require('../../filter.json')
 const Filter = require('badwords-filter')
+const simplDb = require('simpl.db')
 
+const database = new simplDb({
+    dataFile: 'pfp/database.json',
+    collectionsFolder: 'pfp'
+})
+
+const db = database.getCollection('users') || database.createCollection('users')
 
 const filterconfig = {
     list: filterlist.words,
@@ -21,6 +28,7 @@ const filterconfig = {
         this.bot = bot
         this.client = client
         this.commands = []
+        this.db = db
         this.loadCommands()
         this.loadEvents() 
 

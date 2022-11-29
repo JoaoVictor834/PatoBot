@@ -1,35 +1,29 @@
 const Command = require('../../structures/Command')
-const simplDb = require('simpl.db')
-const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
-
-const database = new simplDb({
-    dataFile: 'pfp/database.json',
-    collectionsFolder: 'pfp'
-})
-
-const db = database.getCollection('users') || database.createCollection('users')
+const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url)); 
 
 module.exports = class extends Command.mCommand {
-    constructor(bot, client, _) {
-        super(bot, client, _, {
+    constructor(bot, client, ebot) {
+        super(bot, client, ebot, {
             name: 'skin',
         })
     }
     
     run = async (username, message, args) => {
 
-       async function verifySkin() {
+        const db = this.ebot.db
+
+       async function verifySkin(client) {
             const response = await fetch(`https://playerdb.co/api/player/minecraft/${skin}`)
             const data = await response.json()
 
-            if(data.code !== 'player.found') return this.client.bot.send('Um erro ocorreu. O usuario deve ter a conta original!')
+            if(data.code !== 'player.found') return client.bot.chat('Um erro ocorreu. O usuario deve ter a conta original!')
 
         }
 
         const skin = args[0]
 
-        if(!skin) return this.client.bot.send('Digite o nome de alguem para mim pegar a skin!')
-        await verifySkin()
+        if(!skin) return this.client.bot.chat('Digite o nome de alguem para mim pegar a skin!')
+        await verifySkin(this.client)
 
         
         try {
@@ -42,14 +36,15 @@ module.exports = class extends Command.mCommand {
                user.avatar = skin
                await user.save()
 
-               this.client.bot.send(`Skin atualizada com sucesso para: ${skin}`)
+               this.client.bot.chat(`Skin atualizada com sucesso para: ${skin}`)
                 
 
             } else {
               
                 db.create({
                     name: username,
-                    avatar: skin
+                    avatar: skin,
+                    useCustomSkin: true
                 })
 
             }
@@ -57,7 +52,7 @@ module.exports = class extends Command.mCommand {
 
         } catch (error) {
             console.log(error)
-            this.client.bot.send('Um erro ocorreu.')
+            this.client.bot.chat('Um erro ocorreu.')
         }
 
     }
