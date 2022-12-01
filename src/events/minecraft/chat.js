@@ -91,7 +91,7 @@ module.exports = class extends Event.mEvent {
                             {
                                 content: this.ebot.filter.clean(message) || '\`Mensagem inválida\`',
                                 username: username || 'Nome invalido',
-                                avatarURL: await getAvatar() || uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
+                                avatarURL: uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar() : await getAvatar()
 
                             }).catch(e => {
                        console.log(e)
