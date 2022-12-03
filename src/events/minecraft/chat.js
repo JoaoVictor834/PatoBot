@@ -1,7 +1,7 @@
 const Event = require('../../structures/Event')
-const { PREFIX, HOOK } = require('../../../config')
-const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
-const names = require('../../../pfp/names.json').names
+const {  chat  } = require('../../antispam')
+const { PREFIX } = require('../../../config')
+
 
 
 module.exports = class extends Event.mEvent {
@@ -10,10 +10,12 @@ module.exports = class extends Event.mEvent {
             name: 'chat'
         })
 
+
     }
+    
 
     run = async (username, message) => {
-
+        const usrmsg = `${username} ${message}`
         const db = this.ebot.db
 
 // Verifys
@@ -21,86 +23,7 @@ module.exports = class extends Event.mEvent {
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
 
 
-
-// start of message send
-            async function getUUID (path = `https://playerdb.co/api/player/minecraft/${username}`) {
-                const response = await fetch(path)
-                const data = await response.json()
-
-                if (data.code !== 'player.found') return
-
-                return await data.data.player.raw_id
-
-            }
-
-            async function RandomAvatar() {
-
-                if (db.has(a => a.name === username)) {
-                    let user = await db.get(a => a.name === username).avatar
-
-                    const response = await fetch(`https://playerdb.co/api/player/minecraft/${user}`)
-                    const data = await response.json()
-
-                    if (data.code !== 'player.found') return
-
-                    return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`
-
-                } else {
-
-                    let avatar = names[Math.floor(Math.random() * names.length)]
-
-                    await db.create({
-                        name: username,
-                        avatar: avatar,
-                        useCustomSkin: true
-                    })
-
-                    let user = await db.get(a => a.name === username).avatar
-
-                    const response = await fetch(`https://playerdb.co/api/player/minecraft/${user}`)
-                    const data = await response.json()
-
-                    if (data.code !== 'player.found') return
-
-                    return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`
-
-                }
-            }
-
-            async function getAvatar() {
-              
-                if(!db.has(a => a.name === username)) return false
-
-                    let user = db.get(a => a.name === username)
-
-                    if(!user.useCustomSkin) return false
-           
-                        const response = await fetch(`https://playerdb.co/api/player/minecraft/${user.avatar}`)
-                        const data = await response.json()
-    
-                        if (data.code !== 'player.found') return false
-                        return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`   
-                    
-            }
-
-            getUUID().then(uuid => {
-                this.client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
-                    .then(async hk => {
-  
-                        hk.send(
-                            {
-                                content: this.ebot.filter.clean(message) || '\`Mensagem inválida\`',
-                                username: username || 'Nome invalido',
-                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
-
-                            }).catch(e => {
-                       console.log(e)
-                       
-})
-                    })
-
-            })
-
+         chat(usrmsg, db, username, this.client, this.ebot, message)
             
                     const args = message.slice(PREFIX.length).trim().split(/ +/g);
                     const command = args.shift().toLowerCase();

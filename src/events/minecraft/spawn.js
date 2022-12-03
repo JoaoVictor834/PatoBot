@@ -14,7 +14,7 @@ module.exports = class extends Event.mEvent {
         await this.bot.chat('/queue anarkcraft')
 
         this.client.cmd.send('> Spawnado')
-        console.log('Spawnado')
+        
        
 
     }

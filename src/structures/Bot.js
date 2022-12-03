@@ -19,7 +19,40 @@ const filterconfig = {
     cleanWith: ['#', '@', '*', '!', '?', '$', '&', '%'],
     useRegex: true,
   }
+  
+  const quantity = {
+	"1": 1,
+	"2": 1,
+	"3": 1,
+	"4": 1,
+	"5": 1,
+	"6": 1,
+	"7": 1,
+	"8": 1,
+	"9": 1,
+	"10": 1
+	}
+	
+ 
+let val = 0
+let dcmsgs = []
 
+const quantityD = {
+	"1": 1,
+	"2": 1,
+	"3": 1,
+	"4": 1,
+	"5": 1,
+	"6": 1,
+	"7": 1,
+	"8": 1,
+	"9": 1,
+	"10": 1
+	}
+	
+ 
+let vald = 0
+let dcmsgsD = []
   
   
   // Exporta a classe do bot  
@@ -29,6 +62,13 @@ const filterconfig = {
         this.client = client
         this.commands = []
         this.db = db
+this.val = val
+this.quantity = quantity
+this.dcmsgs = dcmsgs
+this.vald = vald
+this.quantityD = quantityD
+this.dcmsgsD = dcmsgsD
+
         this.loadCommands()
         this.loadEvents() 
 
@@ -74,6 +114,18 @@ client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
         })
          })
     }
+    
+    getValue(type) {
+    	if(type === "chat") {
+    	return this.val
+    
+    } else {
+    	return this.vald
+    }
+    }
+    
+    
+    
 
     updateChatPatern() {
         
