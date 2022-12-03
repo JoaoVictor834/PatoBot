@@ -23,7 +23,9 @@ module.exports = class extends Event.mEvent {
         if (/\@/.test(message) || /Você]/.test(message) || /\[Você/.test(message)) return
 
 
+
          chat(usrmsg, db, username, this.client, this.ebot, message)
+
             
                     const args = message.slice(PREFIX.length).trim().split(/ +/g);
                     const command = args.shift().toLowerCase();
