@@ -73,6 +73,7 @@ module.exports = {
             
             
             
+           if(val >= 11) ebot.val = 0
            
            if(dcmsgs.some(usm => usm.usrmsg === usrmsg)) {
            	
@@ -119,7 +120,8 @@ for(vez in vezes) {
                                 avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).then(msg => {
-                            	   
+                            	  
+                            if(val >= 11) ebot.val = 0
 
 dcmsgs.push({
 "ID": msg.id,
@@ -147,7 +149,7 @@ if(dcmsgs.lenght >=10) return dcmsgs.shift()
 		
 		ebot.val = ebot.getValue("chat") + 1
 		val = ebot.getValue("chat")
-		
+		if(val >= 11) ebot.val = 0
 		
 		getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
@@ -197,6 +199,8 @@ if(dcmsgs.lenght >=10) return dcmsgs.shift()
     let dval = ebot.getValue("kill")
     let deathmsgs = ebot.dcmsgsD
     
+    if(dval >= 11) ebot.dval = 0
+    
     if(deathmsgs.some(usm => usm.usrreason === usrreason)) {
            	
            let DelId = deathmsgs.find(usm => usm.usrreason === usrreason).ID
@@ -239,7 +243,7 @@ for(vez in vezes) {
                             	
                             
                            
-                            	
+                            	if(dval >= 11) ebot.dval = 0
                          
                        
 
@@ -265,6 +269,8 @@ if(deathmsgs.lenght >=10) deathmsgs.shift()
 		
 		ebot.vald = ebot.getValue("kill") + 1
 		dval = ebot.getValue("kill")
+		
+		if(dval >= 11) ebot.dval = 0
 		
 		const DeathEmbed = new EmbedBuilder()
           .setDescription(`*${username}* ${ebot.filter.clean(reason.trim())}!`)
