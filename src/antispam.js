@@ -129,7 +129,7 @@ dcmsgs.push({
 "val": val
 })
 
-if(dcmsgs.lenght >=10) return dcmsgs.shift()
+if(dcmsgs.lenght >=10) return dcmsgs = []
 
       
 
@@ -172,7 +172,7 @@ dcmsgs.push({
 
 })
 
-if(dcmsgs.lenght >=10) return dcmsgs.shift()
+if(dcmsgs.lenght >=10) return dcmsgs = []
 
 
       
@@ -253,7 +253,7 @@ deathmsgs.push({
 "dval": dval
 })
 
-if(deathmsgs.lenght >=10) deathmsgs.shift()
+if(deathmsgs.lenght >=10) return deathmsgs = []
 
       
 
@@ -287,7 +287,7 @@ deathmsgs.push({
 
 })
 
-if(deathmsgs.lenght >=10) deathmsgs.shift()
+if(deathmsgs.lenght >=10) return deathmsgs = []
 
 
       
