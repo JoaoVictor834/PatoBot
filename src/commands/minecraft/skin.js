@@ -24,7 +24,7 @@ module.exports = class extends Command.mCommand {
         const skin = args[0]
 
         if(!skin) return this.client.bot.chat('Digite o nome de alguem para mim pegar a skin!')
-         if(await verifySkin(this.client) !== 'player.found') return client.bot.chat('Um erro ocorreu. O usuario deve ter a conta original!')
+         if(await verifySkin(this.client) !== 'player.found') return this.client.bot.chat('Um erro ocorreu. O usuario deve ter a conta original!')
 
         
 
