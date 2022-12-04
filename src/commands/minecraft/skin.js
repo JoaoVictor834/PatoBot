@@ -16,14 +16,17 @@ module.exports = class extends Command.mCommand {
             const response = await fetch(`https://playerdb.co/api/player/minecraft/${skin}`)
             const data = await response.json()
 
-            if(data.code !== 'player.found') return client.bot.chat('Um erro ocorreu. O usuario deve ter a conta original!')
+            return data.code
 
+            
         }
 
         const skin = args[0]
 
         if(!skin) return this.client.bot.chat('Digite o nome de alguem para mim pegar a skin!')
-        await verifySkin(this.client)
+         if(await verifySkin(this.client) !== 'player.found') return client.bot.chat('Um erro ocorreu. O usuario deve ter a conta original!')
+
+        
 
         
         try {
