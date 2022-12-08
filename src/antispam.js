@@ -56,6 +56,8 @@ module.exports = {
             }
 
             async function getAvatar() {
+
+              if(username === 'Anarkcraft' || 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
               
                 if(!db.has(a => a.name === username)) return false
 
@@ -154,10 +156,10 @@ if(dcmsgs.lenght >=10) return dcmsgs.splice()
 		getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
                     .then(async hk => {
-  
+
                         hk.send(
                             {
-                                content: `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
+                                content: username === 'Anarkcraft' || 'Broadcast' ? `**${ebot.filter.clean(message)}**` : `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
                                 username: username || 'Nome invalido',
                                 avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
