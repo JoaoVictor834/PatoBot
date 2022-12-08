@@ -159,7 +159,7 @@ if(dcmsgs.lenght >=10) return dcmsgs.splice()
 
                         hk.send(
                             {
-                                content: username === 'Anarkcraft' || 'Broadcast' ? `**${ebot.filter.clean(message)}**` : `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
+                                content: `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
                                 username: username || 'Nome invalido',
                                 avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
