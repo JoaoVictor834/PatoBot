@@ -56,8 +56,8 @@ module.exports = {
             }
 
             async function getAvatar() {
-
-              if(username === 'Anarkcraft' || 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
+if(username === 'Anarkcraft' || username === 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
+              
               
                 if(!db.has(a => a.name === username)) return false
 
@@ -119,7 +119,7 @@ for(vez in vezes) {
                             {
                                 content: `${ebot.filter.clean(message)}(x${x})` || `\`Mensagem inválida (x${x})\``,
                                 username: username || 'Nome invalido',
-                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
+                                avatarURL: await getAvatar() || uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).then(msg => {
                             	  
