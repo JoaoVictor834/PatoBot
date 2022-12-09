@@ -119,11 +119,11 @@ for(vez in vezes) {
                             {
                                 content: `${ebot.filter.clean(message)}(x${x})` || `\`Mensagem inválida (x${x})\``,
                                 username: username || 'Nome invalido',
-                                avatarURL: await getAvatar() || uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
+                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).then(msg => {
                             	  
-                            if(val >= 11) ebot.val = 0
+                            if(val >= 11) return ebot.val = 0
 
 dcmsgs.push({
 "ID": msg.id,
@@ -131,7 +131,7 @@ dcmsgs.push({
 "val": val
 })
 
-if(dcmsgs.lenght >=10) return dcmsgs.splice()
+if(dcmsgs.lenght >=10) return dcmsgs = []
 
       
 
@@ -151,7 +151,7 @@ if(dcmsgs.lenght >=10) return dcmsgs.splice()
 		
 		ebot.val = ebot.getValue("chat") + 1
 		val = ebot.getValue("chat")
-		if(val >= 11) ebot.val = 0
+		if(val >= 11) return ebot.val = 0
 		
 		getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
@@ -174,7 +174,7 @@ dcmsgs.push({
 
 })
 
-if(dcmsgs.lenght >=10) return dcmsgs.splice()
+if(dcmsgs.lenght >=10) return dcmsgs = []
 
 
       
@@ -245,7 +245,7 @@ for(vez in vezes) {
                             	
                             
                            
-                            	if(dval >= 11) ebot.dval = 0
+                            	if(dval >= 11) return ebot.dval = 0
                          
                        
 
@@ -255,7 +255,7 @@ deathmsgs.push({
 "dval": dval
 })
 
-if(deathmsgs.lenght >=10) return deathmsgs.splice()
+if(deathmsgs.lenght >=10) return deathmsgs = []
 
       
 
@@ -272,7 +272,7 @@ if(deathmsgs.lenght >=10) return deathmsgs.splice()
 		ebot.vald = ebot.getValue("kill") + 1
 		dval = ebot.getValue("kill")
 		
-		if(dval >= 11) ebot.dval = 0
+		if(dval >= 11) return ebot.dval = 0
 		
 		const DeathEmbed = new EmbedBuilder()
           .setDescription(`*${username}* ${ebot.filter.clean(reason.trim())}!`)
@@ -289,7 +289,7 @@ deathmsgs.push({
 
 })
 
-if(deathmsgs.lenght >=10) return deathmsgs.splice()
+if(deathmsgs.lenght >=10) return deathmsgs = []
 
 
       
