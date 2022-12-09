@@ -123,7 +123,7 @@ for(vez in vezes) {
 
                             }).then(msg => {
                             	  
-                            if(val >= 11) return ebot.val = 0
+                            
 
 dcmsgs.push({
 "ID": msg.id,
@@ -151,7 +151,7 @@ if(dcmsgs.lenght >=10) return dcmsgs = []
 		
 		ebot.val = ebot.getValue("chat") + 1
 		val = ebot.getValue("chat")
-		if(val >= 11) return ebot.val = 0
+		if(val >= 11) ebot.val = 1
 		
 		getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
@@ -245,8 +245,7 @@ for(vez in vezes) {
                             	
                             
                            
-                            	if(dval >= 11) return ebot.dval = 0
-                         
+                            	
                        
 
 deathmsgs.push({
@@ -269,10 +268,11 @@ if(deathmsgs.lenght >=10) return deathmsgs = []
 	
 	} else {
 		
+
 		ebot.vald = ebot.getValue("kill") + 1
 		dval = ebot.getValue("kill")
+		if(dval >= 11) ebot.dval = 1
 		
-		if(dval >= 11) return ebot.dval = 0
 		
 		const DeathEmbed = new EmbedBuilder()
           .setDescription(`*${username}* ${ebot.filter.clean(reason.trim())}!`)
