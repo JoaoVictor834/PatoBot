@@ -11,7 +11,7 @@ module.exports = {
     let dcmsgs = ebot.dcmsgs
     	
     // start of message send
-            async function getUUID (path = `https://playerdb.co/api/player/minecraft/${username}`) {
+            async function getUUID(path = `https://playerdb.co/api/player/minecraft/${username}`) {
                 const response = await fetch(path)
                 const data = await response.json()
 
@@ -169,7 +169,7 @@ if(dcmsgs.lenght >=10) return dcmsgs = []
 
 dcmsgs.push({
 "ID": msg.id,
-"usrmsg": usrmsg.toString(),
+"usrmsg": usrmsg,
 "val": val
 
 })
@@ -201,7 +201,7 @@ if(dcmsgs.lenght >=10) return dcmsgs = []
     let dval = ebot.getValue("kill")
     let deathmsgs = ebot.dcmsgsD
     
-    if(dval >= 11) ebot.dval = 0
+    if(dval >= 11) ebot.vald = 0
     
     if(deathmsgs.some(usm => usm.usrreason === usrreason)) {
            	
@@ -271,7 +271,7 @@ if(deathmsgs.lenght >=10) return deathmsgs = []
 
 		ebot.vald = ebot.getValue("kill") + 1
 		dval = ebot.getValue("kill")
-		if(dval >= 11) ebot.dval = 1
+		if(dval >= 11) ebot.vald = 1
 		
 		
 		const DeathEmbed = new EmbedBuilder()
@@ -284,7 +284,7 @@ if(deathmsgs.lenght >=10) return deathmsgs = []
 
 deathmsgs.push({
 "ID": msg.id,
-"usrreason": usrreason.toString(),
+"usrreason": usrreason,
 "dval": dval
 
 })
