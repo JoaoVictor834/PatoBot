@@ -132,7 +132,7 @@ dcmsgs.push({
 })
 
 if(dcmsgs.lenght >=10) return dcmsgs = []
-console.log("Dcmsgs value: " + dcmsgs.val)
+console.log("Dcmsgs: " + dcmsgs)
       
 
 
@@ -175,7 +175,7 @@ dcmsgs.push({
 })
 
 if(dcmsgs.lenght >=10) return dcmsgs = []
-console.log("Dcmsgs value: " + dcmsgs.val)
+console.log("Dcmsgs: " + dcmsgs)
 
       
 
@@ -255,7 +255,7 @@ deathmsgs.push({
 })
 
 if(deathmsgs.lenght >=10) return deathmsgs = []
-console.log("DeathsMsg value: " + deathmsgs.dval)
+console.log("DeathsMss: " + deathmsgs)
       
 
 
@@ -290,7 +290,7 @@ deathmsgs.push({
 })
 
 if(deathmsgs.lenght >=10) return deathmsgs = []
-console.log("DeathsMsg value: " + deathmsgs.dval)
+console.log("DeathsMsg: " + deathmsgs)
 
       
 
