@@ -75,7 +75,7 @@ if(username === 'Anarkcraft' || username === 'Broadcast') return 'https://cdn.di
             
             
             
-           if(val >= 11) ebot.val = 0
+           if(val >= 10) ebot.val = 0
            
            if(dcmsgs.some(usm => usm.usrmsg === usrmsg)) {
            	
@@ -132,7 +132,7 @@ dcmsgs.push({
 })
 
 if(dcmsgs.lenght >=10) return dcmsgs = []
-
+console.log(dcmsgs)
       
 
 
@@ -151,7 +151,7 @@ if(dcmsgs.lenght >=10) return dcmsgs = []
 		
 		ebot.val = ebot.getValue("chat") + 1
 		val = ebot.getValue("chat")
-		if(val >= 11) ebot.val = 1
+		if(val >= 10) ebot.val = 1
 		
 		getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
@@ -175,7 +175,7 @@ dcmsgs.push({
 })
 
 if(dcmsgs.lenght >=10) return dcmsgs = []
-
+console.log(dcmsgs)
 
       
 
@@ -201,7 +201,7 @@ if(dcmsgs.lenght >=10) return dcmsgs = []
     let dval = ebot.getValue("kill")
     let deathmsgs = ebot.dcmsgsD
     
-    if(dval >= 11) ebot.vald = 0
+    if(dval >= 10) ebot.vald = 0
     
     if(deathmsgs.some(usm => usm.usrreason === usrreason)) {
            	
@@ -255,7 +255,7 @@ deathmsgs.push({
 })
 
 if(deathmsgs.lenght >=10) return deathmsgs = []
-
+console.log(deathmsgs)
       
 
 
@@ -271,7 +271,7 @@ if(deathmsgs.lenght >=10) return deathmsgs = []
 
 		ebot.vald = ebot.getValue("kill") + 1
 		dval = ebot.getValue("kill")
-		if(dval >= 11) ebot.vald = 1
+		if(dval >= 10) ebot.vald = 1
 		
 		
 		const DeathEmbed = new EmbedBuilder()
@@ -290,7 +290,7 @@ deathmsgs.push({
 })
 
 if(deathmsgs.lenght >=10) return deathmsgs = []
-
+console.log(deathmsgs)
 
       
 
