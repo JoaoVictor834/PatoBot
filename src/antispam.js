@@ -290,7 +290,7 @@ deathmsgs.push({
 })
 
 if(deathmsgs.lenght >=10) return deathmsgs = []
-console.log("DeathsMsg value: " + deathmsgs.dval
+console.log("DeathsMsg value: " + deathmsgs.dval)
 
       
 
