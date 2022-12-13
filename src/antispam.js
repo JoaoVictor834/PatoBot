@@ -11,13 +11,13 @@ module.exports = {
         let dcmsgs = ebot.dcmsgs
 
 
-        async function getUUID(path = `https://playerdb.co/api/player/minecraft/${username}`) {
+        async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)
             const data = await response.json()
 
-            if (data.code !== 'player.found') return
+            if (!data.id) return
 
-            return await data.data.player.raw_id
+            return await data.id
 
         }
 
@@ -26,12 +26,12 @@ module.exports = {
             if (db.has(a => a.name === username)) {
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://playerdb.co/api/player/minecraft/${user}`)
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
                 const data = await response.json()
 
-                if (data.code !== 'player.found') return
+                if (!data.id) return
 
-                return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
             } else {
 
@@ -45,12 +45,12 @@ module.exports = {
 
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://playerdb.co/api/player/minecraft/${user}`)
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
                 const data = await response.json()
 
-                if (data.code !== 'player.found') return
+                if (!data.id) return
 
-                return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
             }
         }
@@ -65,11 +65,12 @@ module.exports = {
 
             if (!user.useCustomSkin) return false
 
-            const response = await fetch(`https://playerdb.co/api/player/minecraft/${user.avatar}`)
-            const data = await response.json()
+            const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+                const data = await response.json()
 
-            if (data.code !== 'player.found') return false
-            return `https://crafatar.com/avatars/${await data.data.player.raw_id}?size=32&overlay`
+                if (!data.id) return
+
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
         }
 
