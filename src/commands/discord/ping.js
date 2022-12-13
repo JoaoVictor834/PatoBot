@@ -17,8 +17,7 @@ module.exports = class extends Command.dCommand {
         const PingEmbed = new EmbedBuilder()
         .setTitle('Pong! :ping_pong:')
         .setDescription(`
-        O meu ping é: ${Math.round(this.client.ws.ping)}ms. \n
-        Latencia da API: ${latency}ms.
+        O meu ping é: ${Math.round(this.client.ws.ping)}ms.\nLatencia da API: ${latency}ms.
         `)
         .setColor('Random')
 

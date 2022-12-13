@@ -3,8 +3,8 @@ const Command = require('../../structures/Command')
 module.exports = class extends Command.mCommand {
     constructor(bot, client, _) {
         super(bot, client, _, {
-            name: 'rcomo dupa',
-            aliases: ['rqual dupe','rtem dupe', 'dupe', 'qual dupe']
+            name: 'dupe',
+            aliases: ['rqual dupe','rtem dupe', 'rcomo dupa', 'rqual o dupe', 'rtem algum dupe', 'rqual e o dupe', 'como que dupa']
         })
     }
     run = (username, message) => {
