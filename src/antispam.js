@@ -26,7 +26,7 @@ module.exports = {
             if (db.has(a => a.name === username)) {
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
                 const data = await response.json()
 
                 if (!data.id) return
@@ -45,7 +45,7 @@ module.exports = {
 
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
                 const data = await response.json()
 
                 if (!data.id) return
@@ -65,7 +65,7 @@ module.exports = {
 
             if (!user.useCustomSkin) return false
 
-            const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
+            const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
                 const data = await response.json()
 
                 if (!data.id) return
