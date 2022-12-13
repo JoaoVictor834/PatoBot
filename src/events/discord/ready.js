@@ -21,7 +21,7 @@ module.exports = class extends Event.dEvent {
         
        
 
-        this.client.registryCommands()
+        //this.client.registryCommands()
         
         this.client.user.setPresence({
             activities: [{
