@@ -13,6 +13,7 @@ module.exports = {
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)
+            if(!response) return
             const data = await response.json()
 
             if (!data.id) return
@@ -27,6 +28,7 @@ module.exports = {
                 let user = await db.get(a => a.name === username).avatar
 
                 const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+if(!response) return
                 const data = await response.json()
 
                 if (!data.id) return
@@ -46,6 +48,7 @@ module.exports = {
                 let user = await db.get(a => a.name === username).avatar
 
                 const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+if(!response) return
                 const data = await response.json()
 
                 if (!data.id) return
@@ -66,6 +69,7 @@ module.exports = {
             if (!user.useCustomSkin) return false
 
             const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+if(!response) return
                 const data = await response.json()
 
                 if (!data.id) return
