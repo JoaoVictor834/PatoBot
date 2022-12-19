@@ -14,7 +14,7 @@ module.exports = {
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             fetch(path).then(response => {
 if(!response) return
-                response.json().then(data =>{
+                response.then(data =>{
 
                 if (!data.id) return
 
@@ -31,7 +31,7 @@ if(!response) return
 
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
 if(!response) return
-                response.json().then(data =>{
+                response.then(data =>{
 
                 if (!data.id) return
 
@@ -52,7 +52,7 @@ if(!response) return
 
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
 if(!response) return
-                response.json().then(data =>{
+                response.then(data =>{
 
                 if (!data.id) return
 
@@ -74,7 +74,7 @@ if(!response) return
 
             fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
 if(!response) return
-                response.json().then(data =>{
+                response.then(data =>{
 
                 if (!data.id) return
 
