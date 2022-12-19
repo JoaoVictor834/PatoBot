@@ -19,8 +19,8 @@ if(!response) return
                 if (!data.id) return
 
                 return data.id
-}
-}
+})
+})
 
         }
 
@@ -36,8 +36,8 @@ if(!response) return
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-}
-}
+})
+})
             } else {
 
                 let avatar = names[Math.floor(Math.random() * names.length)]
@@ -57,8 +57,8 @@ if(!response) return
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-}
-}
+})
+})
             }
         }
 
@@ -79,8 +79,8 @@ if(!response) return
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-}
-}
+})
+})
         }
 
 
