@@ -12,7 +12,9 @@ module.exports = {
 
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
+
             fetch(path).then(response => {
+console.log(await response.text())
 if(!response) return
                 response.then(data =>{
 
