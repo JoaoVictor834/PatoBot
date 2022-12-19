@@ -86,8 +86,9 @@ if(!response) return
 
                 return `https://crafatar.com/avatars/${await} data.id}?size=32&overlay`
 })
-*/
+
 })
+*/
         }
 
 
