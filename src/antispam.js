@@ -12,13 +12,15 @@ module.exports = {
 
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
-            const response = await fetch(path)
-            if(!response) return
-            const data = await response.json()
+            fetch(path).then(response => {
+if(!response) return
+                response.json().then(data =>{
 
-            if (!data.id) return
+                if (!data.id) return
 
-            return await data.id
+                return data.id
+}
+}
 
         }
 
@@ -27,14 +29,15 @@ module.exports = {
             if (db.has(a => a.name === username)) {
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+                fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
 if(!response) return
-                const data = await response.json()
+                response.json().then(data =>{
 
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-
+}
+}
             } else {
 
                 let avatar = names[Math.floor(Math.random() * names.length)]
@@ -47,14 +50,15 @@ if(!response) return
 
                 let user = await db.get(a => a.name === username).avatar
 
-                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+                fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
 if(!response) return
-                const data = await response.json()
+                response.json().then(data =>{
 
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-
+}
+}
             }
         }
 
@@ -68,14 +72,15 @@ if(!response) return
 
             if (!user.useCustomSkin) return false
 
-            const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
 if(!response) return
-                const data = await response.json()
+                response.json().then(data =>{
 
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
-
+}
+}
         }
 
 
