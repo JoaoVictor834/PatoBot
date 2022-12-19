@@ -81,11 +81,12 @@ let a = await response.text()
 console.log(a)
 if(!response) return
                 response.json().then(data =>{
-
+/*
                 if (!data.id) return
 
                 return `https://crafatar.com/avatars/${await} data.id}?size=32&overlay`
 })
+*/
 })
         }
 
