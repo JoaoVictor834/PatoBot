@@ -17,7 +17,7 @@ module.exports = {
 let a = await response.text()
 console.log(a)
 if(!response) return
-                response.then(data =>{
+                response.json().then(data =>{
 
                 if (!data.id) return
 
@@ -75,9 +75,12 @@ if(!response) return
 
             if (!user.useCustomSkin) return false
 
-            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
+            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(async response => {
 if(!response) return
-                response.then(data =>{
+let a = await response.text()
+console.log(a)
+if(!response) return
+                response.json().then(data =>{
 
                 if (!data.id) return
 
