@@ -86,7 +86,7 @@ if(response.status === 200) {
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
 }).catch(e => console.log(e))
 } else {
-return console.log(await response)
+return console.log(await response.text())
 
 }
 
