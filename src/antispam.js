@@ -15,7 +15,7 @@ module.exports = {
 
             fetch(path).then(response => {
 if(!response.ok) return
-                response.json().then(data =>{
+                response.json().then(async data =>{
 
            let uuid = await data.id
 
@@ -42,7 +42,7 @@ if(!db.has(a => a.name === username)) return
 
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
 if(!response.ok) return
-                response.json().then(data => {
+                response.json().then(async data => {
 
                 let uuid = await data.id
 
@@ -67,7 +67,7 @@ if(!response.ok) return
 
             fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
 if(!response.ok) return
-                response.json().then(data =>{
+                response.json().then(async data =>{
                
                 let uuid = await data.id
 
