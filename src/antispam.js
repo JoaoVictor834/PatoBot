@@ -14,7 +14,7 @@ module.exports = {
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
 
             fetch(path).then(response => {
-if(!response.ok) return
+if(response.status === 200) {
                 response.json().then(async data =>{
 
            let uuid = await data.id
@@ -22,6 +22,11 @@ if(!response.ok) return
                 if(!uuid) return
 
                 return uuid
+} else {
+console.log(response.status)
+return
+}
+
 }).catch(e => console.log(e))
 }).catch(e => console.log(e))
 
@@ -41,7 +46,7 @@ if(!db.has(a => a.name === username)) return
                 let user = await db.get(a => a.name === username).avatar
 
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
-if(!response.ok) return
+if(response.status === 200) {
                 response.json().then(async data => {
 
                 let uuid = await data.id
@@ -49,7 +54,10 @@ if(!response.ok) return
                 if(!uuid) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
-
+} else {
+console.log(response.status)
+return
+}
 }).catch(e => console.log(e))
 }).catch(e => console.log(e))
             }
@@ -66,15 +74,18 @@ if(!response.ok) return
             if(!user.useCustomSkin) return false
 
             fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
-if(!response.ok) return
-                response.json().then(async data =>{
-               
+if(response.status === 200) {
+                response.json().then(async data => {
+
                 let uuid = await data.id
 
                 if(!uuid) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
-
+} else {
+console.log(response.status)
+return
+}
 }).catch(e => console.log(e))
 
 }).catch(e => console.log(e))
