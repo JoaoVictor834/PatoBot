@@ -12,29 +12,30 @@ module.exports = {
 
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
+            const response = await fetch(path)
+            if(response.status !== 200) return
+            const data = await response.json()
 
-            fetch(path).then(async response => {
-if(response.status === 200) {
-                response.json().then(async data =>{
+            if (!data.id) return
 
-           let uuid = await data.id
-
-                if(!uuid) return false
-
-                return uuid
-}).catch(e => console.log(e))
-
-} else {
-console.log(await response)
-return
-}
-
-}).catch(e => console.log(e))
+            return await data.id
 
         }
 
         async function RandomAvatar() {
-if(!db.has(a => a.name === username)) return
+
+            if (db.has(a => a.name === username)) {
+                let user = await db.get(a => a.name === username).avatar
+
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+       if(response.status !== 200) return
+                const data = await response.json()
+
+                if (!data.id) return
+
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
+
+            } else {
 
                 let avatar = names[Math.floor(Math.random() * names.length)]
 
@@ -46,55 +47,34 @@ if(!db.has(a => a.name === username)) return
 
                 let user = await db.get(a => a.name === username).avatar
 
-                fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(async response => {
-if(response.status === 200) {
-                response.json().then(async data => {
+                const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+       if(response.status !== 200) return
+                const data = await response.json()
 
-                let uuid = await data.id
+                if (!data.id) return
 
-                if(!uuid) return
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
-                return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
-}).catch(e => console.log(e))
-
-} else {
-console.log(await response)
-return
-}
-
-})
             }
-        
+        }
 
         async function getAvatar() {
-            if(username === 'Anarkcraft' || username === 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
+            if (username === 'Anarkcraft' || username === 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
 
 
-            if(!db.has(a => a.name === username)) return false
+            if (!db.has(a => a.name === username)) return false
 
             let user = db.get(a => a.name === username)
 
-            if(!user.useCustomSkin) return false
+            if (!user.useCustomSkin) return false
 
-            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(async response => {
-if(response.status === 200) {
-                response.json().then(async data => {
+            const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
+       if(response.status !== 200) return
+                const data = await response.json()
 
-                let uuid = await data.id
+                if (!data.id) return
 
-                if(!uuid) return
-
-                return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
-}).catch(e => console.log(e))
-} else {
-
-console.log(await response.text())
-return
-
-}
-
-
-})
+                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
         }
 
@@ -183,7 +163,7 @@ return
                             {
                                 content: `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
                                 username: username || 'Nome invalido',
-                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar() || null
+                                avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
                             }).then(msg => {
 
