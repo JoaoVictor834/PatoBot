@@ -75,7 +75,7 @@ module.exports = class {
 
         bot.once('spawn', () => {
             bot.once('spawn', () => {
-                bot.once('spawn', () => {
+                
                     function antiafk() {
 
                         bot.setControlState('jump', true)
@@ -104,7 +104,7 @@ module.exports = class {
 
                 })
             })
-        })
+        
 
     }
 
