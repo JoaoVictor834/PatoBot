@@ -22,12 +22,13 @@ if(response.status === 200) {
                 if(!uuid) return
 
                 return uuid
+}).catch(e => console.log(e))
+
 } else {
 console.log(response.status)
 return
 }
 
-}).catch(e => console.log(e))
 }).catch(e => console.log(e))
 
         }
@@ -54,11 +55,13 @@ if(response.status === 200) {
                 if(!uuid) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
+}).catch(e => console.log(e))
+
 } else {
 console.log(response.status)
 return
 }
-}).catch(e => console.log(e))
+
 }).catch(e => console.log(e))
             }
         
@@ -82,11 +85,12 @@ if(response.status === 200) {
                 if(!uuid) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
+}).catch(e => console.log(e))
 } else {
 console.log(response.status)
 return
 }
-}).catch(e => console.log(e))
+
 
 }).catch(e => console.log(e))
 
