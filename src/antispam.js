@@ -13,35 +13,20 @@ module.exports = {
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
 
-            fetch(path).then(async response => {
-let a = await response.text()
-console.log(a)
-if(!response) return
+            fetch(path).then(response => {
+if(!response.ok) return
                 response.json().then(data =>{
 
-                if (!data.id) return
+                if (!await data.id) return
 
                 return data.id
 })
-})
+}).catch(e => console.log(e))
 
         }
 
         async function RandomAvatar() {
-
-            if (db.has(a => a.name === username)) {
-                let user = await db.get(a => a.name === username).avatar
-
-                fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
-if(!response) return
-                response.then(data =>{
-
-                if (!data.id) return
-
-                return `https://crafatar.com/avatars/${await} data.id}?size=32&overlay`
-})
-})
-            } else {
+if (!db.has(a => a.name === username)) return
 
                 let avatar = names[Math.floor(Math.random() * names.length)]
 
@@ -54,16 +39,16 @@ if(!response) return
                 let user = await db.get(a => a.name === username).avatar
 
                 fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`).then(response => {
-if(!response) return
-                response.then(data =>{
+if(!response.ok) return
+                response.json().then(data => {
 
-                if (!data.id) return
+                if (!await data.id) return
 
                 return `https://crafatar.com/avatars/${await} data.id}?size=32&overlay`
 })
-})
+}).catch(e => console.log(e))
             }
-        }
+        
 
         async function getAvatar() {
             if (username === 'Anarkcraft' || username === 'Broadcast') return 'https://cdn.discordapp.com/avatars/877796682560061460/c01f752b93b9cbd607819f878df90dd1.jpg'
@@ -75,20 +60,17 @@ if(!response) return
 
             if (!user.useCustomSkin) return false
 
-            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(async response => {
-if(!response) return
-let a = await response.text()
-console.log(a)
-if(!response) return
+            fetch(`https://api.mojang.com/users/profiles/minecraft/${user.avatar}`).then(response => {
+if(!response.ok) return
                 response.json().then(data =>{
-/*
-                if (!data.id) return
+
+                if (!await data.id) return
 
                 return `https://crafatar.com/avatars/${await} data.id}?size=32&overlay`
-*/
-})
 
 })
+
+}).catch(e => console.log(e))
 
         }
 
