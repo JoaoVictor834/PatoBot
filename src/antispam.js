@@ -25,7 +25,7 @@ if(response.status === 200) {
 }).catch(e => console.log(e))
 
 } else {
-return console.log(response)
+return console.log(await response, await response.text())
 
 }
 
@@ -58,7 +58,7 @@ if(response.status === 200) {
 }).catch(e => console.log(e))
 
 } else {
-return console.log(response)
+return console.log(await response, await response.text())
 }
 
 })
@@ -86,7 +86,7 @@ if(response.status === 200) {
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
 }).catch(e => console.log(e))
 } else {
-return console.log(response)
+return console.log(await response, await response.text())
 
 }
 
