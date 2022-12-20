@@ -19,14 +19,14 @@ if(response.status === 200) {
 
            let uuid = await data.id
 
-                if(!uuid) return
+                if(!uuid) return false
 
                 return uuid
 }).catch(e => console.log(e))
 
 } else {
-return console.log(await response)
-
+console.log(await response)
+return
 }
 
 }).catch(e => console.log(e))
@@ -58,7 +58,8 @@ if(response.status === 200) {
 }).catch(e => console.log(e))
 
 } else {
-return console.log(await response.text())
+console.log(await response.text())
+return
 }
 
 })
@@ -86,7 +87,9 @@ if(response.status === 200) {
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
 }).catch(e => console.log(e))
 } else {
-return console.log(await response.text())
+
+console.log(await response.text())
+return
 
 }
 
