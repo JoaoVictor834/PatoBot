@@ -58,7 +58,7 @@ if(response.status === 200) {
 }).catch(e => console.log(e))
 
 } else {
-console.log(await response.text())
+console.log(await response)
 return
 }
 
