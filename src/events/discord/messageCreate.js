@@ -21,7 +21,7 @@ module.exports = class extends Event.dEvent {
       if(message.content.lenght > 240) return
       if(/\n/.test(message)) return
       
-console.log(message)
+
       if(message.content.startsWith('&') && message.author.id !== '990061390029012992') return message.reply('Se quiser usar cor compre apoiador boboca https://loja.anarkcraft.xyz')
       message.client.bot.chat(`${message.author.username}: ${message.content}`)
     }
