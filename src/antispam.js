@@ -22,7 +22,7 @@ if(!response.ok) return
                 if(!uuid) return
 
                 return uuid
-})
+}).catch(e => console.log(e))
 }).catch(e => console.log(e))
 
         }
@@ -50,7 +50,7 @@ if(!response.ok) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
 
-})
+}).catch(e => console.log(e))
 }).catch(e => console.log(e))
             }
         
@@ -75,7 +75,7 @@ if(!response.ok) return
 
                 return `https://crafatar.com/avatars/${uuid}?size=32&overlay`
 
-})
+}).catch(e => console.log(e))
 
 }).catch(e => console.log(e))
 
