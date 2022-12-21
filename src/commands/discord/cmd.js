@@ -24,7 +24,7 @@ module.exports = class extends Command.dCommand {
 
         if (focusedOption.name !== 'comando') return
         if (/ +/g.test(focusedOption.value)) return await interaction.respond([{
-            name: "Argumentos aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player.", value: "Argumentos não aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player."
+            name: "Argumentos não aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player.", value: "Argumentos não aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player."
         }
         ])
 
