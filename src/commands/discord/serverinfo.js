@@ -10,14 +10,15 @@ module.exports = class extends Command.dCommand {
         })
     }
     run = (bot, interaction) => {
+        const playerlist = bot.tablist.footer.text.replace(/\§(.)/gmi, '').match(/Players Online: [0-9]+/)
+        const queuelist = bot.tablist.footer.text.replace(/\§(.)/gmi, '').match(/Na Fila: [0-9]+/)
 
-        const Players = Object.keys(bot.players)
         const infoEmebed = new EmbedBuilder()
         .setTitle('Informações do Servidor')
         .setDescription(`Tps: *${bot.getTps()}*;\nNick: *${bot.username}*;\nIp: *${IP}*;\nVersão: *${bot.version}*;\nSeed: *4030416628395652580*.`) 
         .addFields({
             name:'Players',
-            value: Players.join(', ').split(',').length === 0 ? `O servidor está offline.` : `Players online: \`${Players.join(', ')}\` \nPossui: ${Players.join(', ').split(',').length} players online.` 
+            value: `\`${Object.keys(bot.players).join(', ')}\`\n${playerlist ? playerlist[0] : ''}\n${queuelist ? queuelist[0] : ''}`  || `\`${Object.keys(bot.players).join(', ')}\``
 
         })
         .setColor('Orange')

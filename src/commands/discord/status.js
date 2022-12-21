@@ -14,7 +14,7 @@ module.exports = class extends Command.dCommand {
 
         const statusEmbed = new EmbedBuilder()
         .setTitle('Status do Bot')
-        .setDescription(`O Bot está com:\n🍖 ${Math.round(bot.food / 2)} pernis de comida;\n♥️ ${Math.round(bot.health / 2)} corações de vida;\n✳️ ${Math.round(bot.experience.level)} leveis de XP;\n⚙️ ${bot.players[bot.username].ping}ms`)
+        .setDescription(`O Bot está com:\n🍖 ${Math.round(bot.food / 2)} pernis de comida;\n♥️ ${Math.round(bot.health / 2)} corações de vida;\n✳️ ${Math.round(bot.experience.level)} leveis de XP;\n⚙️ ${bot.players[bot.username].ping}ms` + `\n:skull_crossbones: ${bot.tablist.footer.text.replace(/\§(.)/gmi, '').match(/Mortes: [0-9]*/) ? bot.tablist.footer.text.replace(/\§(.)/gmi, '').match(/Mortes: [0-9]*/)[0] : ''}` || ``)
         .addFields({
             name:'Cordenadas do Bot',
             value:`X: ${Math.round(bot.entity.position.x)};\nY: ${Math.round(bot.entity.position.y)};\nZ: ${Math.round(bot.entity.position.z)}.`

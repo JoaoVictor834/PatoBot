@@ -9,7 +9,7 @@ module.exports = class extends Event.dEvent {
             name: 'ready'
         })
     }
-    
+
     run = () => {
 
 
@@ -18,11 +18,11 @@ module.exports = class extends Event.dEvent {
         this.client.cmd = this.client.updateChat('chatcmd')
 
 
-        
-       
 
-        //this.client.registryCommands()
-        
+
+
+      //  this.client.registryCommands()
+
         this.client.user.setPresence({
             activities: [{
                 name: `Como dupa?`,

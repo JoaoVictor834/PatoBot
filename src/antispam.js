@@ -13,7 +13,7 @@ module.exports = {
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)
-            if(response.status !== 200) return
+            if (response.status !== 200) return
             const data = await response.json()
 
             if (!data.id) return
@@ -28,7 +28,7 @@ module.exports = {
                 let user = await db.get(a => a.name === username).avatar
 
                 const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
-       if(response.status !== 200) return
+                if (response.status !== 200) return
                 const data = await response.json()
 
                 if (!data.id) return
@@ -48,7 +48,7 @@ module.exports = {
                 let user = await db.get(a => a.name === username).avatar
 
                 const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
-       if(response.status !== 200) return
+                if (response.status !== 200) return
                 const data = await response.json()
 
                 if (!data.id) return
@@ -69,18 +69,18 @@ module.exports = {
             if (!user.useCustomSkin) return false
 
             const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${user}`)
-       if(response.status !== 200) return
-                const data = await response.json()
+            if (response.status !== 200) return
+            const data = await response.json()
 
-                if (!data.id) return
+            if (!data.id) return
 
-                return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
+            return `https://crafatar.com/avatars/${await data.id}?size=32&overlay`
 
         }
 
 
 
-        
+
 
         if (dcmsgs.some(usm => usm.usrmsg === usrmsg)) {
 
@@ -99,15 +99,15 @@ module.exports = {
             val = ebot.getValue("chat")
 
             let x = 0
-            
 
 
-          vezes.forEach(vez => {
-            if(vez.id === val) {
-                vez.qty = vez.qty + 1
-                x = vez.qty
-            }
-          })
+
+            vezes.forEach(vez => {
+                if (vez.id === val) {
+                    vez.qty = vez.qty + 1
+                    x = vez.qty
+                }
+            })
 
 
             getUUID().then(uuid => {
@@ -130,8 +130,8 @@ module.exports = {
                                     "val": val
                                 })
 
-                                if (dcmsgs.lenght >= 10) dcmsgs = []                
-                               
+                                if (dcmsgs.lenght >= 10) dcmsgs = []
+
 
 
 
@@ -148,12 +148,12 @@ module.exports = {
 
         } else {
 
-            ebot.val = Math.round(Math.random() * 10000000000)
+            ebot.val = Math.round(Math.random() * 1000000000000)
             val = ebot.getValue("chat")
-           vezes.push({
-            "id": val,
-            "qty": 1
-           })
+            vezes.push({
+                "id": val,
+                "qty": 1
+            })
 
             getUUID().then(uuid => {
                 client.fetchWebhook(HOOK.ID, HOOK.TOKEN)
@@ -177,7 +177,7 @@ module.exports = {
                                 })
 
                                 if (dcmsgs.lenght >= 10) dcmsgs = []
-                                 
+
 
 
 
@@ -203,7 +203,7 @@ module.exports = {
         let dval = ebot.getValue("kill")
         let deathmsgs = ebot.dcmsgsD
 
-        
+
 
         if (deathmsgs.some(usm => usm.usrreason === usrreason)) {
 
@@ -226,12 +226,12 @@ module.exports = {
             let x = 0
 
             vezes.forEach(vez => {
-              if(vez.id === dval) {
-                  vez.qty = vez.qty + 1
-                  x = vez.qty
-              }
+                if (vez.id === dval) {
+                    vez.qty = vez.qty + 1
+                    x = vez.qty
+                }
             })
-  
+
 
 
 
@@ -249,7 +249,7 @@ module.exports = {
                 })
 
                 if (deathmsgs.lenght >= 10) deathmsgs = []
-               
+
 
 
 
@@ -263,14 +263,14 @@ module.exports = {
         } else {
 
 
-            ebot.vald = Math.round(Math.random() * 10000000000)
+            ebot.vald = Math.round(Math.random() * 100000000000)
             dval = ebot.getValue("kill")
 
-           vezes.push({
-            "id": dval,
-            "qty": 1
-           })
-           
+            vezes.push({
+                "id": dval,
+                "qty": 1
+            })
+
 
 
             const DeathEmbed = new EmbedBuilder()
@@ -289,7 +289,7 @@ module.exports = {
                 })
 
                 if (deathmsgs.lenght >= 10) deathmsgs = []
-                
+
 
 
             }).catch(e => {
