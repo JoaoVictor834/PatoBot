@@ -1,7 +1,7 @@
 const Event = require('../../structures/Event')
 const {  chat  } = require('../../antispam')
 const { PREFIX } = require('../../../config')
-const filterlist = require('../../filter.json')
+const filterlist = require('../../../filter.json')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
