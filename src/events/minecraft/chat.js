@@ -19,9 +19,9 @@ module.exports = class extends Event.mEvent {
 
 // Verifys
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
-        function banFrases(m, ebot) {
 
-        if(JSON.stringfy(filterlist.find)(banfrase => {
+        function banFrases(m, ebot) {
+        if(JSON.stringify(filterlist).find(banfrase => {
             return new RegExp(banfrase, 'ig').test(m)
         })) {
             return 'bobba bobba (EU AMO PINTO)'
