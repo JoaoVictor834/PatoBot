@@ -4,7 +4,7 @@ const names = require('../pfp/names').names
 const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
-    chat: async function (usrmsg, db, username, client, ebot, message) {
+    chat: async function (usrmsg, db, username, client, ebot, message, banfrase) {
 
         let vezes = ebot.quantity
         let val = ebot.getValue("chat")
@@ -116,7 +116,7 @@ module.exports = {
 
                         hk.send(
                             {
-                                content: `${ebot.filter.clean(message)}(x${x})` || `\`Mensagem inválida (x${x})\``,
+                                content: `$${banfrase(message, ebot)}(x${x})` || `\`Mensagem inválida (x${x})\``,
                                 username: username || 'Nome invalido',
                                 avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
@@ -161,7 +161,7 @@ module.exports = {
 
                         hk.send(
                             {
-                                content: `${ebot.filter.clean(message)}` || `\`Mensagem inválida\``,
+                                content: `${banfrase(message, ebot)}` || `\`Mensagem inválida\``,
                                 username: username || 'Nome invalido',
                                 avatarURL: await getAvatar() ? await getAvatar() : uuid ? `https://crafatar.com/avatars/${uuid}?size=32&overlay` : await RandomAvatar()
 
