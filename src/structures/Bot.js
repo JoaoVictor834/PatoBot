@@ -3,7 +3,7 @@ const { join } = require('path')
 const mineflayer = require('mineflayer')
 const tpsPlugin = require('mineflayer-tps')(mineflayer)
 const { ChatPatterns } = require('../../config')
-const filterlist = require('../../filter.json')
+const filterlist = require('../../filter.json').words
 const Filter = require('badwords-filter')
 const simplDb = require('simpl.db')
 

@@ -1,7 +1,7 @@
 const Event = require('../../structures/Event')
 const {  chat  } = require('../../antispam')
 const { PREFIX } = require('../../../config')
-const filterlist = require('../../../filter.json')
+const filterlist = require('../../../filter.json').frases
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, ebot) {
@@ -21,7 +21,7 @@ module.exports = class extends Event.mEvent {
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
 
         function banFrases(m, ebot) {
-        if(JSON.stringify(filterlist).find(banfrase => {
+        if(filterlist.find(banfrase => {
             return new RegExp(banfrase, 'ig').test(m)
         })) {
             return 'bobba bobba (EU AMO PINTO)'
