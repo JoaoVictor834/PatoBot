@@ -54,7 +54,7 @@ module.exports = class extends Command.dCommand {
 
         const command = interaction.options.getString('comando')
 
-        if (command.startsWith('prefix') || command.startsWith('queue') || command.startsWith('ignore') && interaction.user.id !== '990061390029012992') return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
+        if (command.startsWith('prefix') || command.startsWith('queue') || command.startsWith('ignore') || command.startsWith('party') && interaction.user.id !== '990061390029012992') return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
 
         if (command.startsWith('tell')) {
             let message = `${command} (Enviado por ${interaction.user.username})`
