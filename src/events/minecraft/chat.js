@@ -22,7 +22,7 @@ module.exports = class extends Event.mEvent {
 
         function banFrases(m, ebot) {
         if(filterlist.find(banfrase => {
-            return new RegExp(banfrase, 'ig').test(m)
+            return new RegExp(banfrase, 'i').test(m)
         })) {
             return 'bobba bobba (EU AMO PINTO)'
         } else {
