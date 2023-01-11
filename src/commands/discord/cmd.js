@@ -20,34 +20,24 @@ module.exports = class extends Command.dCommand {
         })
     }
 
-    async autocomplete(interaction) {
+    async autocomplete(interaction, ebot) {
         const focusedOption = interaction.options.getFocused(true)
 
         if (focusedOption.name !== 'comando') return
-        if (/ +/g.test(focusedOption.value)) return await interaction.respond([{
-            name: "Argumentos não aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player.", value: "Argumentos não aparecem aqui, utilize /serverinfo caso precise ver o nome de algum player."
-        }
-        ])
+
+        
+
+        let choices = [...ebot.choices]
 
 
-        interaction.client.bot.tabComplete('/' + focusedOption.value.trim(), false, false).then(async tabComplete => {
-            let choices = []
 
-            if (!tabComplete) return
-
-            tabComplete.forEach(complete => {
-                choices.push(complete.match)
-            })
-
-            if (choices.length >= 25) choices = choices.slice(0, 24)
-            const filtered = choices.filter(choices => choices.startsWith(focusedOption.value))
-            if (!filtered) return
+        
+        let filtered = choices.filter(choices => choices.startsWith(focusedOption.value))
+        if (!filtered) return
+        if (filtered.length >= 25) filtered = filtered.slice(0, 24)
             await interaction.respond(
                 filtered.map(choice => ({ name: choice, value: choice }))
             )
-        }).catch(e => console.log(e))
-
-
 
     }
 
@@ -55,7 +45,11 @@ module.exports = class extends Command.dCommand {
 
         const command = interaction.options.getString('comando')
 
-        if (command.startsWith('prefix') || command.startsWith('queue') || command.startsWith('ignore') || command.startsWith('party') && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
+        const bancmds = [
+            "ignore", "party", "queue"
+        ]
+
+        if (command.includes(bancmds) && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
 
         if (command.startsWith('tell')) {
             let message = `${command} (Enviado por ${interaction.user.username})`

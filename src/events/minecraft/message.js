@@ -18,7 +18,7 @@ module.exports = class extends Event.mEvent {
         if(message.hasOwnProperty('extra')) {
 
           if (message.extra[0].bold === true) {
-            return this.client.cmd.send(`> ${msg}`)
+           // return this.client.cmd.send(`> ${msg}`)
           }
         }
 

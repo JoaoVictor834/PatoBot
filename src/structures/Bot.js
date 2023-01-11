@@ -45,7 +45,7 @@ module.exports = class {
         this.dcmsgsD = []
         this.quantity = []
         this.quantityD = []
-        
+        this.choices = []
 
         // Load functions
         this.antiAfk(client, bot)
@@ -74,7 +74,7 @@ module.exports = class {
     antiAfk(client, bot) {
 
         bot.once('spawn', () => {
-            bot.once('spawn', () => {
+            bot.once('spawn', async () => {
                 
                     function antiafk() {
 
@@ -98,6 +98,16 @@ module.exports = class {
                             }, 1000)
                         }, 1000)
                     }
+
+                    await bot.tabComplete('/').then(complete => {
+                      
+                           complete.forEach(cmd => {
+                           
+                                this.choices.push(
+                                    cmd.match
+                                )
+                           })
+                           })
 
                     setTimeout(antiafk, 5000)
                     client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)

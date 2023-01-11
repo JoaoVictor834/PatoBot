@@ -18,7 +18,7 @@ module.exports = class extends Client {
         this.loadEvents()
         this.loadCommands()
         this.botCreate()
-
+        this.ebot
 
     }
 
@@ -33,6 +33,7 @@ module.exports = class extends Client {
         }
 
         const CreatedBot = new Bot(createBot(options), this)
+        this.ebot = CreatedBot
         return this.bot = CreatedBot.bot
 
     }
