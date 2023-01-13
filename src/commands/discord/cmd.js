@@ -13,7 +13,7 @@ module.exports = class extends Command.dCommand {
                     type: 3,
                     name: 'comando',
                     description: 'Comando que sera enviado.',
-                    required: true,
+                    required: false,
                     autocomplete: true
                 }
             ]
