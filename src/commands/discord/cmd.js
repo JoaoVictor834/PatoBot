@@ -49,7 +49,7 @@ module.exports = class extends Command.dCommand {
             "ignore", "party", "queue", "prefix"
         ]
 
-        if (command.includes(bancmds) && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
+        if (bancmds.find(msg => { msg.startsWith(command) } && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
 
         if (command.startsWith('tell')) {
             let message = `${command} (Enviado por ${interaction.user.username})`
