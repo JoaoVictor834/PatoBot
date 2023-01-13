@@ -46,7 +46,7 @@ module.exports = class extends Command.dCommand {
         const command = interaction.options.getString('comando')
 
         const bancmds = [
-            "ignore", "party", "queue"
+            "ignore", "party", "queue", "prefix"
         ]
 
         if (command.includes(bancmds) && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
