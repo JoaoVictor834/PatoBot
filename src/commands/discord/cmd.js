@@ -34,9 +34,7 @@ const command = interaction.options.getString('comando')
 
         
         let filtered = choices.filter(choices => choices.startsWith(focusedOption.value))
-        if (!filtered) return await interaction.respond(
-                { name: command, value: command }
-            )
+        
         if (filtered.length >= 25) filtered = filtered.slice(0, 24)
             await interaction.respond(
                 filtered.map(choice => ({ name: choice, value: choice }))
