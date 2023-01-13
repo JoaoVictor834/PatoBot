@@ -13,7 +13,7 @@ module.exports = class extends Command.dCommand {
                     type: 3,
                     name: 'comando',
                     description: 'Comando que sera enviado.',
-                    required: false,
+                    required: true,
                     autocomplete: true
                 }
             ]
@@ -34,7 +34,7 @@ const command = interaction.options.getString('comando')
 
         
         let filtered = choices.filter(choices => choices.startsWith(focusedOption.value))
-        
+        if(!filtered) return 
         if (filtered.length >= 25) filtered = filtered.slice(0, 24)
             await interaction.respond(
                 filtered.map(choice => ({ name: choice, value: choice }))
