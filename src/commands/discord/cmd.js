@@ -22,6 +22,7 @@ module.exports = class extends Command.dCommand {
 
     async autocomplete(interaction, ebot) {
         const focusedOption = interaction.options.getFocused(true)
+const command = interaction.options.getString('comando')
 
         if (focusedOption.name !== 'comando') return
 
@@ -33,7 +34,9 @@ module.exports = class extends Command.dCommand {
 
         
         let filtered = choices.filter(choices => choices.startsWith(focusedOption.value))
-        if (!filtered) return
+        if (!filtered) return await interaction.respond(
+                filtered.map(choice => ({ name: command, value: command }))
+            )
         if (filtered.length >= 25) filtered = filtered.slice(0, 24)
             await interaction.respond(
                 filtered.map(choice => ({ name: choice, value: choice }))
