@@ -84,6 +84,7 @@ module.exports = class {
     antiAfk(client, bot) {
 
         bot.once('spawn', () => {
+bot.once('spawn', () => {
             bot.once('spawn', async () => {
                 
 
@@ -112,7 +113,7 @@ bot.setControlState("jump", false)
 
                 })
             })
-        
+        )}
 
     }
 
