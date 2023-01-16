@@ -58,7 +58,7 @@ module.exports = class {
         this.interval
 
         // Load functions
-        this.antiAfk(client, bot)
+        this.antiAfk(client, bot, ebot)
         this.loadCommands()
         this.loadEvents()
         if (ChatPatterns) this.updateChatPatern()
@@ -81,7 +81,7 @@ module.exports = class {
     }
 
     // Anti Afk of bot
-    antiAfk(client, bot) {
+    antiAfk(client, bot, ebot) {
 
         bot.once('spawn', () => {
 bot.once('spawn', () => {
@@ -89,7 +89,7 @@ bot.once('spawn', () => {
                 
 
               //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
-       if(this.ebot.interval) {
+       if(ebot.interval) {
                         clearInterval(this.ebot.interval)
                         this.bot.pathfinder.setGoal(null)
                         console.log("[DEBUG] Intervalo limpo")
