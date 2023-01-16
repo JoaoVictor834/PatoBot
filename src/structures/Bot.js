@@ -96,10 +96,7 @@ bot.setControlState("jump", true)
 setTimeout(() => {
 bot.setControlState("forward", false)
 bot.setControlState("jump", false)
-
-}, 5000)
-
-                    await bot.tabComplete('/').then(complete => {
+await bot.tabComplete('/').then(complete => {
                       
                            complete.forEach(cmd => {
                            
@@ -108,6 +105,9 @@ bot.setControlState("jump", false)
                                 )
                            })
                            })
+}, 5000)
+
+                    
 
                     client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
 
