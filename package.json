@@ -18,6 +18,7 @@
     "mineflayer-pathfinder": "^2.4.2",
     "mineflayer-tps": "^1.0.1",
     "node-fetch": "^3.3.0",
-    "simpl.db": "^2.12.1"
+    "simpl.db": "^2.12.1",
+    "mineflayer-auto-eat": "^3.3.1"
   }
 }
