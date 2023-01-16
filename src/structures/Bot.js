@@ -9,7 +9,7 @@ const simplDb = require('simpl.db')
 const pathfinder = require("mineflayer-pathfinder").pathfinder
 const Movements = require("mineflayer-pathfinder").Movements
 const { GoalXZ } = require("mineflayer-pathfinder").goals
-
+const autoeat = require('mineflayer-auto-eat').plugin
 
 // Create database
 const database = new simplDb({
@@ -36,6 +36,7 @@ module.exports = class {
         // Load plugins
         bot.loadPlugin(tpsPlugin)
         bot.loadPlugin(pathfinder)
+        bot.loadPlugin(autoeat)
         // Set bot, client and commands
         this.bot = bot
         this.client = client
