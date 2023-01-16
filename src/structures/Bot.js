@@ -102,6 +102,7 @@ bot.setControlState("jump", true)
 setTimeout(async () => {
 bot.setControlState("forward", false)
 bot.setControlState("jump", false)
+bot.setControlState("right", false)
 await bot.tabComplete('/').then(complete => {
                       
                            complete.forEach(cmd => {
