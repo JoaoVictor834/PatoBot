@@ -58,7 +58,7 @@ module.exports = class {
         this.interval
 
         // Load functions
-        this.antiAfk(client, bot, ebot)
+        this.antiAfk(client, bot, this)
         this.loadCommands()
         this.loadEvents()
         if (ChatPatterns) this.updateChatPatern()
