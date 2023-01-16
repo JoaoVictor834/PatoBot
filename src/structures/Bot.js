@@ -96,6 +96,7 @@ bot.once('spawn', () => {
                     }
 
 bot.setControlState("forward", true)
+bot.setControlState("right", true)
 bot.setControlState("jump", true)
 
 setTimeout(async () => {
