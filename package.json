@@ -15,6 +15,7 @@
     "dotenv": "^16.0.3",
     "mineflayer": "^4.5.1",
     "mineflayer-auto-auth": "^2.0.0",
+    "mineflayer-pathfinder": "^2.4.2",
     "mineflayer-tps": "^1.0.1",
     "node-fetch": "^3.3.0",
     "simpl.db": "^2.12.1"

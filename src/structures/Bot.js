@@ -6,6 +6,10 @@ const { ChatPatterns } = require('../../config')
 const filterlist = require('../../filter.json').words
 const Filter = require('badwords-filter')
 const simplDb = require('simpl.db')
+const pathfinder = require("mineflayer-pathfinder").pathfinder
+const Movements = require("mineflayer-pathfinder").Movements
+const { GoalXZ } = require("mineflayer-pathfinder").goals
+
 
 // Create database
 const database = new simplDb({
@@ -31,7 +35,7 @@ module.exports = class {
 
         // Load plugins
         bot.loadPlugin(tpsPlugin)
-
+        bot.loadPlugin(pathfinder)
         // Set bot, client and commands
         this.bot = bot
         this.client = client
@@ -45,7 +49,12 @@ module.exports = class {
         this.dcmsgsD = []
         this.quantity = []
         this.quantityD = []
+
+        //autocomplete
         this.choices = []
+
+        //follo
+        this.interval
 
         // Load functions
         this.antiAfk(client, bot)
@@ -76,28 +85,8 @@ module.exports = class {
         bot.once('spawn', () => {
             bot.once('spawn', async () => {
                 
-                    function antiafk() {
 
-                        bot.setControlState('jump', true)
-
-                        bot.setControlState('left', false)
-                        bot.setControlState('forward', true)
-                        setTimeout(() => {
-                            bot.setControlState('forward', false)
-                            bot.setControlState('right', true)
-                            setTimeout(() => {
-                                bot.setControlState('right', false)
-                                bot.setControlState('back', true)
-                                setTimeout(() => {
-                                    bot.setControlState('back', false)
-                                    bot.setControlState('left', true)
-
-                                    setTimeout(antiafk, 1000)
-
-                                }, 1000)
-                            }, 1000)
-                        }, 1000)
-                    }
+                bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 1, bot.entity.position.z))
 
                     await bot.tabComplete('/').then(complete => {
                       
@@ -109,7 +98,6 @@ module.exports = class {
                            })
                            })
 
-                    setTimeout(antiafk, 5000)
                     client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
 
                 })

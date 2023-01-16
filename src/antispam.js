@@ -10,6 +10,8 @@ module.exports = {
         let val = ebot.getValue("chat")
         let dcmsgs = ebot.dcmsgs
 
+        if(message.startsWith('(!)')) return
+        if(message.endsWith(']')) return
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)
@@ -142,7 +144,6 @@ module.exports = {
                     })
 
             })
-
 
 
 

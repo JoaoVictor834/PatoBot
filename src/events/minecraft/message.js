@@ -12,18 +12,22 @@ module.exports = class extends Event.mEvent {
        
       const msg = message.toString()
 
+      
+
 
         if(msg === '') return
         if(msg === ' ') return
+        if(msg.startsWith('(!)')) return
+        if(msg.endsWith(']')) return
         if(message.hasOwnProperty('extra')) {
 
-          if (message.extra[0].bold === true) {
-           return this.client.cmd.send(`> ${msg}`)
+          if (message.extra[0].color === "red") {
+            if(this.client.cmd) {
+         return this.client.cmd.send(`> ${msg}`)
+            }
           }
         }
 
-        if(msg.startsWith('(!)')) return
-        if(msg.endsWith(']')) return
 
 
 

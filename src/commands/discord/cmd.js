@@ -22,8 +22,6 @@ module.exports = class extends Command.dCommand {
 
     async autocomplete(interaction, ebot) {
         const focusedOption = interaction.options.getFocused(true)
-const command = interaction.options.getString('comando')
-
         if (focusedOption.name !== 'comando') return
 
         
