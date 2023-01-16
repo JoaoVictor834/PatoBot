@@ -87,7 +87,7 @@ module.exports = class {
             bot.once('spawn', async () => {
                 
 
-                bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 4, bot.entity.position.z + 5))
+                bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
 
                     await bot.tabComplete('/').then(complete => {
                       
