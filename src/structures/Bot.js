@@ -93,7 +93,7 @@ bot.once('spawn', () => {
 bot.setControlState("forward", true)
 bot.setControlState("jump", true)
 
-setTimeout(() => {
+setTimeout(async () => {
 bot.setControlState("forward", false)
 bot.setControlState("jump", false)
 await bot.tabComplete('/').then(complete => {
