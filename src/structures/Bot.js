@@ -113,7 +113,7 @@ bot.setControlState("jump", false)
 
                 })
             })
-        )}
+        })
 
     }
 
