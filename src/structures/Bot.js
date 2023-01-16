@@ -87,7 +87,16 @@ module.exports = class {
             bot.once('spawn', async () => {
                 
 
-                bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
+              //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
+       
+bot.setControlState("forward", true)
+bot.setControlState("jump", true)
+
+setTimeout(() => {
+bot.setControlState("forward", false)
+bot.setControlState("jump", false)
+
+}, 5000)
 
                     await bot.tabComplete('/').then(complete => {
                       
