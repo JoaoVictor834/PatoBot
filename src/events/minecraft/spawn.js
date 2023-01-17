@@ -14,10 +14,10 @@ module.exports = class extends Event.mEvent {
         await this.bot.chat('/queue anarkcraft')
 
         await this.bot.tabComplete('/').then(complete => {
+            this.ebot.choices = []
                       
             complete.forEach(cmd => {
 
-                this.ebot.choices = []
             
                  this.ebot.choices.push(
                      cmd.match
