@@ -12,6 +12,7 @@ module.exports = {
 
         if(message.startsWith('(!)')) return
         if(message.endsWith(']')) return
+        if(new RegExp('https://').test(message)) return
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)

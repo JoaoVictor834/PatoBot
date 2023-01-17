@@ -55,6 +55,8 @@ module.exports = class {
         //autocomplete
         this.choices = []
 
+        this.debounce = false
+
         //follo
         this.interval
 
@@ -68,6 +70,12 @@ module.exports = class {
         this.filter = new Filter(filterconfig)
 
 
+    }
+
+   async debounceFunction(ms) {
+    setTimeout(() => {
+        this.debounce = false
+    }, ms)
     }
 
 

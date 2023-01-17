@@ -1,6 +1,6 @@
 const Command = require('../../structures/Command')
 const wait = require('node:timers/promises').setTimeout
-const { PermissionsBitField } = require('discord.js');
+const { PermissionsBitField } = require('discord.js')
 
 
 module.exports = class extends Command.dCommand {
@@ -48,7 +48,7 @@ module.exports = class extends Command.dCommand {
             "ignore", "party", "queue", "prefix"
         ]
 
-        if (bancmds.find(msg => { msg.startsWith(command) }) && !interaction.user.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
+        if (bancmds.find(msg => { msg.startsWith(command) }) && !interaction.user.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return interaction.reply({ content: 'Comando bloqueado :rage:', ephemeral: true })
 
         if (command.startsWith('tell')) {
             let message = `${command} (Enviado por ${interaction.user.username})`
