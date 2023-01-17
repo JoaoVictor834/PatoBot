@@ -16,6 +16,8 @@ module.exports = class extends Event.mEvent {
         await this.bot.tabComplete('/').then(complete => {
                       
             complete.forEach(cmd => {
+
+                this.ebot.choices = []
             
                  this.ebot.choices.push(
                      cmd.match
