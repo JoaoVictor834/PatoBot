@@ -21,6 +21,8 @@ module.exports = class extends Event.mEvent {
         console.log(`[DEBUG] ${entity.username} entrou no campo`)
 
         try {
+
+                    this.ebot.isActive = false
                     const Move = new Movements(this.bot)
                     let target = entity //this.bot.nearestEntity(entity => entity.type === "player") 
                     this.bot.pathfinder.setMovements(Move)

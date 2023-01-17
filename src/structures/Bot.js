@@ -50,6 +50,7 @@ module.exports = class {
         this.dcmsgsD = []
         this.quantity = []
         this.quantityD = []
+        this.isActive = true
 
         //autocomplete
         this.choices = []
@@ -58,7 +59,7 @@ module.exports = class {
         this.interval
 
         // Load functions
-        this.antiAfk(client, bot, this)
+        this.antiAfk(client, bot, this, this.isActive)
         this.loadCommands()
         this.loadEvents()
         if (ChatPatterns) this.updateChatPatern()
@@ -81,21 +82,31 @@ module.exports = class {
     }
 
     // Anti Afk of bot
-    antiAfk(client, bot, ebot) {
+    antiAfk(client, bot, ebot, isActive) {
 
         bot.once('spawn', () => {
-bot.once('spawn', () => {
-            bot.once('spawn', async () => {
-                
+            bot.once('spawn', () => {
+                bot.once('spawn', async () => {
 
-              //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
-       if(ebot.interval) {
+
+                    //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
+                    if (ebot.interval) {
                         clearInterval(ebot.interval)
                         this.bot.pathfinder.setGoal(null)
                         console.log("[DEBUG] Intervalo limpo")
                     }
 
-                    function antiafk() {
+                    function antiafk(isActive) {
+
+                        if (!isActive) {
+                            bot.setControlState('jump', false)
+                            bot.setControlState('forward', false)
+                            bot.setControlState('right', false)
+                            bot.setControlState('back', false)
+                            bot.setControlState('left', false)
+
+                            return
+                        } else {
 
                         bot.setControlState('jump', true)
 
@@ -111,18 +122,18 @@ bot.once('spawn', () => {
                                     bot.setControlState('back', false)
                                     bot.setControlState('left', true)
 
-                                    setTimeout(antiafk, 1000)
+                                    setTimeout(() => { antiafk(isActive) }, 1000)
 
                                 }, 1000)
                             }, 1000)
                         }, 1000)
                     }
 
-                    
-                    setTimeout(antiafk, 5000)
 
-})
-client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
+                }
+                    setTimeout(() => { antiafk(isActive) }, 5000)
+                })
+                client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
             })
         })
 
@@ -133,7 +144,7 @@ client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
     // Update the chat pattern of bot if exist
     updateChatPatern() {
 
-     // Get all chat patterns
+        // Get all chat patterns
         ChatPatterns.forEach(Pattern => {
 
             // Verifiers
