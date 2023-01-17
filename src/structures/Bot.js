@@ -90,7 +90,7 @@ bot.once('spawn', () => {
 
               //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
        if(ebot.interval) {
-                        clearInterval(this.ebot.interval)
+                        clearInterval(ebot.interval)
                         this.bot.pathfinder.setGoal(null)
                         console.log("[DEBUG] Intervalo limpo")
                     }
