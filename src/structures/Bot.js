@@ -95,30 +95,34 @@ bot.once('spawn', () => {
                         console.log("[DEBUG] Intervalo limpo")
                     }
 
-bot.setControlState("forward", true)
-bot.setControlState("right", true)
-bot.setControlState("jump", true)
+                    function antiafk() {
 
-setTimeout(async () => {
-bot.setControlState("forward", false)
-bot.setControlState("jump", false)
-bot.setControlState("right", false)
-await bot.tabComplete('/').then(complete => {
-                      
-                           complete.forEach(cmd => {
-                           
-                                this.choices.push(
-                                    cmd.match
-                                )
-                           })
-                           })
-}, 5000)
+                        bot.setControlState('jump', true)
+
+                        bot.setControlState('left', false)
+                        bot.setControlState('forward', true)
+                        setTimeout(() => {
+                            bot.setControlState('forward', false)
+                            bot.setControlState('right', true)
+                            setTimeout(() => {
+                                bot.setControlState('right', false)
+                                bot.setControlState('back', true)
+                                setTimeout(() => {
+                                    bot.setControlState('back', false)
+                                    bot.setControlState('left', true)
+
+                                    setTimeout(antiafk, 1000)
+
+                                }, 1000)
+                            }, 1000)
+                        }, 1000)
+                    }
 
                     
+                    setTimeout(antiafk, 5000)
 
-                    client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
-
-                })
+})
+client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
             })
         })
 
