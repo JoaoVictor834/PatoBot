@@ -22,7 +22,7 @@ const db = database.getCollection('users') || database.createCollection('users')
 
 // Configure the filter
 const filterconfig = {
-    list: filterlist.words,
+    list: filterlist,
     cleanWith: ['#', '@', '*', '!', '?', '$', '&'],
     useRegex: true,
 }
