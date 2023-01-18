@@ -33,7 +33,7 @@ module.exports = class extends Event.dEvent {
       
         client.ebot.debounce = true
 
-       await client.ebot.debounceFunction(2000)
+       await client.ebot.debounceFunction(1000)
 
        return message.client.bot.chat(`${message.author.username}: ${message.content}`)
         } else {
@@ -48,12 +48,12 @@ module.exports = class extends Event.dEvent {
                  )
                  if(!MutedRole) return console.log("[DEBUG] mutar falhou sem cargo")
 
-                 console.log("mutando")
+      
                  message.member.roles.add(MutedRole).then(() => {
                     setTimeout(() => {
                         message.member.roles.remove(MutedRole)
                         console.log("[DEBUG] removido cargo de mutado")
-                    }, 8000)
+                    }, 3000)
                  }).catch(err => {
                    console.error(err)
                  })
