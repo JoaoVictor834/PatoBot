@@ -41,6 +41,8 @@ module.exports = class {
         this.client = client
         this.commands = []
 
+        this.prismarine
+
         // Variables to antispam
         this.db = db
         this.val = 0
@@ -92,7 +94,7 @@ module.exports = class {
     antiAfk(client, bot, ebot, isActive) {
 
         bot.once('spawn', () => {
-            mineflayerViewer(bot, { port: 3000 })
+           this.prismarine = mineflayerViewer(bot, { port: 3000 })
             bot.once('spawn', () => {
                 bot.once('spawn', async () => {
 
