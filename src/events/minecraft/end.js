@@ -3,6 +3,7 @@ const Bot = require('../../structures/Bot')
 const { createBot } = require('mineflayer')
 const { NAME, VERSION, IP, LOGIN } = require('../../../config')
 const AutoAuth = require('mineflayer-auto-auth')
+const { killPortProcess } = require('kill-port-process')
 
 module.exports = class extends Event.mEvent {
     constructor(bot, client, _) {
@@ -11,8 +12,10 @@ module.exports = class extends Event.mEvent {
         })
     }
     
-    run = (reason) => {
+    run = async (reason) => {
         console.log('Reconectando ' + reason)
+
+       await killPortProcess(80)
 
          function relog(client) {
 
@@ -36,4 +39,3 @@ client.chat.send('Reconectando <a:load:1044704168159498340>')
         }, 31000)
 }
 }
-

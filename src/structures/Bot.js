@@ -8,6 +8,7 @@ const Filter = require('badwords-filter')
 const simplDb = require('simpl.db')
 const pathfinder = require("mineflayer-pathfinder").pathfinder
 const autoeat = require('mineflayer-auto-eat').plugin
+const mineflayerViewer = require('prismarine-viewer').mineflayer
 
 
 // Create database
@@ -56,8 +57,6 @@ module.exports = class {
 
         this.debounce = false
 
-        //follo
-        this.interval
 
         // Load functions
         this.onLoad(client, bot, this, this.isActive)
@@ -92,17 +91,9 @@ module.exports = class {
     onLoad(client, bot, ebot, isActive) {
 
         bot.once('spawn', () => {
-    
             bot.once('spawn', () => {
+                mineflayerViewer(bot, { port: 80 })
                 bot.once('spawn', async () => {
-
-
-                    //  bot.pathfinder.setGoal(new GoalXZ(bot.entity.position.x + 90, bot.entity.position.z + 90))
-                    if (ebot.interval) {
-                        clearInterval(ebot.interval)
-                        this.bot.pathfinder.setGoal(null)
-                        console.log("[DEBUG] Intervalo limpo")
-                    }
 
                     function antiafk(isActive) {
 

@@ -18,5 +18,3 @@ const client = new Client({
 
 // Login in the discord bot
 client.login(BOT_TOKEN)
-
-module.exports = client.bot
