@@ -143,9 +143,9 @@ module.exports = class {
                 }
                     setTimeout(() => { antiafk(isActive) }, 5000)
                 })
-                if(client.chat) {
+         
                 client.chat.send(`Bot conectado com sucesso <:check:1044704138203770900>`)
-                }
+                
             })
         })
 

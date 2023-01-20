@@ -15,7 +15,6 @@ const client = new Client({
 
 })
 
-return client.ebot.prismarine
 
 // Login in the discord bot
 client.login(BOT_TOKEN)

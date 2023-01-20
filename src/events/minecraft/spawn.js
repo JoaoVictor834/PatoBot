@@ -25,10 +25,10 @@ module.exports = class extends Event.mEvent {
             })
             })
 
-            if(this.client.cmd) {
+           
 
         this.client.cmd.send('> Spawnado')
-            }
+            
         
        
 
