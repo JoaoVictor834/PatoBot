@@ -7,9 +7,8 @@ const filterlist = require('../../filter.json').words
 const Filter = require('badwords-filter')
 const simplDb = require('simpl.db')
 const pathfinder = require("mineflayer-pathfinder").pathfinder
-const Movements = require("mineflayer-pathfinder").Movements
-const { GoalXZ } = require("mineflayer-pathfinder").goals
 const autoeat = require('mineflayer-auto-eat').plugin
+const mineflayerViewer = require('prismarine-viewer').mineflayer
 
 // Create database
 const database = new simplDb({
@@ -93,6 +92,7 @@ module.exports = class {
     antiAfk(client, bot, ebot, isActive) {
 
         bot.once('spawn', () => {
+            mineflayerViewer(bot, { port: 3000 })
             bot.once('spawn', () => {
                 bot.once('spawn', async () => {
 
