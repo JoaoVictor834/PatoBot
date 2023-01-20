@@ -8,10 +8,11 @@ module.exports = class extends Event.mEvent {
     } 
     
     run = (entity) => {
-      console.log(entity.name)
+     /* console.log(entity.name)
       if(!entity.name.toLowerCase() === 'boat') return
 
       this.bot.mount(entity)
+      */
 
     }
 }
