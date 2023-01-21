@@ -92,7 +92,7 @@ module.exports = class {
 
         bot.once('spawn', () => {
             bot.once('spawn', () => {
-                mineflayerViewer(bot, { port: 8080 })
+                mineflayerViewer(bot, { port: 80 })
                 bot.once('spawn', async () => {
 
                     function antiafk(isActive) {
