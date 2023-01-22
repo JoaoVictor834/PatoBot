@@ -21,7 +21,7 @@
     "mineflayer-pathfinder": "^2.4.2",
     "mineflayer-tps": "^1.0.1",
     "node-fetch": "^3.3.0",
-    "simpl.db": "^2.12.1",
-    "prismarine-viewer-patobot":"git+https://github.com/JoaoVictor834/prismarine-viewer-patobot.git"
+    "prismarine-viewer":"1.23.0",
+    "simpl.db": "^2.12.1"
   }
 }

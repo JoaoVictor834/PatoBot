@@ -15,7 +15,7 @@ module.exports = class extends Event.mEvent {
     run = async (reason) => {
         console.log('Reconectando ' + reason)
 
-       await killPortProcess(3000)
+       await killPortProcess(80)
 
          function relog(client) {
 
