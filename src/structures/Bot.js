@@ -8,8 +8,7 @@ const Filter = require('badwords-filter')
 const simplDb = require('simpl.db')
 const pathfinder = require("mineflayer-pathfinder").pathfinder
 const autoeat = require('mineflayer-auto-eat').plugin
-const mineflayerViewer = require('prismarine-viewer').mineflayer
-
+const app = require('../../website/app')
 
 // Create database
 const database = new simplDb({
@@ -41,6 +40,7 @@ module.exports = class {
         this.bot = bot
         this.client = client
         this.commands = []
+
 
         // Variables to antispam
         this.db = db
@@ -91,8 +91,10 @@ module.exports = class {
     onLoad(client, bot, ebot, isActive) {
 
         bot.once('spawn', () => {
-            bot.once('spawn', () => {
-                mineflayerViewer(bot, { port: 80 })
+            bot.once('spawn', async () => {
+               
+                app(bot, client)
+             
                 bot.once('spawn', async () => {
 
                     function antiafk(isActive) {

@@ -29,6 +29,8 @@ module.exports = class extends Command.mCommand {
 
             getCommands('src/commands/minecraft', this.client, this.bot, this.ebot)
 
+      
+
         this.bot.chat(`Oi! eu sou o bot mais chad do mundo. Comandos disponíveis: ${commandlist.join(', ')}`)
 
     }
