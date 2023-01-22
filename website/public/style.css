@@ -260,5 +260,12 @@ a {
         height: 100%;
     
     }
+
+    .container ul li {
+        list-style: none;
+        margin-top: 1px;
+        padding-bottom: 3px;
+        margin-right: 40px;  
+    }
     
 }
