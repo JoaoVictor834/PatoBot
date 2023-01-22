@@ -20,9 +20,9 @@ async function updateBotInfo() {
     const data = await response.json()
 
     botInfoList.innerHTML = 
-    `<li>Vida: ${data.vida}</li>
+    `<li>Vida: ${Math.round(data.vida)}</li>
     <li>Ping: ${data.ping}</li>
-    <li>Pernis: ${data.comida}</li>
+    <li>Pernis: ${Math.round(data.comida)}</li>
     <li>${data.mortes}</li>
     <li>Cordenadas: X: ${Math.round(data.cordenadas.x)} Y: ${Math.round(data.cordenadas.y)} Z: ${Math.round(data.cordenadas.z)}</li>
     <li>Experiencia: ${data.xp}</li>`
@@ -35,9 +35,9 @@ async function updateServerInfo() {
     const data = await response.json()
 
     playerList.innerHTML = `
-    <li>Jogadores: ${data.players}</li>
-    <li>Online: ${data.online}</li>
-    <li>Na fila: ${data.fila}</li>
+    <li style="font-weight: bold">${data.fila}</li>
+    <li style="font-weight: bold">${data.online}</li>
+    <li><p style="font-weight: bold">Jogadores:<br></p>${data.players}</li>
     `
 
     serverInfoList.innerHTML = 
@@ -58,9 +58,13 @@ async function updateCommands() {
    data.forEach(command => {
        commandlist.innerHTML += `<li>${command}</li>`
     });
-    
-    console.log(commandlist.innerHTML)
-
 
 }
+
+    setInterval(() => {
+        location.reload()
+    }, 190 * 1000);
+   
+
+
 

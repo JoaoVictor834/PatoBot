@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
+
 body {
     background-image: url('./background.png');
     background-size: 100%;
@@ -6,7 +8,7 @@ body {
 
 p, h1, h2, a, ul, li, img, h3 {
     color: rgb(241, 241, 241);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -59,123 +61,101 @@ p, h1, h2, a, ul, li, img, h3 {
     justify-content: center;
 }
 
+.container {
+    text-align: center;
+}
+
+.container_header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    
+}
+
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.container ul li {
+    list-style: none;
+    margin-top: 1px;
+    padding-bottom: 3px;
+    margin-right: 40px;  
+}
+
 .info {
 
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 70px;
     background-size: 130%;
-    background-color: rgba(14, 14, 14, 0.89);
+    background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
-
-   margin-right: 50px;
-   margin-left: auto; 
-   max-width: 300px;
-  
+    margin-right: 50px;
+    margin-left: auto; 
+    max-width: 300px;
+    height: 100%;
 
 }
 
 
-.info ul li {
-    margin-top: 1px;
-    padding-bottom: 3px;
+
+.comandos {
+
+    padding: 10px;
+    margin-top: 5px;
+    background-size: 130%;
+    background-color: rgba(29, 27, 27, 0.89);
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: auto; 
+    max-width: 300px;
+    height: 100%;
+
+}
+
+
+.botInfo {
+
+    padding: 10px;
+    margin-top: 5px;
+    background-size: 130%;
+    background-color: rgba(29, 27, 27, 0.89);
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: auto; 
+    max-width: 300px;
+    height: 100%;
+
+}
+
+.serverInfo {
+
+    padding: 10px;
+    margin-top: 130px;
+    background-size: 130%;
+    background-color: rgba(29, 27, 27, 0.89);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: 50px; 
+    max-width: 300px;
+    height: 100%;
+}
+
+.players {
+
+    padding: 10px;
+    margin-top: 5px;
+    background-size: 130%;
+    background-color: rgba(29, 27, 27, 0.89);
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-left: auto; 
+    max-width: 300px;
+    height: 100%;
 }
 
 a {
     color:rgb(73, 255, 255);
 }
-
-.container_buttom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.container_up {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-
-.comandos  {
-    padding: 10px;
-    margin-top: 5px;
-    background-size: 130%;
-    background-color: rgba(14, 14, 14, 0.89);
-    border-radius: 10px;
-    margin-right: auto;
-    margin-left: auto; 
-    max-width: 300px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
-
-.comandos ul li {
-    list-style: none;
-    margin-top: 1px;
-    padding-bottom: 3px;
-    margin-right: 100px;
-}
-
-
-
-
-.serverInfo {
-    padding: 10px;
-    margin-top: 5px;
-    background-size: 130%;
-    background-color: rgba(14, 14, 14, 0.89);
-    border-radius: 10px;
-    margin-right: auto;
-    margin-left: auto; 
-    max-width: 300px;
-  
-}
-
-.serverInfo ul li {
-    list-style: none;
-    margin-top: 1px;
-    padding-bottom: 3px;
-}
-
-
-
-.botInfo {
-    padding: 10px;
-    margin-top: 5px;
-    background-size: 130%;
-    background-color: rgba(14, 14, 14, 0.89);
-    border-radius: 10px;
-    margin-right: auto;
-    margin-left: auto; 
-    max-width: 300px;
-    
-}
-
-.botInfo ul li {
-    list-style: none;
-
-    margin-top: 1px;
-    padding-bottom: 3px;
-}
-
-
-
-.players {
-    padding: 10px;
-    margin-top: 5px;
-    background-size: 130%;
-    background-color: rgba(14, 14, 14, 0.89);
-    border-radius: 10px;
-    margin-right: auto;
-    margin-left: 50px; 
-    max-width: 300px;
-    
-}
-.players ul li {
-    list-style: none;
-    margin-top: 1px;
-    padding-bottom: 3px;
-}
-

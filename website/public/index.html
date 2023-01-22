@@ -8,9 +8,8 @@
 </head>
 <body onload="Load()">
 
-    <link rel="stylesheet" href="./index.css">
-    
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
 
     <header class="header">
         <h1>Bem vindo ao PatoBot!</h1>
@@ -27,48 +26,53 @@
         <iframe src="https://discord.com/widget?id=932982614992773262&theme=dark" width="400" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     </div>
 
-    <div class="container_up">
-        <div class="info">
-            <h2>Oque o bot tem?</h2>
-            <ul>
-                <li>Diversos comandos!</li>
-                <li>Avatar personalizado no discord!</li>
-                <li>Varias informações uteis sobre o servidor!</li>
-                <li>Uma <a href="https://patobot.squareweb.app">pagina</a> que você pode ter uma visão 3d de onde o bot esta!</li>
+    <div class="container">
+
+        <div class="container_header">
+            <div class="info">
+                <h2>Oque o bot tem?</h2>
+                <ul>
+                    <li>Diversos comandos!</li>
+                    <li>Avatar personalizado no discord!</li>
+                    <li>Varias informações uteis sobre o servidor!</li>
+                    <li>Uma <a href="https://patobot.squareweb.app">pagina</a> que você pode ter uma visão 3d de onde o bot esta!</li>
+                </ul>
+            </div>
+
+            <div class="serverInfo">
+                <h3>informações do servidor</h3>
+                <ul id="serverInfoList">
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                </ul>
+            </div>
+    
+        </div>
+    
+        
+        
+        <div class="container_footer">
+        <div class="comandos">
+            <h3>Comandos disponiveis</h3>
+            <ul id="commandList">
             </ul>
         </div>
-
-        <div class="players">
-            <h2>Jogadores Online:</h2>
-            <ul id="playerList">
-                
-            </ul>
-        </div>
-
+    
+            <div class="botInfo">
+                <h2>informações do bot</h2>
+                <ul id="botInfoList">
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                </ul>
+            </div>
+            <div class="players">
+                <h2>Jogadores Online</h2>
+                <ul id="playerList">
+                    
+                </ul>
+            </div>
     </div>
 
     
-    
-    <div class="container_buttom">
-    <div class="comandos">
-        <h3>Comandos disponiveis:</h3>
-        <ul id="commandList">
-           
-        </ul>
-    </div>
-
-        <div class="botInfo">
-            <h2>informações do bot:</h2>
-            <ul id="botInfoList">
-            </ul>
-        </div>
-
-        <div class="serverInfo">
-            <h3>informações do servidor:</h3>
-            <ul id="serverInfoList">
-                <li>placeholder</li>
-            </ul>
-        </div>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-const mineflayerViewer = require('prismarine-viewer').mineflayer
+const mineflayerViewer = require('prismarine-viewer-patobot').mineflayer
 const { readdirSync } = require('fs')
 const { join } = require('path')
 const { PREFIX } = require('../config.json')
@@ -7,7 +7,7 @@ const { PREFIX } = require('../config.json')
 module.exports = async function(bot, client) {
 
    console.log("Rodando site")
-   const app = mineflayerViewer(bot, { port: 3000, prefix: '/viewer' })
+   const app = mineflayerViewer(bot, { port: 3000, prefix: '/viewer', path: '/website/public' })
    
    const commandlist = []
 

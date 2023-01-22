@@ -15,13 +15,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "kill-port-process": "^3.1.0",
-    "mineflayer": "4.5.1",
+    "mineflayer": "^4.5.1",
     "mineflayer-auto-auth": "^2.0.0",
     "mineflayer-auto-eat": "^3.3.1",
     "mineflayer-pathfinder": "^2.4.2",
     "mineflayer-tps": "^1.0.1",
     "node-fetch": "^3.3.0",
-    "prismarine-viewer": "^1.23.0",
-    "simpl.db": "^2.12.1"
+    "simpl.db": "^2.12.1",
+    "prismarine-viewer-patobot":"git+https://github.com/JoaoVictor834/prismarine-viewer-patobot.git"
   }
 }
