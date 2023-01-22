@@ -89,7 +89,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
     padding: 10px;
     margin-top: 70px;
-    background-size: 130%;
+    background-size: 100%;
     background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
     margin-right: 50px;
@@ -105,7 +105,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
     padding: 10px;
     margin-top: 5px;
-    background-size: 130%;
+    background-size: 100%;
     background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
     margin-right: 50px;
@@ -120,7 +120,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
     padding: 10px;
     margin-top: 5px;
-    background-size: 130%;
+    background-size: 100%;
     background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
     margin-right: 50px;
@@ -134,20 +134,22 @@ p, h1, h2, a, ul, li, img, h3 {
 
     padding: 10px;
     margin-top: 130px;
-    background-size: 130%;
+    background-size: 100%;
     background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
     margin-right: auto;
     margin-left: 50px; 
     max-width: 300px;
     height: 100%;
+
+
 }
 
 .players {
 
     padding: 10px;
     margin-top: 5px;
-    background-size: 130%;
+    background-size: 100%;
     background-color: rgba(29, 27, 27, 0.89);
     border-radius: 10px;
     margin-right: 50px;
@@ -158,4 +160,105 @@ p, h1, h2, a, ul, li, img, h3 {
 
 a {
     color:rgb(73, 255, 255);
+}
+
+
+@media only screen and (max-device-width: 800px) {
+    body {
+        background-image: none;
+        background-color: #161b22;
+    }
+
+    p, h1, h2, a, ul, li, img, h3 {
+        color: #f0f6fc;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .imgLogo {
+        display: none;
+    }
+
+    .container {
+     text-align: center;
+     align-items: center;
+    }
+    
+    .container_header{
+        display: block;
+        margin-top: 5px;
+     
+        
+    }
+    
+    .container_footer {
+        display: block;
+        margin-top: 5px;
+       
+    }
+
+    .comandos {
+
+        padding: 10px;
+        margin-top: 50px;
+        background-color: #161b22;
+        border-radius: 0px;
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 300px;
+        height: 100%;
+    
+    }
+    
+    
+    .botInfo {
+    
+
+        padding: 10px;
+        margin-top: 50px;
+        background-color: #161b22;
+        border-radius: 0px;
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 300px;
+        height: 100%;
+    
+    }
+    
+    .serverInfo {
+    
+        padding: 10px;
+        margin-top: 50px;
+        background-color: #161b22;
+        border-radius: 0px;
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 300px;
+        height: 100%;
+    }
+    
+    .players {
+    
+
+        padding: 10px;
+        margin-top: 50px;
+        background-color: #161b22;
+        border-radius: 0px;
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 300px;
+        height: 100%;
+    }
+
+    .info {
+        padding: 10px;
+        margin-top: 50px;
+        background-color: #161b22;
+        border-radius: 0px;
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 300px;
+        height: 100%;
+    
+    }
+    
 }
