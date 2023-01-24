@@ -11,10 +11,6 @@ p, h1, h2, a, ul, li, img, h3 {
     font-family: 'Roboto', sans-serif;
 }
 
-.loading {
-    text-align: center;
-    margin: auto;
-}
 
 ::-webkit-scrollbar {
     width: 4px;
