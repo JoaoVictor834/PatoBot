@@ -5,6 +5,7 @@ const { join } = require('path')
 const { PREFIX } = require('../config.json')
 
 module.exports = async function(bot, client) {
+   
 
    console.log("Rodando site")
    const app = mineflayerViewer(bot, { port: 80, prefix: '/viewer' })

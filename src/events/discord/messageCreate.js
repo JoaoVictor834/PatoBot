@@ -1,5 +1,5 @@
 const Event = require('../../structures/Event')
-const { CHATBOT, CMDBOT } = require('../../../config')
+const { CHATBOT, CMDBOT, HOOK } = require('../../../config')
 const { PermissionsBitField } = require('discord.js');
 
 module.exports = class extends Event.dEvent {
@@ -18,7 +18,7 @@ module.exports = class extends Event.dEvent {
         }
 
       if(message.channel.id !== CHATBOT) return
-      if(message.webhookId) return
+      if(message.webhookId === HOOK.ID) return
       if(message.content.lenght > 240) return
       if(/\n/.test(message)) return
       

@@ -44,13 +44,13 @@ p, h1, h2, a, ul, li, img, h3 {
     
 }
 
-.Description p {
+.Description p{
   
     padding-bottom: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
+    width: 330px;
     padding: 45px;
     word-wrap: break-word;
 }
@@ -59,6 +59,24 @@ p, h1, h2, a, ul, li, img, h3 {
     padding: 55px;
     display: flex;
     justify-content: center;
+}
+
+.crate-button {
+  text-align: center;
+}
+
+.crate-button button {
+    border: none;
+    cursor: pointer;
+    padding: 13px;
+    color: rgb(241, 241, 241);
+    background-color: rgba(56, 53, 53, 0.89);
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.crate-button button:hover {
+background-color: rgba(44, 41, 41, 0.89)
 }
 
 .container {
@@ -98,7 +116,6 @@ p, h1, h2, a, ul, li, img, h3 {
     height: 100%;
 
 }
-
 
 
 .comandos {
@@ -145,6 +162,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
 }
 
+
 .players {
 
     padding: 10px;
@@ -160,6 +178,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
 a {
     color:rgb(73, 255, 255);
+    
 }
 
 

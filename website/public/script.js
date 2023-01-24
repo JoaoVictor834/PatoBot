@@ -1,19 +1,20 @@
-let commandlist
+
 
 function Load() {
-    commandlist = document.getElementById('commandList')
-    botInfoList = document.getElementById('botInfoList')
-    serverInfoList = document.getElementById('serverInfoList')
-    playerList = document.getElementById('playerList')
+    const commandlist = document.getElementById('commandList')
+    const botInfoList = document.getElementById('botInfoList')
+    const serverInfoList = document.getElementById('serverInfoList')
+    const playerList = document.getElementById('playerList')
 
-    if(commandlist) updateCommands()
-    if(botInfoList) updateBotInfo()
-    if(serverInfoList) updateServerInfo()
+
+    if(commandlist) updateCommands(commandlist)
+    if(botInfoList) updateBotInfo(botInfoList)
+    if(serverInfoList) updateServerInfo(playerList, serverInfoList)
 }
 
 
 
-async function updateBotInfo() {
+async function updateBotInfo(botInfoList) {
 
     const response = await fetch('/api/getBotInfo')
     if(response.status !== 200) return
@@ -28,7 +29,7 @@ async function updateBotInfo() {
     <li>Experiencia: ${data.xp}</li>`
 }
 
-async function updateServerInfo() {
+async function updateServerInfo(playerList, serverInfoList) {
 
     const response = await fetch('/api/getServerInfo')
     if(response.status !== 200) return
@@ -48,7 +49,7 @@ async function updateServerInfo() {
 }
 
 
-async function updateCommands() {
+async function updateCommands(commandlist) {
 
  
    const response = await fetch('/api/getCommands')
@@ -68,3 +69,15 @@ async function updateCommands() {
 
 
 
+    let toggle
+
+    function toggleCrate(crate) {
+
+        if(toggle) {
+            crate.hide()
+            toggle = false
+        } else {
+            crate.show()
+            toggle = true
+        }
+    }

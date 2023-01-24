@@ -11,6 +11,15 @@
     <meta content="#43B587" data-react-helmet="true" name="theme-color" />
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>PatoBot</title>
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+      const crate = new Crate({
+          server: '932982614992773262',
+          channel: '969368756142878720',
+          timeout: 30 * 1000,
+          indicator: false,
+        })
+
+      </script>
 </head>
 <body onload="Load()">
 
@@ -22,16 +31,18 @@
     </header>
     
     <div class="Description">
-        <p id="p">O PatoBot foi desenvolvido com intuito de criar uma comunicação entre o chat do servidor Anarkcraft.xyz e o servidor do Discord do patobot, utilizando a biblioteca mineflayer para fazer essa comunicação</p>
+        <p>O PatoBot foi desenvolvido com intuito de criar uma comunicação entre o chat do servidor de Minecraft Anarkcraft.xyz e o servidor do <a href="https://discord.gg/c7zV9G5dAr">Discord do PatoBot</a>utilizando a biblioteca mineflayer para fazer essa comunicação</p>
         <img class="imgLogo" src="./logo.png" alt="imagem do patobot">
     </div>
     
-
     <div class="discord">
-       
-        <iframe src="https://discord.com/widget?id=932982614992773262&theme=dark" width="400" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <iframe src="https://discord.com/widget?id=932982614992773262&theme=dark" width="450" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     </div>
-
+    
+    <div class="crate-button">
+        <button onclick="toggleCrate(crate)">Ativar/Desativar discord</button>
+    </div>
+    
     <div class="container">
 
         <div class="container_header">
@@ -39,7 +50,7 @@
                 <h2>Oque o bot tem?</h2>
                 <ul>
                     <li>Diversos comandos;</li>
-                    <li>Avatar personalizado no discord;</li>
+                    <li>Avatar personalizado no <a href="https://discord.gg/c7zV9G5dAr">discord</a>;</li>
                     <li>Varias informações uteis sobre o servidor;</li>
                     <li>Uma <a href="https://patobot.squareweb.app/viewer">pagina</a> que você pode ter uma visão 3d de onde o bot esta!</li>
                 </ul>
