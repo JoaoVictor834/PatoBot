@@ -7,8 +7,10 @@ function Load(crate) {
 
     loading.style = 'display: none;'
     all.style = 'display: block;'
-    crate.show()
 
+    if(crate) {
+    crate.show()
+    }
 
 
     const commandlist = document.getElementById('commandList')
