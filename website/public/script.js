@@ -1,6 +1,16 @@
 
 
-function Load() {
+function Load(crate) {
+    const loading = document.getElementById('loading')
+    const all = document.getElementById('all')
+
+
+    loading.style = 'display: none;'
+    all.style = 'display: block;'
+    crate.show()
+
+
+
     const commandlist = document.getElementById('commandList')
     const botInfoList = document.getElementById('botInfoList')
     const serverInfoList = document.getElementById('serverInfoList')

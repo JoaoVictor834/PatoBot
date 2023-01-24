@@ -8,7 +8,7 @@ module.exports = async function(bot, client) {
    
 
    console.log("Rodando site")
-   const app = mineflayerViewer(bot, { port: 300, prefix: '/viewer' })
+   const app = mineflayerViewer(bot, { port: 80, prefix: '/viewer' })
    
    const commandlist = []
 

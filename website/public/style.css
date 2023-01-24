@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
 
 body {
+    overflow: overlay;
     background-image: url('./background.png');
     background-size: 100%;
-    overflow: overlay;
 }
 
 p, h1, h2, a, ul, li, img, h3 {
     color: rgb(241, 241, 241);
     font-family: 'Roboto', sans-serif;
+}
+
+.loading {
+    text-align: center;
+}
+
+.loading img {
+
 }
 
 ::-webkit-scrollbar {
