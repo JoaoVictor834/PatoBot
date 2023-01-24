@@ -15,10 +15,6 @@ p, h1, h2, a, ul, li, img, h3 {
     text-align: center;
 }
 
-.loading img {
-
-}
-
 ::-webkit-scrollbar {
     width: 4px;
 }
