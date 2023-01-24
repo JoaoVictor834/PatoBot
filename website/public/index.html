@@ -22,7 +22,11 @@
 
       </script>
 </head>
-<body onload="Load(crate)">
+<body onload="
+if(crate) {
+Load(crate
+) } else {
+Load() }">
 
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>

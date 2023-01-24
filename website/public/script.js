@@ -1,6 +1,6 @@
 
 
-function Load(crate) {
+function Load(crate = false) {
     const loading = document.getElementById('loading')
     const all = document.getElementById('all')
 

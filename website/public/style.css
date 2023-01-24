@@ -13,6 +13,7 @@ p, h1, h2, a, ul, li, img, h3 {
 
 .loading {
     text-align: center;
+    margin: auto;
 }
 
 ::-webkit-scrollbar {
