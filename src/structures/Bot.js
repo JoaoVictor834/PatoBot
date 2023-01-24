@@ -93,10 +93,10 @@ module.exports = class {
         bot.once('spawn', () => {
             bot.once('spawn', async () => {
                
-                app(bot, client)
-             
+                
+               app(bot, client)
                 bot.once('spawn', async () => {
-
+                    
                     function antiafk(isActive) {
 
                         if (!isActive) {

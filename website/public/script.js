@@ -69,7 +69,7 @@ async function updateCommands(commandlist) {
 
 
 
-    let toggle
+    let toggle = true
 
     function toggleCrate(crate) {
 
