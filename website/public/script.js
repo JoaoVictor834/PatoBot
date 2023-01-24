@@ -1,6 +1,6 @@
 
 
-function Load(crate = false) {
+function Load() {
     const loading = document.getElementById('loading')
     const all = document.getElementById('all')
 
@@ -8,9 +8,6 @@ function Load(crate = false) {
     loading.style = 'display: none;'
     all.style = 'display: block;'
 
-    if(crate) {
-    crate.show()
-    }
 
 
     const commandlist = document.getElementById('commandList')
