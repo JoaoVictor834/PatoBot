@@ -11,8 +11,8 @@ module.exports = {
         let dcmsgs = ebot.dcmsgs
 
         if(message.startsWith('(!)')) return
-        if(message.endsWith(']')) return
-        if(new RegExp('https://').test(message)) return
+        
+        if(new RegExp('https://|Você]|[Você').test(message)) return
 
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
             const response = await fetch(path)
