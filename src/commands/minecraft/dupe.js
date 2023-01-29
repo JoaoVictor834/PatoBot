@@ -9,7 +9,7 @@ module.exports = class extends Command.mCommand {
     }
     run = (username, message) => {
 
-        if(message === '-dupe') {
+        if(message.startsWith('-dupe')) {
             return this.bot.chat(`Parabéns ${username} voce dupou ` + Math.round(Math.random() * 1000) + ' itens. Relogue e os terá!')
         }
         
