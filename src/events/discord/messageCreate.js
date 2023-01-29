@@ -21,7 +21,7 @@ module.exports = class extends Event.dEvent {
       if(message.webhookId === HOOK.ID) return
       if(message.content.lenght > 240) return
       if(/\n/.test(message)) return
-      
+      if(/Você] | [Você/.test(message)) return
 
       if(message.content.startsWith('&') && !interaction.user.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return message.reply('Se quiser usar cor compre apoiador boboca https://loja.anarkcraft.xyz')
 
