@@ -31,8 +31,6 @@ module.exports = class extends Event.mEvent {
     }
 
 
-        // Intialize chat function
-         chat(usrmsg, db, username, this.client, this.ebot, message, banFrases)
 
             
 
@@ -62,9 +60,12 @@ module.exports = class extends Event.mEvent {
                 return new RegExp(c.name.slice(1), 'i').test(message)
             })
 
-        if (cmd) cmd.run(username, message, args)
+        if (cmd) return cmd.run(username, message, args)
 
 
+        
+        // Intialize chat function
+         chat(usrmsg, db, username, this.client, this.ebot, message, banFrases)
 
 
 
