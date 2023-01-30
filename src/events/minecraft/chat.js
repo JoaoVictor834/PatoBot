@@ -18,7 +18,6 @@ module.exports = class extends Event.mEvent {
         const db = this.ebot.db
 
 // Verifys
-
         if (username === this.client.bot.username) return this.client.cmd.send(`> ${message}`)
 
         function banFrases(m, ebot) {
