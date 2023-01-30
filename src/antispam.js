@@ -13,8 +13,8 @@ module.exports = {
         if(message.startsWith('(!)')) return
         
         if(new RegExp('https://').test(message)) return
-        if(new RegExp('\[Voc(.)').test(message)) return
-        if(new RegExp('Voc(.)\]').test(message)) return
+        if(new RegExp('\\[Você').test(message)) return
+        if(new RegExp('Você\\]').test(message)) return
         if(new RegExp('http://').test(message)) return
         
         async function getUUID(path = `https://api.mojang.com/users/profiles/minecraft/${username}`) {
